@@ -30,10 +30,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [MLOps before the hands-on lab setup guide](#mlops-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Setup an Azure Notebooks account](#task-1-setup-an-azure-notebooks-account)
-    - [Task 2: Setup an Azure Notebooks project](#task-2-setup-an-azure-notebooks-project)
-    - [Task 3: Start the Notebook server](#task-3-start-the-notebook-server)
-
+    - [Task 1: Create an Azure Machine Learning workspace](#task-1-create-an-azure-machine-learning-workspace)
+    
 <!-- /TOC -->
 
 # MLOps before the hands-on lab setup guide
@@ -52,52 +50,46 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
    >**Note**: You will need privileges to create projects on the DevOps account. Also, you need privileges to create Service Principal in the tenet. This translates to `Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription`.
 
-3. Azure Notebooks. You will need an Azure Notebooks project to import the quickstart notebooks into. See instructions below on how to prepare your Azure Notebooks environment.
+3. Azure Machine Learning service workspace. An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
-4. Azure Machine Learning service workspace. The workspace is created during Exercise 1 from the hands-on lab.
-
-   >**Note**: Make sure you execute successfully all steps related to the Azure Machine Learning service workspace setup in Exercise 1. A correctly set up workspace is needed by all the other exercises.
+4. Azure Machine Learning compute instance. The compute instance is created during Exercise 1 from the hands-on lab. It used as your fully configured and managed development environment in the cloud to run the quickstart integrated notebooks uploaded in your workspace file share.
 
 ## Before the hands-on lab
 
-Duration: 5 minutes
+### Task 1: Create an Azure Machine Learning workspace
 
-At a high level, here are the setup tasks you will need to perform to prepare your Azure Notebooks Environment (the detailed instructions follow):
+1. Sign in to [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
-1. Setup an Azure Notebooks account.
+2. In the upper-left corner of Azure portal, select **+ Create a resource**.
 
-2. Setup an Azure Notebooks Project.
+3. Use the search bar to find the **Machine Learning**.
 
-3. Start the Notebook Server.
+4. Select **Machine Leaning**.
 
-### Task 1: Setup an Azure Notebooks account
+5. In the `Machine Learning` pane, select **Create** to begin.
 
-1. In your browser, navigate to [https://notebooks.azure.com](https://notebooks.azure.com).
+   ![The image illustrates how to open the Create AML Workspace dialog.](media/bhol-01.png 'Open Create Azure Machine Learning Workspace')
 
-2. Select **Sign In** from the top, right corner and sign in using your Microsoft Account credentials. After a successful login, you will have implicitly created the account and are ready to continue.
+6. Provide the following information to configure your new workspace:
 
-### Task 2: Setup an Azure Notebooks project
+    1. `Workspace name`: Enter a unique name that identifies your workspace. In this example, we use **quick-start-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.
+    2. `Subscription`: select the Azure subscription that you want to use
+    3. `Resource group`: use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **MCW-MLOps**.
+    4. `Location`: Select the location closest to your users and the data resources to create your workspace.
+    5. `Workspace edition`: **Enterprise**.
+    The workspace type (Basic & Enterprise) determines the features to which you’ll have access and pricing. Exercises in this tutorial require the Enterprise edition workspace.
 
-1. Log in to Azure Notebooks.
+   ![The image illustrates the Create AML Workspace page.](media/bhol-02.png 'Create Azure Machine Learning Workspace page')
 
-2. Navigate to the **My Projects** page.
+7. After you are finished configuring the workspace, select **Review + Create**. Select **Create** after you review the fields you just entered.
 
-3. Select **Upload GitHub Repo**.
+    *Warning: It can take several minutes to create your workspace in the cloud.*
 
-4. In the Upload GitHub Repository dialog, for the GitHub repository provide ```microsoft/MCW-ML-Ops```, and select **Import**. Allow the import a few moments to complete, the dialog will dismiss once the import has completed.
+    When the process is finished, a deployment success message appears.
 
-   ![Upload GitHub Repository Dialog where you enter repository URL and select import.](media/prepare-01.png 'Upload GitHub Repository Dialog')
+8. To view the new workspace, select **Go to resource**.
 
-5. Once the import is complete, a new project named ```mcw-mlops``` is available in your account. All the notebooks mentioned in the hands-on lab are available in the following location: ```\Hands-on Lab\notebooks```.
+9. Navigate to the [Azure Machine Learning Studio](https://ml.azure.com) and select the workspace that you created or select **Launch now** under ``Try the new Azure Machine Learning studio`` in the ``Overview`` section of your Azure Machine Learning workspace.
 
-### Task 3: Start the Notebook server
+   ![The image shows how to launch the Azure Machine Learning Studio.](media/bhol-03.png 'Launch the Azure Machine Learning studio')
 
-1. Navigate to your project: ```mcw-mlops```.
-
-2. Start your Notebook server on **Free Compute** by selecting the **Play** icon in the toolbar as shown:
-
-   ![Select Play icon to Start Notebook Server on Free Compute.](media/prepare-02.png 'Start Notebook Server')
-
-3. This will open the **Jupyter Notebooks** interface.
-
-You should follow all steps provided *before* performing the Hands-on lab.

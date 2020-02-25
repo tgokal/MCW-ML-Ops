@@ -115,15 +115,61 @@ Refer to the [Before the hands-on lab setup guide](./Before&#32;the&#32;HOL&#32;
 
 Duration: 40 minutes
 
-In this exercise, you create a model for classifying component text as compliant or non-compliant.
+In this exercise, you create a model for classifying component text as compliant or non-compliant. This tutorial uses the cloud notebook server in your workspace for an install-free and pre-configured experience.
 
-### Task 1: Create the classification model using a notebook
+### Task 1: Setup the notebooks environment
 
-1. Browse to your Azure Notebooks project and navigate to `Deep Learning with Text.ipynb`. This is the notebook you will step through executing in this lab.
+1. Download the [`Deep Learning with Text.ipynb`](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer. This is the notebook you will step through executing in this lab.
 
-2. Follow the instructions within the notebook to complete the lab.
+2. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-3. In Azure Notebooks, navigate to the `model` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5` or `notebooks_model_model.h5`, then rename the file back to `model.h5`*.
+3. Select your subscription and the workspace you have available.
+
+4. Select **Notebooks** on the left navigation pane.
+
+    ![Open notebooks in Azure Machine Learning Studio](media/notebook-00.png 'Open notebooks in Azure Machine Learning Studio')
+
+5. Open the root folder under the `User files` section. It should be named as the currently logged user name. Select the option to **Create folder** in the top menu.
+
+    ![Create new notebooks folder](media/notebook-01.png 'Create new notebooks folder')
+
+6. Fill in the folder name: **MCW-MLOps**.
+
+7. Select the **Upload files** option in the top menu.
+
+    ![Upload notebook to the workspace file share](media/notebook-02.png 'Upload notebook to the workspace file share')
+
+8. Browse for the downloaded notebook, `Deep Learning with Text.ipynb` and then select `MCW-MLOps` folder as the target folder. Select **Upload**.
+
+9. Select the notebook. Select **+ New Compute** to create the compute instance VM.
+
+    ![Create new compute instance](media/notebook-03.png 'Create new compute instance')
+
+10. Provide the necessary data for creating a new compute instance to run on your notebooks.
+
+    1. Compute name: **notebooks-compute**. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
+
+    2. Virtual Machine size: **Standard_D3_v2**.
+
+    3. Then select **Create**. It can take approximately 5 minutes to set up your VM.
+
+    ![Configure the new compute instance](media/notebook-04.png 'Configure the new compute instance')
+
+    *Once the VM is available it will be displayed in the top toolbar. You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.*
+
+11. Select the **Edit in** drop down on the far right, then select **Jupyter** or **JupyterLab**. The new browser window will be opened.
+
+    ![Edit the notebook in Jupyter](media/notebook-05.png 'Edit the notebook in Jupyter')
+
+12. Select **Python 3.6 - Azure ML** if you are asked to select a Kernel.
+
+    ![Select Kernel version](media/notebook-06.png 'Select Kernel version')
+
+### Task 2: Create the classification model using a notebook
+
+1. Follow the instructions within the notebook to complete the lab.
+
+2. In Notebooks, navigate to the `model` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5` or `notebooks_model_model.h5`, then rename the file back to `model.h5`*.
 
     >**Note**: The **model.h5** file is generated during the execution of the notebook at the previous step (step 2). When running the notebook, make sure the execution is successful, and the file is correctly created.
 
@@ -133,15 +179,21 @@ Duration: 15 minutes
 
 In this exercise, you explore the approaches you can take to managing the model versions, their association with Experiment Runs, and how you can retrieve the models both programmatically and via the [Azure Machine Learning studio](https://ml.azure.com).
 
->**Note:** The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecycle. You can use it either by logging in directly to it or by selecting the ```Launch the new Azure Machine Learning studio``` option in the ```Overview``` section of your Azure Machine Learning workspace.
+>**Note:** The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecycle. You can use it either by logging in directly to it or by selecting the ```Try the new Azure Machine Learning studio, Launch now``` option in the ```Overview``` section of your Azure Machine Learning workspace.
 
 ### Task 1: Register Model using Azure Machine Learning Python SDK
 
-1. Browse to your Azure Notebooks project and navigate to `Register Model.ipynb`. This is the notebook you will step through executing in this lab.
+1. Download the [`Register Model.ipynb`](./notebooks/Register&#32;Model.ipynb) notebook to your computer. This is the notebook you will step through executing in this exercise.
 
-2. Follow the instructions within the notebook to complete the lab.
+2. In AML Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
-3. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook. Open your **Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
+3. Browse your local computer for the downloaded notebook, `Register Model.ipynb` and then select `MCW-MLOps` folder as the target folder. Select **Upload**.
+
+4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter**.
+
+5. Follow the instructions within the notebook to complete the lab.
+
+6. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook. Open your **Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
 
     ![Review registered model in Azure Portal.](media/model-registry-01.png 'Registered Model: compliance-classifier')
 
@@ -169,7 +221,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
     ![Review the new registered model compliance-classifier version 2 in Azure Machine Learning studio.](media/model-registry-04.png 'Registered Model: compliance-classifier version 2')
 
-## Exercise 3: Setup New Project in Azure DevOps
+## Exercise 4: Setup New Project in Azure DevOps
 
 Duration: 20 minutes
 
@@ -255,7 +307,7 @@ Duration: 20 minutes
 
     ![Provide connection name, Azure Resource Group, Machine Learning Workspace, and then select Save. The resource group and machine learning workspace must match the value you provided in the YAML file.](media/devops-build-pipeline-06.png 'Add an Azure Resource Manager service connection dialog')
 
-## Exercise 4: Setup and Run the Build Pipeline
+## Exercise 5: Setup and Run the Build Pipeline
 
 Duration: 25 minutes
 
@@ -347,7 +399,7 @@ Duration: 25 minutes
 
     ![Review deployment image in Azure Portal.](media/devops-build-outputs-06.png 'Images in Azure Portal')
 
-## Exercise 5: Setup the Release Pipeline
+## Exercise 6: Setup the Release Pipeline
 
 Duration: 20 minutes
 
@@ -495,7 +547,7 @@ Please review the code in `aml_service/deploy.py`. This step will read the `eval
 
     ![Provide name for the release pipeline and select save.](media/devops-release-pipeline-23.png 'Save')
 
-## Exercise 6: Test Build and Release Pipelines
+## Exercise 7: Test Build and Release Pipelines
 
 Duration: 30 minutes
 
@@ -549,7 +601,7 @@ Duration: 30 minutes
 
     ![View deployed webservice in Azure Machine Learning studio.](media/devops-test-pipelines-08.png 'Azure Machine Learning studio - Workspace, Deployments')
 
-## Exercise 7: Testing the deployed solution
+## Exercise 8: Testing the deployed solution
 
 Duration: 15 minutes
 
@@ -563,7 +615,7 @@ In this exercise, you verify that the first release of the application works.
 
 3. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
 
-## Exercise 8: Examining deployed model performance
+## Exercise 9: Examining deployed model performance
 
 Duration: 15 minutes
 
