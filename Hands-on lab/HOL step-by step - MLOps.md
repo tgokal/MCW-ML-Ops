@@ -119,7 +119,7 @@ In this exercise, you create a model for classifying component text as compliant
 
 ### Task 1: Setup the notebooks environment
 
-1. Download the [`Deep Learning with Text.ipynb`](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer. This is the notebook you will step through executing in this lab.
+1. Download the [`Deep Learning with Text.ipynb`](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer, by selecting the **Raw** view in github and then **right-click + Save as**. This is the notebook you will step through executing in this lab.
 
 2. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -183,7 +183,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 ### Task 1: Register Model using Azure Machine Learning Python SDK
 
-1. Download the [`Register Model.ipynb`](./notebooks/Register&#32;Model.ipynb) notebook to your computer. This is the notebook you will step through executing in this exercise.
+1. Download the [`Register Model.ipynb`](./notebooks/Register&#32;Model.ipynb) notebook to your computer, by selecting the **Raw** view in github and then **right-click + Save as**. This is the notebook you will step through executing in this exercise.
 
 2. In AML Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
