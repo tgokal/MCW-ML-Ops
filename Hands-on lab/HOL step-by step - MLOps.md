@@ -115,11 +115,13 @@ Refer to the [Before the hands-on lab setup guide](./Before&#32;the&#32;HOL&#32;
 
 Duration: 40 minutes
 
-In this exercise, you create a model for classifying component text as compliant or non-compliant. This tutorial uses the cloud notebook server in your workspace for an install-free and pre-configured experience.
+In this exercise, you create a model for classifying component text as compliant or non-compliant. This tutorial uses the cloud notebook server in your Azure Machine Learning workspace for an install-free and pre-configured experience, available in Azure Machine Learning studio.
+
+>**Note:** The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecycle. You can use it either by logging in directly to it or by selecting the ```Try the new Azure Machine Learning studio, Launch now``` option in the ```Overview``` section of your Azure Machine Learning workspace.
 
 ### Task 1: Setup the notebooks environment
 
-1. Download the [`Deep Learning with Text.ipynb`](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer, by selecting the **Raw** view in github and then **right-click + Save as**. This is the notebook you will step through executing in this lab.
+1. Download the [`Deep Learning with Text.ipynb`](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. This is the notebook you will step through executing in this lab.
 
 2. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -157,7 +159,7 @@ In this exercise, you create a model for classifying component text as compliant
 
     *Once the VM is available it will be displayed in the top toolbar. You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.*
 
-11. Select the **Edit in** drop down on the far right, then select **Jupyter** or **JupyterLab**. The new browser window will be opened.
+11. Having selected the uploaded `Deep Learning with Text.ipynb` notebook, select the **Edit in** drop down on the far right, then select **Jupyter** or **JupyterLab**. The new browser window will be opened.
 
     ![Edit the notebook in Jupyter](media/notebook-05.png 'Edit the notebook in Jupyter')
 
@@ -169,9 +171,11 @@ In this exercise, you create a model for classifying component text as compliant
 
 1. Follow the instructions within the notebook to complete the lab.
 
-2. In Notebooks, navigate to the `model` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5` or `notebooks_model_model.h5`, then rename the file back to `model.h5`*.
+2. Back to the [Azure Machine Learning studio Studio](https://ml.azure.com), in `Notebooks`, under the `MCW-MLOps` folder, navigate to the `model` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5` or `notebooks_model_model.h5`, then rename the file back to `model.h5`*.
 
-    >**Note**: The **model.h5** file is generated during the execution of the notebook at the previous step (step 2). When running the notebook, make sure the execution is successful, and the file is correctly created.
+    ![Download model.h5 file](media/model-registry-00.png 'Download model.h5 file')
+
+    >**Note**: The **model.h5** file is generated during the execution of the notebook at the previous step (step 1). When running the notebook, make sure the execution is successful, and the file is correctly created.
 
 ## Exercise 2: Registering the model
 
@@ -179,29 +183,27 @@ Duration: 15 minutes
 
 In this exercise, you explore the approaches you can take to managing the model versions, their association with Experiment Runs, and how you can retrieve the models both programmatically and via the [Azure Machine Learning studio](https://ml.azure.com).
 
->**Note:** The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecycle. You can use it either by logging in directly to it or by selecting the ```Try the new Azure Machine Learning studio, Launch now``` option in the ```Overview``` section of your Azure Machine Learning workspace.
-
 ### Task 1: Register Model using Azure Machine Learning Python SDK
 
-1. Download the [`Register Model.ipynb`](./notebooks/Register&#32;Model.ipynb) notebook to your computer, by selecting the **Raw** view in github and then **right-click + Save as**. This is the notebook you will step through executing in this exercise.
+1. Download the [`Register Model.ipynb`](./notebooks/Register&#32;Model.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. This is the notebook you will step through executing in this exercise.
 
-2. In AML Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
+2. In the Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
 3. Browse your local computer for the downloaded notebook, `Register Model.ipynb` and then select `MCW-MLOps` folder as the target folder. Select **Upload**.
 
-4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter**.
+4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter** or **Edit in, JupyterLab**.
 
 5. Follow the instructions within the notebook to complete the lab.
 
-6. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook. Open your **Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
+6. Navigate back to the [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook. Open your **Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
 
     ![Review registered model in Azure Portal.](media/model-registry-01.png 'Registered Model: compliance-classifier')
 
 ### Task 2: Register Model from Azure Machine Learning studio
 
-1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you have created in the previous task. Open your **Models** section and select **Register model**.
+1. In  [Azure Machine Learning studio](https://ml.azure.com), open your **Models** section and select **Register model**.
 
-    ![Register Model in Azure Machine Learning studio by selecting REgister model in Models section.](media/model-registry-02.png 'Register Model in Azure Machine Learning studio')
+    ![Register Model in Azure Machine Learning studio by selecting Register model in Models section.](media/model-registry-02.png 'Register Model in Azure Machine Learning studio')
   
 2. Provide the following input to the `Register a model` dialog, and then select **Register**.
 
@@ -271,10 +273,10 @@ Duration: 20 minutes
 
     ![Edit build YAML file and provide your resource group and workspace information.](media/devops-build-pipeline-01.png 'Edit Build YAML file')
 
-3. Select **Commit** to save your changes.
+3. Select **Commit** to save your changes and select **Commit** again in the Commit properties dialog.
 
     ![Commit your changes to the build YAML file.](media/devops-build-pipeline-02.png 'Commit Build YAML file')
-  
+
 ### Task 4: Create new Service Connection
 
 1. From the left navigation, select **Project settings** and then select **Service connections**.
@@ -479,7 +481,7 @@ Duration: 20 minutes
 
     ![Add Bash task to Agent job.](media/devops-release-pipeline-13.png 'Add Bash Task')
 
-2. Provide **Display name:** `Install Requirements` and select **object browser ...** to provide **Script Path**.
+2. Provide **Display name:** `Install Requirements` and select **Browse script path ...** to provide **Script Path**.
 
     ![Provide Display name for the Bash task.](media/devops-release-pipeline-14.png 'Bash Task Dialog')
 
@@ -487,7 +489,7 @@ Duration: 20 minutes
 
     ![Provide Script Path to the Install Requirements bash file.](media/devops-release-pipeline-15.png 'Select Path Dialog')
 
-4. Expand **Advanced** and select **object browser ...** to provide **Working Directory**.
+4. Expand **Advanced** and select **Browse working directory ...** to provide **Working Directory**.
 
     ![Expand advanced section to provide Working Directory.](media/devops-release-pipeline-16.png 'Bash Task - Advanced Section')
 

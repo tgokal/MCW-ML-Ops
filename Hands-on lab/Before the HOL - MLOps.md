@@ -73,11 +73,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 6. Provide the following information to configure your new workspace:
 
     1. `Workspace name`: Enter a unique name that identifies your workspace. In this example, we use **quick-start-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.
-    2. `Subscription`: select the Azure subscription that you want to use
+    2. `Subscription`: select the Azure subscription that you want to use.
     3. `Resource group`: use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **MCW-MLOps**.
     4. `Location`: Select the location closest to your users and the data resources to create your workspace.
-    5. `Workspace edition`: **Enterprise**.
-    The workspace type (Basic & Enterprise) determines the features to which you’ll have access and pricing. Exercises in this tutorial require the Enterprise edition workspace.
+    5. `Workspace edition`: **Basic**.
+    The workspace type (Basic & Enterprise) determines the features to which you’ll have access and pricing. Exercises in this tutorial works on either Basic or Enterprise editions.
 
    ![The image illustrates the Create AML Workspace page.](media/bhol-02.png 'Create Azure Machine Learning Workspace page')
 
