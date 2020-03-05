@@ -171,9 +171,9 @@ In this exercise, you create a model for classifying component text as compliant
 
 1. Follow the instructions within the notebook to complete the lab.
 
-2. Back to the [Azure Machine Learning studio Studio](https://ml.azure.com), in `Notebooks`, under the `MCW-MLOps` folder, navigate to the `model` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5` or `notebooks_model_model.h5`, then rename the file back to `model.h5`*.
+2. Back to the [Azure Machine Learning studio Studio](https://ml.azure.com), in `Notebooks`, under the `MCW-MLOps` folder, navigate to the `model` folder and download the **model.onnx** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.onnx` or `notebooks_model_model.onnx`, then rename the file back to `model.onnx`*.
 
-    ![Download model.h5 file](media/model-registry-00.png 'Download model.h5 file')
+    ![Download model.onnx file](media/model-registry-00.png 'Download model.onnx file')
 
     >**Note**: The **model.h5** file is generated during the execution of the notebook at the previous step (step 1). When running the notebook, make sure the execution is successful, and the file is correctly created.
 
