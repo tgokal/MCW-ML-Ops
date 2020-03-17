@@ -173,9 +173,7 @@ In this exercise, you create a model for classifying component text as compliant
 
 2. Back to the [Azure Machine Learning studio Studio](https://ml.azure.com), in `Notebooks`, under the `MCW-MLOps` folder, navigate to the `model` folder and download the **model.onnx** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.onnx` or `notebooks_model_model.onnx`, then rename the file back to `model.onnx`*.
 
-    ![Download model.onnx file](media/model-registry-00.png 'Download model.onnx file')
-
-    >**Note**: The **model.h5** file is generated during the execution of the notebook at the previous step (step 1). When running the notebook, make sure the execution is successful, and the file is correctly created.
+>**Note**: The **model.onnx** file is generated during the execution of the notebook at the previous step (step 1). When running the notebook, make sure the execution is successful, and the file is correctly created.
 
 ## Exercise 2: Registering the model
 
@@ -215,7 +213,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
    d. Model Framework Version: `2.0`
 
-   e. Model file: Select the `model.h5` file from your local disk.
+   e. Model file: Select the `model.onnx` file from your local disk.
 
     ![Register a Model in Azure Machine Learning studio by providing the model file from your local computer.](media/model-registry-03.png 'Register a model Dialog')
 
@@ -273,7 +271,7 @@ Duration: 20 minutes
 
     ![Edit build YAML file and provide your resource group and workspace information.](media/devops-build-pipeline-01.png 'Edit Build YAML file')
 
-3. Select **Commit** to save your changes and select **Commit** again in the Commit properties dialog.
+3. Select **Commit** to save your changes and select **Commit** again in the commit properties dialog.
 
     ![Commit your changes to the build YAML file.](media/devops-build-pipeline-02.png 'Commit Build YAML file')
 
@@ -293,7 +291,7 @@ Duration: 20 minutes
 
 4. Provide the following information in the `New Azure service connection` dialog box and then select **Save**:
 
-    a. Type: `Machine Learning Workspace`
+    a. Scope level: `Machine Learning Workspace`
 
     b. Subscription: Select the Azure subscription to use.
 
@@ -461,7 +459,7 @@ Duration: 20 minutes
 
     ![Open view stage tasks link.](media/devops-release-pipeline-09.png 'Pipeline Tasks')
 
-2. Select **Agent job** and change **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-16.04`.
+2. Select **Agent job** and set **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-16.04`.
 
     ![Change Agent pool to be Hosted Ubuntu 1604.](media/devops-release-pipeline-10.png 'Agent Job Setup')
 
@@ -577,7 +575,7 @@ Duration: 30 minutes
 
    ![Navigate to Pipelines, Builds.](media/devops-test-pipelines-03.png 'Pipelines - pipelines')
 
-2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 16-18 minutes. Proceed to the next task when the build pipeline successfully completes.
+2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 18-25 minutes. Proceed to the next task when the build pipeline successfully completes.
 
    ![Monitor Build Pipeline. It will take around 15 minutes to complete.](media/devops-test-pipelines-04.png 'Build Pipeline Steps')
 
