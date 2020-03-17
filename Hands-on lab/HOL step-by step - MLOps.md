@@ -609,11 +609,17 @@ In this exercise, you verify that the first release of the application works.
 
 ### Task 1: Test the Deployment
 
-1. Browse to your Azure Notebooks project and navigate to `Test Deployment.ipynb`. This is the notebook you will step through executing in this lab.
+1. Download the [`Test Deployment.ipynb`](./notebooks/Test&#32;Deployment.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. This is the notebook you will step through executing in this exercise.
 
-2. Follow the instructions within the notebook to complete the lab.
+2. In the Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
-3. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
+3. Browse your local computer for the downloaded notebook, `Test Deployment.ipynb` and then select `MCW-MLOps` folder as the target folder. Select **Upload**.
+
+4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter** or **Edit in, JupyterLab**.
+
+5. Follow the instructions within the notebook to complete the task.
+
+6. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
 
 ## Exercise 9: Examining deployed model performance
 
@@ -623,11 +629,17 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 ### Task 1: Activate App Insights and data collection on the deployed model
 
-1. Browse to your Azure Notebooks project and navigate to the [Model Telemetry](notebooks/Model%20Telemetry.ipynb) notebook. This is the notebook you will step through executing in this task.
+1. Download the [`Model Telemetry.ipynb`](./notebooks/Model&#32;Telemetry.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. This is the notebook you will step through executing in this exercise.
 
-2. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
+2. In the Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
-3. Note that if there are errors (for example, `Too many requests for service compliance-classifier-service (overloaded)`) when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook), you should wait for 5 minutes and rerun the cell to make the calls.
+3. Browse your local computer for the downloaded notebook, `Model Telemetry.ipynb` and then select `MCW-MLOps` folder as the target folder. Select **Upload**.
+
+4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter** or **Edit in, JupyterLab**.
+
+5. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
+
+6. Note that if there are errors (for example, `Too many requests for service compliance-classifier-service (overloaded)`) when you make calls against the deployed web service after your enable app insights (last cell in the `Model Telemetry` notebook), you should wait for 5 minutes and rerun the cell to make the calls.
 
 ### Task 2: Check Application Insights telemetry
 
