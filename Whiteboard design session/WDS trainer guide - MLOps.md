@@ -412,7 +412,7 @@ The primary audience is the business decision makers and technology decision mak
 
 4. Where would they author any scripts?
 
-    For the machine learning phases listed, they could author the machine learning pipeline in Azure Notebooks, which provides a free-to-use notebook environment that can leverage the scalable compute provided by Azure and Azure Machine Learning Compute.
+    For the machine learning phases listed, they could author the machine learning pipeline in a notebook environment that can leverage the scalable compute provided by Azure and Azure Machine Learning Compute.
 
 5. Where should Trey upload the component compliance data?
 

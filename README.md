@@ -39,7 +39,6 @@ At the end of this hands-on lab, you will be better able to implement end-to-end
 - Azure DevOps
 - Azure Kubernetes Service
 - Azure Machine Learning Service
-- Azure Notebooks
 - ML Ops
 - ONNX
   
