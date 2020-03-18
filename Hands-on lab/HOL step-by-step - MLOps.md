@@ -617,9 +617,9 @@ In this exercise, you verify that the first release of the application works.
 
 4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter** or **Edit in, JupyterLab**.
 
-5. Follow the instructions within the notebook to complete the task.
+5. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
 
-6. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
+6. Follow the instructions within the notebook to complete the task.
 
 ## Exercise 9: Examining deployed model performance
 
@@ -643,7 +643,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 ### Task 2: Check Application Insights telemetry
 
-1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+1. Navigate to the [Azure portal](https://portal.azure.com) and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 
 2. Locate the Application Insights instance in the resource group and select it.
 
@@ -651,7 +651,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 3. Go to **Overview**.
 
-4. From the top row of the right section, select **Logs (Analytics)**. This will open the Application Insights query editor with an empty new query.
+4. From the top row of the right section, select **Logs**. This will open the Application Insights query editor with an empty new query.
 
     ![From Application Insights Dashboard, select Logs to open the Query Editor.](media/model-telemetry-02.png 'Application Insights - Dashboard')
 
@@ -669,7 +669,8 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 ### Task 3: Check the data collected
 
-1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+1. Navigate to the [Azure portal](https://portal.azure.com) and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+
 2. Locate the Storage Account instance in the resource group and select it.
 
     ![From the Resource Group Overview locate the Telemetry Storage account](media/model-telemetry-05.png 'Resource Group Overview')
