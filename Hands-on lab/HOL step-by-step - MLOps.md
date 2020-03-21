@@ -297,7 +297,7 @@ Duration: 20 minutes
 
     b. **Subscription**: Select the Azure subscription to use.
 
-        > **Note**: It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
+    > **Note**: It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
 
     c. **Resource group**: This value should match the value you provided in the **azure-pipelines.yml** file.
 
@@ -445,15 +445,15 @@ Duration: 20 minutes
 
 3. Add four Pipeline variables as name - value pairs and then select **Save** (use the default values in the **Save** dialog):
 
-    a. Name: `aks_name` Value: `aks-cluster01`
+    a. **Name**: `aks_name` **Value**: `aks-cluster01`
 
-    b. Name: `aks_region` Value: `eastus`
+    b. **Name**: `aks_region` **Value**: `eastus`
 
-    c. Name: `service_name` Value: `compliance-classifier-service`
+    c. **Name**: `service_name` **Value**: `compliance-classifier-service`
 
-    d. Name: `description` Value: `"Compliance Classifier Web Service"` 
+    d. **Name**: `description` **Value**: `"Compliance Classifier Web Service"`
 
-    > **Note**: the double quotes around description value!
+    > **Note**: Include the double quotes around the **description** value!
 
     > **Note**:
     >   - Keep the scope for the variables to the **Deploy and Test** stage.
@@ -515,7 +515,7 @@ Duration: 20 minutes
 
     b. **Azure subscription**: **quick-starts-sc**
 
-        > **Note**: This is the service connection we created in Exercise 1 / Task 4*.
+    > **Note**: This is the service connection we created in Exercise 1 / Task 4*.
 
     c. **Script Location**: **Inline script**
 

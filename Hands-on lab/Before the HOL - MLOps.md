@@ -86,7 +86,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 7. After you are finished configuring the workspace, select **Review + Create**. Select **Create** after you review the fields you just entered.
 
-    *Warning: It can take several minutes to create your workspace in the cloud.*
+    > **Note**: It can take several minutes to create your workspace in the cloud.
 
     When the process is finished, a deployment success message appears.
 
