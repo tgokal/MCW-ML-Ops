@@ -427,9 +427,9 @@ The primary audience is the business decision makers and technology decision mak
 
     Next, in a script (the pipeline definition script) they would define pipeline steps in a pipeline object and then submit the pipeline object to run it. In the simplest case they could define a Pipeline with two PythonScriptSteps:
 
-       - The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk and then registers the model with the model registry associated with the Azure Machine Learning workspace.
+       1. The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk and then registers the model with the model registry associated with the Azure Machine Learning workspace.
        
-       - The second PythonScriptStep references a separate Python script that would evaluate the model's performance and logs the results. Optionally, this PythonScriptStep could automatically deploy the model as a web service if it exceeded the performance of the previously deployed model. To accomplish this, the evaluation script would refer to a third Python script, the scoring script, that defines the web service logic. This scoring script would be packaged along with any dependencies and the trained model as a Docker image and registered in the Azure Container Registry that is deployed with the Azure Machine Learning workspace.
+       2. The second PythonScriptStep references a separate Python script that would evaluate the model's performance and logs the results. Optionally, this PythonScriptStep could automatically deploy the model as a web service if it exceeded the performance of the previously deployed model. To accomplish this, the evaluation script would refer to a third Python script, the scoring script, that defines the web service logic. This scoring script would be packaged along with any dependencies and the trained model as a Docker image and registered in the Azure Container Registry that is deployed with the Azure Machine Learning workspace.
 
     Both of the aforementioned scripts would make use of the Azure Machine Learning Python SDK.
 
@@ -439,17 +439,17 @@ The primary audience is the business decision makers and technology decision mak
 
     When you first run a pipeline, Azure Machine Learning:
 
-       - Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
+       1. Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
      
-       - Builds a Docker image corresponding to each step in the pipeline.
+       2. Builds a Docker image corresponding to each step in the pipeline.
      
-       - Downloads the docker image for each step to the compute target from the container registry.
+       3. Downloads the docker image for each step to the compute target from the container registry.
      
-       - Mounts the datastore, if a DataReference object is specified in a step. If mount is not supported, the data is instead copied to the compute target.
+       4. Mounts the datastore, if a DataReference object is specified in a step. If mount is not supported, the data is instead copied to the compute target.
      
-       - Runs the step in the compute target specified in the step definition.
+       5. Runs the step in the compute target specified in the step definition.
      
-       - Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
+       6. Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
 
     This is illustrated by the following diagram:
 
@@ -473,30 +473,30 @@ The primary audience is the business decision makers and technology decision mak
 
     The Build pipeline would need to perform the following steps:
 
-    - Create the Linux host VM that would execute the pipeline definition script.
+    1. Create the Linux host VM that would execute the pipeline definition script.
 
-    - Create a new or get a reference to an existing Azure Machine Learning workspace
+    2. Create a new or get a reference to an existing Azure Machine Learning workspace
 
-    - Create a new or get a reference to an existing Azure Machine Learning compute cluster, and trigger a scale up if needed.
+    3. Create a new or get a reference to an existing Azure Machine Learning compute cluster, and trigger a scale up if needed.
 
-    - Submit the machine learning pipeline for execution.
+    4. Submit the machine learning pipeline for execution.
 
     The outputs of this pipeline would be:
 
-    - A set of build artifacts.
+    1. A set of build artifacts.
 
-    - A trained model registered in the model registry of the workspace.
+    2. A trained model registered in the model registry of the workspace.
 
-    - A Docker image registered in the Container Registry.
+    3. A Docker image registered in the Container Registry.
 
 5. After the first pipeline, what kind of Azure Pipeline would Trey define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
 
     Trey should define a Release pipeline. This pipeline would perform the following steps:
 
-       - Create the Linux host VM that would execute the web service deployment script.
+       1. Create the Linux host VM that would execute the web service deployment script.
   
     The outputs of this pipeline would be:
-       - A web service running in either Azure Container Instance or Azure Kubernetes Service.
+       1. A web service running in either Azure Container Instance or Azure Kubernetes Service.
 
 6. How would Trey modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
 
