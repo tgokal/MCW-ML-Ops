@@ -12,14 +12,13 @@ Whiteboard design session trainer guide
 March 2020
 </div>
 
-
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
 Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2019 Microsoft Corporation. All rights reserved.
+© 2020 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -218,7 +217,7 @@ Finally, Trey would like to ensure that the process they establish is not litter
 
 ### Infographic for common scenarios
 
-![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict.](images/example-pipeline.png 'Machine Learning Pipeline')
+![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict. Prepare Data includes Data Ingestion and Data Snapshots (versioning) from Data storage location sources. The data ingested is then sent for Data Preparation which includes Normalization, Transformation, Validation, and Featurization. This then feeds into the Build and Train Models which includes activities for Hyper-parameter tuning, Automatic model selection, Model testing, and Model Validation. The model is then sent to the Deploy and Predict which includes activities for deployment and batch scoring.](images/example-pipeline.png 'Machine Learning Pipeline')
 
 ## Step 2: Design a proof of concept solution
 
@@ -329,12 +328,12 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 |    |            |
 |----------|:-------------:|
 | **Description** | **Links** |
-|Azure Machine Learning documentation|https://docs.microsoft.com/en-us/azure/machine-learning/service/|
-|Azure Machine Learning - How to enable App Insights| https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-app-insights |
-|Azure Machine Learning - How to enable data collection |https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-data-collection|
-|Machine Learning Pipelines|https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-your-first-pipeline?view=azure-devops|
-|Azure Pipelines - Train and deploy machine learning models|https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops|
-|Azure DevOps Release Approvals and Gates| https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/index?view=azure-devops |
+|Azure Machine Learning documentation|<https://docs.microsoft.com/en-us/azure/machine-learning/service/>|
+|Azure Machine Learning - How to enable App Insights|<https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-app-insights>|
+|Azure Machine Learning - How to enable data collection|<https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-data-collection>|
+|Machine Learning Pipelines|<https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-your-first-pipeline?view=azure-devops>|
+|Azure Pipelines - Train and deploy machine learning models|<https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops>|
+|Azure DevOps Release Approvals and Gates|<https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/index?view=azure-devops>|
 
 # MLOps whiteboard design session trainer guide
 
@@ -354,11 +353,11 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 - Provide some feedback on their responses to the business needs and design.
 
-    - Try asking questions first that will lead the participants to discover the answers on their own.
+  - Try asking questions first that will lead the participants to discover the answers on their own.
 
 - Provide feedback for their responses to the customer's objections.
 
-    - Try asking questions first that will lead the participants to discover the answers on their own.
+  - Try asking questions first that will lead the participants to discover the answers on their own.
 
 ## Step 3: Present the solution
 
@@ -368,11 +367,11 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 - Have the presenting team present their solution to the customer team.
 
-    - Have the customer team provide one objection for the presenting team to respond to.
+  - Have the customer team provide one objection for the presenting team to respond to.
 
-    - The presentation, objections, and feedback should take no longer than 15 minutes.
+  - The presentation, objections, and feedback should take no longer than 15 minutes.
 
-    - If needed, the trainer may also provide feedback.
+  - If needed, the trainer may also provide feedback.
 
 ## Wrap-up
 
@@ -400,7 +399,7 @@ The primary audience is the business decision makers and technology decision mak
 
 1. What is the general pipeline for approaching the training of text analytic models such as this? What are the general steps you need to take to prepare the text data for performing tasks like classification?
 
-    The core task in natural language processing (NLP) text pipelines is data preparation to express the textual data as numeric vectors by using word embeddings. The general pipeline begins by pre-processing or normalizing the text. This step typically includes tasks such as breaking the text into sentence and word tokens, standardizing the spelling of words, and removing overly common words (called stop words). The output of this phase is typically a multi-dimensional array consisting of an array of documents, each having an array of sentences, with each sentence having its own array of words. The next step is feature extraction, which creates a numeric representation of the textual documents. During feature extraction, a "vocabulary" of unique words is identified, and each word becomes a column in the output. Each row represents a document. The value in each cell is typically a measure of the relative importance of that word in the document, where if a word from the vocabulary does not appear, then that cell has a zero value in that column. This approach enables machine learning algorithms, which operate against arrays of numbers, to also operate against text. Deep learning algorithms operate on tensors, which are also vectors (or arrays of numbers), so this approach is also valid for preparing text for use with a deep learning algorithm. 
+    The core task in natural language processing (NLP) text pipelines is data preparation to express the textual data as numeric vectors by using word embeddings. The general pipeline begins by pre-processing or normalizing the text. This step typically includes tasks such as breaking the text into sentence and word tokens, standardizing the spelling of words, and removing overly common words (called stop words). The output of this phase is typically a multi-dimensional array consisting of an array of documents, each having an array of sentences, with each sentence having its own array of words. The next step is feature extraction, which creates a numeric representation of the textual documents. During feature extraction, a "vocabulary" of unique words is identified, and each word becomes a column in the output. Each row represents a document. The value in each cell is typically a measure of the relative importance of that word in the document, where if a word from the vocabulary does not appear, then that cell has a zero value in that column. This approach enables machine learning algorithms, which operate against arrays of numbers, to also operate against text. Deep learning algorithms operate on tensors, which are also vectors (or arrays of numbers), so this approach is also valid for preparing text for use with a deep learning algorithm.
 
 2. Provided that Trey wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure?
 
@@ -426,11 +425,13 @@ The primary audience is the business decision makers and technology decision mak
 
     **Pipeline Definition Script**
 
-    Next, in a script (the pipeline definition script) they would define pipeline steps in a pipeline object and then submit the pipeline object to run it. In the simplest case they could define a Pipeline with two PythonScriptSteps: 
-    - The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk and then registers the model with the model registry associated with the Azure Machine Learning workspace. 
-    - The second PythonScriptStep references a separate Python script that would evaluate the model's performance and logs the results. Optionally, this PythonScriptStep could automatically deploy the model as a web service if it exceeded the performance of the previously deployed model. To accomplish this, the evaluation script would refer to a third Python script, the scoring script, that defines the web service logic. This scoring script would be packaged along with any dependencies and the trained model as a Docker image and registered in the Azure Container Registry that is deployed with the Azure Machine Learning workspace.
+    Next, in a script (the pipeline definition script) they would define pipeline steps in a pipeline object and then submit the pipeline object to run it. In the simplest case they could define a Pipeline with two PythonScriptSteps:
 
-    Both of the aforementioned scripts would make use of the Azure Machine Learning Python SDK. 
+       - The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk and then registers the model with the model registry associated with the Azure Machine Learning workspace.
+       
+       - The second PythonScriptStep references a separate Python script that would evaluate the model's performance and logs the results. Optionally, this PythonScriptStep could automatically deploy the model as a web service if it exceeded the performance of the previously deployed model. To accomplish this, the evaluation script would refer to a third Python script, the scoring script, that defines the web service logic. This scoring script would be packaged along with any dependencies and the trained model as a Docker image and registered in the Azure Container Registry that is deployed with the Azure Machine Learning workspace.
+
+    Both of the aforementioned scripts would make use of the Azure Machine Learning Python SDK.
 
     The pipeline definition script creates an Azure Machine Learning Experiment in the workspace, and submits the pipeline object that is created, and waits for it to complete.
 
@@ -438,12 +439,17 @@ The primary audience is the business decision makers and technology decision mak
 
     When you first run a pipeline, Azure Machine Learning:
 
-    - Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
-    - Builds a Docker image corresponding to each step in the pipeline.
-    - Downloads the docker image for each step to the compute target from the container registry.
-    - Mounts the datastore, if a DataReference object is specified in a step. If mount is not supported, the data is instead copied to the compute target.
-    - Runs the step in the compute target specified in the step definition.
-    - Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
+       - Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
+     
+       - Builds a Docker image corresponding to each step in the pipeline.
+     
+       - Downloads the docker image for each step to the compute target from the container registry.
+     
+       - Mounts the datastore, if a DataReference object is specified in a step. If mount is not supported, the data is instead copied to the compute target.
+     
+       - Runs the step in the compute target specified in the step definition.
+     
+       - Creates artifacts, such as logs, stdout and stderr, metrics, and output specified by the step. These artifacts are then uploaded and kept in the user’s default datastore.
 
     This is illustrated by the following diagram:
 
@@ -466,23 +472,31 @@ The primary audience is the business decision makers and technology decision mak
 4. What are the core steps in this first pipeline? What does the pipeline output?
 
     The Build pipeline would need to perform the following steps:
+
     - Create the Linux host VM that would execute the pipeline definition script.
+
     - Create a new or get a reference to an existing Azure Machine Learning workspace
+
     - Create a new or get a reference to an existing Azure Machine Learning compute cluster, and trigger a scale up if needed.
+
     - Submit the machine learning pipeline for execution.
 
     The outputs of this pipeline would be:
+
     - A set of build artifacts.
+
     - A trained model registered in the model registry of the workspace.
+
     - A Docker image registered in the Container Registry.
 
 5. After the first pipeline, what kind of Azure Pipeline would Trey define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
 
     Trey should define a Release pipeline. This pipeline would perform the following steps:
-    - Create the Linux host VM that would execute the web service deployment script.
+
+       - Create the Linux host VM that would execute the web service deployment script.
   
     The outputs of this pipeline would be:
-    - A web service running in either Azure Container Instance or Azure Kubernetes Service.
+       - A web service running in either Azure Container Instance or Azure Kubernetes Service.
 
 6. How would Trey modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
 
@@ -496,13 +510,13 @@ The primary audience is the business decision makers and technology decision mak
 
 1. How would you recommend Trey collect diagnostics of the scoring web service in production?
 
-    They should enable Application Insights integration. They can do this either in code or by using the workspace via the Azure Portal. In code, they accomplish this by using Azure Machine Learning SDK to retrieve a reference to the deployed service and then run `web_service.update(enable_app_insights=True)`. In the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check `Enable AppInsights diagnostics`.
+    They should enable Application Insights integration. They can do this either in code or by using the workspace via the Azure Portal. In code, they accomplish this by using Azure Machine Learning SDK to retrieve a reference to the deployed service and then run **web_service.update(enable_app_insights=True)**. In the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check **Enable AppInsights diagnostics**.
 
 2. How can Trey collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
 
-    They would need to make a modification to their scoring script to include a reference to the `ModelDataCollector`. Then they would create one instance of the ModelDataCollector to capture the input values and another to capture the output values within the `init` method of the scorings script. They would use the `collect` method of each collector object in the `run` method to capture the desired data.
+    They would need to make a modification to their scoring script to include a reference to the **ModelDataCollector**. Then they would create one instance of the ModelDataCollector to capture the input values and another to capture the output values within the **init** method of the scoring script. They would use the **collect** method of each collector object in the **run** method to capture the desired data.
 
-    Additionally, they would need to update the web service deployment configuration. They can do this in code by updating their configuration object that is used during deployment, such as `aks_config = AksWebservice.deploy_configuration(collect_model_data=True)`. Alternately, in the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check `Enable Model data collection`.  
+    Additionally, they would need to update the web service deployment configuration. They can do this in code by updating their configuration object that is used during deployment, such as **aks_config = AksWebservice.deploy_configuration(collect_model_data=True)**. Alternately, in the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check **Enable Model data collection**.  
 
 ## Checklist of preferred objection handling
 

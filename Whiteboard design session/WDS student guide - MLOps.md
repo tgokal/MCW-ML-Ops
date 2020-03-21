@@ -12,7 +12,6 @@ Whiteboard design session student guide
 March 2020
 </div>
 
-
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
 Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
@@ -42,13 +41,13 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 # MLOps whiteboard design session student guide
 
-## Abstract and learning objectives 
+## Abstract and learning objectives
 
-In this workshop, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations, and manage the classification thru their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline. 
+In this workshop, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations, and manage the classification thru their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline.
 
 At the end of this workshop, you will be better able to design and implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
-## Step 1: Review the customer case study 
+## Step 1: Review the customer case study
 
 **Outcome**
 
@@ -92,7 +91,7 @@ Finally, Trey would like to ensure that the process they establish is not litter
 
 ### Infographic for common scenarios
 
-![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict.](images/example-pipeline.png 'Machine Learning Pipeline')
+![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict. Prepare Data includes Data Ingestion and Data Snapshots (versioning) from Data storage location sources. The data ingested is then sent for Data Preparation which includes Normalization, Transformation, Validation, and Featurization. This then feeds into the Build and Train Models which includes activities for Hyper-parameter tuning, Automatic model selection, Model testing, and Model Validation. The model is then sent to the Deploy and Predict which includes activities for deployment and batch scoring.](images/example-pipeline.png 'Machine Learning Pipeline')
 
 ## Step 2: Design a proof of concept solution
 
@@ -194,7 +193,7 @@ Directions:
 
 7. Tables switch roles and repeat Steps 2-6.
 
-##  Wrap-up
+## Wrap-up
 
 Timeframe: 15 minutes
 
@@ -203,9 +202,9 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 |    |            |
 |----------|:-------------:|
 | **Description** | **Links** |
-|Azure Machine Learning documentation|https://docs.microsoft.com/en-us/azure/machine-learning/service/|
-|Azure Machine Learning - How to enable App Insights| https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-app-insights |
-|Azure Machine Learning - How to enable data collection |https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-data-collection|
-|Machine Learning Pipelines|https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-your-first-pipeline?view=azure-devops|
-|Azure Pipelines - Train and deploy machine learning models|https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops|
-|Azure DevOps Release Approvals and Gates| https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/index?view=azure-devops |
+|Azure Machine Learning documentation|<https://docs.microsoft.com/en-us/azure/machine-learning/service/>|
+|Azure Machine Learning - How to enable App Insights|<https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-app-insights> |
+|Azure Machine Learning - How to enable data collection|<https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-data-collection>|
+|Machine Learning Pipelines|<https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-your-first-pipeline?view=azure-devops>|
+|Azure Pipelines - Train and deploy machine learning models|<https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops>|
+|Azure DevOps Release Approvals and Gates|<https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/index?view=azure-devops>|

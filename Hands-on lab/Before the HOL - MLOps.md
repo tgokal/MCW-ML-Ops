@@ -12,7 +12,6 @@ Before the hands-on lab setup guide
 March 2020
 </div>
 
-
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
 Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
@@ -31,7 +30,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
     - [Task 1: Create an Azure Machine Learning workspace](#task-1-create-an-azure-machine-learning-workspace)
-    
+
 <!-- /TOC -->
 
 # MLOps before the hands-on lab setup guide
@@ -48,7 +47,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 2. Azure DevOps subscription. You will need a valid and active Azure DevOps account to complete the quickstarts. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/en-us/services/devops/).
 
-   >**Note**: You will need privileges to create projects on the DevOps account. Also, you need privileges to create Service Principal in the tenet. This translates to `Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription`.
+   > **Note**: You will need privileges to create projects on the DevOps account. Also, you need privileges to create Service Principal in the tenet. This translates to **Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription**.
 
 3. Azure Machine Learning service workspace. An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
@@ -66,20 +65,24 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 4. Select **Machine Leaning**.
 
-5. In the `Machine Learning` pane, select **Create** to begin.
+5. In the **Machine Learning** pane, select **Create** to begin.
 
-   ![The image illustrates how to open the Create AML Workspace dialog.](media/bhol-01.png 'Open Create Azure Machine Learning Workspace')
+   ![The Machine Learning page displays with the Create button selected.](media/bhol-01.png 'Open Create Azure Machine Learning Workspace')
 
 6. Provide the following information to configure your new workspace:
 
-    1. `Workspace name`: Enter a unique name that identifies your workspace. In this example, we use **quick-start-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.
-    2. `Subscription`: select the Azure subscription that you want to use.
-    3. `Resource group`: use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **MCW-MLOps**.
-    4. `Location`: Select the location closest to your users and the data resources to create your workspace.
-    5. `Workspace edition`: **Basic**.
+    1. **Workspace name**: Enter a unique name that identifies your workspace. In this example, we use **quick-start-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.
+
+    2. **Subscription**: select the Azure subscription that you want to use.
+
+    3. **Resource group**: use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **MCW-MLOps**.
+
+    4. **Location**: Select the location closest to your users and the data resources to create your workspace.
+
+    5. **Workspace edition**: **Basic**.
     The workspace type (Basic & Enterprise) determines the features to which you’ll have access and pricing. Exercises in this tutorial works on either Basic or Enterprise editions.
 
-   ![The image illustrates the Create AML Workspace page.](media/bhol-02.png 'Create Azure Machine Learning Workspace page')
+   ![The Machine Learning Create form is displayed populated with the aforementioned values. The Review + Create button is highlighted.](media/bhol-02.png 'Create Azure Machine Learning Workspace page')
 
 7. After you are finished configuring the workspace, select **Review + Create**. Select **Create** after you review the fields you just entered.
 
@@ -89,7 +92,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 8. To view the new workspace, select **Go to resource**.
 
-9. Navigate to the [Azure Machine Learning Studio](https://ml.azure.com) and select the workspace that you created or select **Launch now** under ``Try the new Azure Machine Learning studio`` in the ``Overview`` section of your Azure Machine Learning workspace.
+9. Navigate to the [Azure Machine Learning Studio](https://ml.azure.com) and select the workspace that you created or select **Launch now** under **Try the new Azure Machine Learning studio** in the **Overview** section of your Azure Machine Learning workspace.
 
-   ![The image shows how to launch the Azure Machine Learning Studio.](media/bhol-03.png 'Launch the Azure Machine Learning studio')
-
+   ![The Machine Learning resource page is shown with Overview selected from the left menu, and the Launch now button highlighted in the Overview screen.](media/bhol-03.png 'Launch the Azure Machine Learning studio')
