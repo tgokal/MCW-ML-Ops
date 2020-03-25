@@ -38,17 +38,17 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 2: Registering the model](#exercise-2-registering-the-model)
     - [Task 1: Register Model using Azure Machine Learning Python SDK](#task-1-register-model-using-azure-machine-learning-python-sdk)
     - [Task 2: Register Model from Azure Machine Learning studio](#task-2-register-model-from-azure-machine-learning-studio)
-  - [Exercise 4: Setup New Project in Azure DevOps](#exercise-4-setup-new-project-in-azure-devops)
+  - [Exercise 3: Setup New Project in Azure DevOps](#exercise-3-setup-new-project-in-azure-devops)
     - [Task 1: Create New Project](#task-1-create-new-project)
     - [Task 2: Import Quickstart code from a GitHub Repo](#task-2-import-quickstart-code-from-a-github-repo)
     - [Task 3: Update the build YAML file](#task-3-update-the-build-yaml-file)
     - [Task 4: Create new Service Connection](#task-4-create-new-service-connection)
-  - [Exercise 5: Setup and Run the Build Pipeline](#exercise-5-setup-and-run-the-build-pipeline)
+  - [Exercise 4: Setup and Run the Build Pipeline](#exercise-4-setup-and-run-the-build-pipeline)
     - [Task 1: Setup Build Pipeline](#task-1-setup-build-pipeline)
     - [Task 2: Run the Build Pipeline](#task-2-run-the-build-pipeline)
     - [Task 3: Review Build Artifacts](#task-3-review-build-artifacts)
     - [Task 4: Review Build Outputs](#task-4-review-build-outputs)
-  - [Exercise 6: Setup the Release Pipeline](#exercise-6-setup-the-release-pipeline)
+  - [Exercise 5: Setup the Release Pipeline](#exercise-5-setup-the-release-pipeline)
     - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
     - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
     - [Task 3: Add Variables to Deploy and Test stage](#task-3-add-variables-to-deploy-and-test-stage)
@@ -59,14 +59,14 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 8: Define Deployment Trigger](#task-8-define-deployment-trigger)
     - [Task 9: Enable Continuous Deployment Trigger](#task-9-enable-continuous-deployment-trigger)
     - [Task 10: Save the Release Pipeline](#task-10-save-the-release-pipeline)
-  - [Exercise 7: Test Build and Release Pipelines](#exercise-7-test-build-and-release-pipelines)
+  - [Exercise 6: Test Build and Release Pipelines](#exercise-6-test-build-and-release-pipelines)
     - [Task 1: Make Edits to Source Code](#task-1-make-edits-to-source-code)
     - [Task 2: Monitor Build Pipeline](#task-2-monitor-build-pipeline)
     - [Task 3: Monitor Release Pipeline](#task-3-monitor-release-pipeline)
     - [Task 4: Review Release Pipeline Outputs](#task-4-review-release-pipeline-outputs)
-  - [Exercise 8: Testing the deployed solution](#exercise-8-testing-the-deployed-solution)
+  - [Exercise 7: Testing the deployed solution](#exercise-7-testing-the-deployed-solution)
     - [Task 1: Test the Deployment](#task-1-test-the-deployment)
-  - [Exercise 9: Examining deployed model performance](#exercise-9-examining-deployed-model-performance)
+  - [Exercise 8: Examining deployed model performance](#exercise-8-examining-deployed-model-performance)
     - [Task 1: Activate App Insights and data collection on the deployed model](#task-1-activate-app-insights-and-data-collection-on-the-deployed-model)
     - [Task 2: Check Application Insights telemetry](#task-2-check-application-insights-telemetry)
     - [Task 3: Check the data collected](#task-3-check-the-data-collected)
@@ -223,7 +223,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
     ![The Model list is displayed showing two rows containing both versions of the compliance-classifier model. Version 2 of the compliance-classifier model is highlighted in the list.](media/model-registry-04.png 'Registered Model: compliance-classifier version 2')
 
-## Exercise 4: Setup New Project in Azure DevOps
+## Exercise 3: Setup New Project in Azure DevOps
 
 Duration: 20 minutes
 
@@ -309,7 +309,7 @@ Duration: 20 minutes
 
     ![The New Azure service connection form is populated with the values outlined above. The Save button is selected.](media/devops-build-pipeline-06.png 'Add an Azure Resource Manager service connection dialog')
 
-## Exercise 5: Setup and Run the Build Pipeline
+## Exercise 4: Setup and Run the Build Pipeline
 
 Duration: 25 minutes
 
@@ -401,7 +401,7 @@ Duration: 25 minutes
 
     ![In the Images resource page, Images is selected from the left menu, and a list of Images is displayed. Multiple compliance-classifier-image images are shown with their associated versions. The latest version image is highlighted in the table.](media/devops-build-outputs-06.png 'Images in Azure Portal')
 
-## Exercise 6: Setup the Release Pipeline
+## Exercise 5: Setup the Release Pipeline
 
 Duration: 20 minutes
 
@@ -557,7 +557,7 @@ Duration: 20 minutes
 
     ![In the header of the New pipeline screen, the pipeline name is set to mlops-quickstart-release, and the Save button is selected from the top taskbar.](media/devops-release-pipeline-23.png 'Save')
 
-## Exercise 7: Test Build and Release Pipelines
+## Exercise 6: Test Build and Release Pipelines
 
 Duration: 30 minutes
 
@@ -611,7 +611,7 @@ Duration: 30 minutes
 
     ![In Azure Machine Learning Studio, the Endpoints item is selected from the left menu. In the list of Endpoints, the compliance-classifier-service is selected.](media/devops-test-pipelines-08.png 'Azure Machine Learning studio - Workspace, Deployments')
 
-## Exercise 8: Testing the deployed solution
+## Exercise 7: Testing the deployed solution
 
 Duration: 15 minutes
 
@@ -631,7 +631,7 @@ In this exercise, you verify that the first release of the application works.
 
 6. Follow the instructions within the notebook to complete the task.
 
-## Exercise 9: Examining deployed model performance
+## Exercise 8: Examining deployed model performance
 
 Duration: 15 minutes
 
