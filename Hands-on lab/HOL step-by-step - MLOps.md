@@ -135,7 +135,7 @@ In this exercise, you create a model for classifying component text as compliant
 
     ![On the Notebooks screen, the current user is selected beneath the User Files section, and the Create Folder icon is highlighted in the top toolbar.](media/notebook-01.png 'Create new notebooks folder')
 
-6. Fill in the folder name: `MCW-MLOps`
+6. Fill in the folder name: `MCW-MLOps`.
 
 7. Select the **Upload files** option in the top menu.
 
@@ -149,11 +149,11 @@ In this exercise, you create a model for classifying component text as compliant
 
 10. Provide the necessary data for creating a new compute instance to run on your notebooks.
 
-    1. Compute name: `notebooks-compute`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
+    a. Compute name: `notebooks-compute`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
 
-    2. Virtual Machine size: **Standard_D3_v2**.
+    b. Virtual Machine size: **Standard_D3_v2**.
 
-    3. Then select **Create**. It can take approximately 5 minutes to set up your VM.
+    c. Then select **Create**. It can take approximately 5 minutes to set up your VM.
 
     ![The New Compute Instance form is displayed populated with the preceding values.](media/notebook-04.png 'Configure the new compute instance')
 
@@ -173,9 +173,9 @@ In this exercise, you create a model for classifying component text as compliant
 
 2. Back to the [Azure Machine Learning studio Studio](https://ml.azure.com), in **Notebooks**, under the **MCW-MLOps** folder, navigate to the **model** folder and download the **model.onnx** file to your local disk. We will use the downloaded model file in the next exercise.
 
-   > **Note**: that if the downloaded file name is changed to **utf-8 model.onnx** or **notebooks_model_model.onnx**, then rename the file back to `model.onnx`.
+   > **Note**: If the downloaded file name is changed to **utf-8 model.onnx** or **notebooks_model_model.onnx**, then rename the file back to `model.onnx`.
 
-> **Note**: The **model.onnx** file is generated during the execution of the notebook at the previous step (step 1). When running the notebook, make sure the execution is successful, and the file is correctly created.
+   > **Note**: The **model.onnx** file is generated during the execution of the notebook at the previous step (step 1). When running the notebook, make sure the execution is successful, and the file is correctly created.
 
 ## Exercise 2: Registering the model
 
@@ -253,7 +253,7 @@ Duration: 20 minutes
 
     ![In the Import a Git repository dialog, the Clone URL is populated with the value indicated above and the Import button is selected.](media/devops-project-04.png 'Import a Git repository dialog')
 
-    > **Note**: that if you receive an error while importing the repository, please disable the preview feature **New Repos landing pages** and import the GitHub repository from the old UI, as shown in steps #3, #4, and #5 below.
+    > **Note**: If you receive an error while importing the repository, please disable the preview feature **New Repos landing pages** and import the GitHub repository from the old UI, as shown in steps #3, #4, and #5 below.
 
 3. [Optional] Select **Account settings, Preview features**.
 
@@ -425,7 +425,7 @@ Duration: 20 minutes
 
     ![In the New release pipeline screen, on the Pipeline tab, the + Add a new artifact item is selected within the Artifacts tile.](media/devops-release-pipeline-04.png 'Add an artifact')
 
-2. Select **Source type**: **Build**, **Source (build pipeline)**: **mlops-quickstart**
+2. Select **Source type**: **Build**, **Source (build pipeline)**: **mlops-quickstart**.
 
     > **Note**: Observe the note that shows that the mlops-quickstart publishes the build artifact named devops-for-ai.
 
@@ -454,6 +454,7 @@ Duration: 20 minutes
     d. **Name**: `description` **Value**: `"Compliance Classifier Web Service"`
 
     > **Note**: Include the double quotes around the **description** value!
+    
 
     > **Note**:
     >   - Keep the scope for the variables to the **Deploy and Test** stage.
@@ -515,7 +516,7 @@ Duration: 20 minutes
 
     b. **Azure subscription**: **quick-starts-sc**
 
-    > **Note**: This is the service connection we created in Exercise 1 / Task 4*.
+    > **Note**: This is the service connection we created in Exercise 1 / Task 4.
 
     c. **Script Location**: **Inline script**
 
@@ -547,11 +548,11 @@ Duration: 20 minutes
 
     ![In the New release pipeline screen, the Pipelines tab is selected. Within the Artifacts tile, the Continuous deployment trigger option is selected on the _mlops-quickstart tile. The Continuous deployment trigger form is displayed indicating that it is Enabled.](media/devops-release-pipeline-22.png 'Continuous Deployment Trigger Dialog')
 
-3. Close the dialog
+3. Close the dialog.
 
 ### Task 10: Save the Release Pipeline
 
-1. Provide name: `mlops-quickstart-release`
+1. Provide name: `mlops-quickstart-release`.
 
 2. Select **Save** (use the default values in the **Save** dialog).
 
@@ -675,7 +676,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
    ![On the Application Insights Logs screen, a query is run against the requests table and a list of results is displayed.](media/model-telemetry-04.png 'Requests Query Results')
 
-> **Note**: that if you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the **Model Telemetry** notebook a few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.
+> **Note**: If you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the **Model Telemetry** notebook a few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.
 
 ### Task 3: Check the data collected
 
