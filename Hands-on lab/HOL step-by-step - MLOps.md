@@ -171,7 +171,7 @@ In this exercise, you create a model for classifying component text as compliant
 
 1. Follow the instructions within the notebook to complete the lab.
 
-2. Back to the [Azure Machine Learning studio Studio](https://ml.azure.com), in **Notebooks**, under the **MCW-MLOps** folder, navigate to the **model** folder and download the **model.onnx** file to your local disk. We will use the downloaded model file in the next exercise.
+2. Back to the [Azure Machine Learning Studio](https://ml.azure.com), in **Notebooks**, under the **MCW-MLOps** folder, navigate to the **model** folder and download the **model.onnx** file to your local disk. We will use the downloaded model file in the next exercise.
 
    > **Note**: If the downloaded file name is changed to **utf-8 model.onnx** or **notebooks_model_model.onnx**, then rename the file back to `model.onnx`.
 
@@ -528,7 +528,7 @@ Duration: 20 minutes
 
     ![In the Azure CLI form, the Advanced section is expanded and the Working Directory field is populated with the specified value.](media/devops-release-pipeline-20.png 'Azure CLI Task - Working Directory')
 
-> **Note**: Please review the code in `aml_service/deploy.py`. This step will read the `eval_info.json`, and if the evaluation step recommended to deploy the new trained model, it will deploy the new model to production in an **Azure Kubernetes Service (AKS)** cluster.
+> **Note**: Please review the code in `aml_service/deploy.py`. By using the `eval_info.json` file that is associated with each trained model, this script can determine if the new trained model's performance is better than the currently deployed model. If it determines the new model has better performance, it will deploy the new model to production in an **Azure Kubernetes Service (AKS)** cluster.
 
 ### Task 8: Define Deployment Trigger
 
