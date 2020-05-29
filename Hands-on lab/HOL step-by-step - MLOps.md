@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-March 2020
+June 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -121,7 +121,7 @@ In this exercise, you create a model for classifying component text as compliant
 
 ### Task 1: Setup the notebooks environment
 
-1. Download the [**Deep Learning with Text.ipynb**](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. This is the notebook you will step through executing in this lab.
+1. Download the [**Deep Learning with Text.ipynb**](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this lab.
 
 2. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -131,9 +131,9 @@ In this exercise, you create a model for classifying component text as compliant
 
     ![In Azure Machine Learning Studio, Notebooks is selected from the left navigation pane.](media/notebook-00.png 'Open notebooks in Azure Machine Learning Studio')
 
-5. Open the root folder under the **User files** section. It should be named as the currently logged user name. Select the option to **Create folder** in the top menu.
+5. Select the folder under the **User files** section. It should be named as the currently logged user name. Select the option to **Create new folder** in the top menu.
 
-    ![On the Notebooks screen, the current user is selected beneath the User Files section, and the Create Folder icon is highlighted in the top toolbar.](media/notebook-01.png 'Create new notebooks folder')
+    ![On the Notebooks screen, the current user is selected beneath the User Files section, and the Create New Folder icon is highlighted in the top toolbar.](media/notebook-01.png 'Create new notebooks folder')
 
 6. Fill in the folder name: `MCW-MLOps`.
 
@@ -149,19 +149,21 @@ In this exercise, you create a model for classifying component text as compliant
 
 10. Provide the necessary data for creating a new compute instance to run on your notebooks.
 
-    a. Compute name: `notebooks-compute`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
+    a. Compute name: `mlops-compute`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
 
-    b. Virtual Machine size: **Standard_D3_v2**.
+    b. Virtual machine type: CPU (Central Processing Unit)
 
-    c. Then select **Create**. It can take approximately 5 minutes to set up your VM.
+    c. Virtual machine size: **Standard_D3_v2**.
+
+    d. Then select **Create**. It can take approximately 5 minutes to set up your VM.
 
     ![The New Compute Instance form is displayed populated with the preceding values.](media/notebook-04.png 'Configure the new compute instance')
 
-    > **Note**: Once the VM is available it will be displayed in the top toolbar. You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.
+    > **Note**: Once the VM is available it will be displayed in the top toolbar.
 
-11. Having selected the uploaded **Deep Learning with Text.ipynb** notebook, select the **Edit in** drop down on the far right, then select **Jupyter** or **JupyterLab**. The new browser window will be opened.
+11. Having selected the uploaded **Deep Learning with Text.ipynb** notebook, select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
 
-    ![On the Notebooks screen, the Deep Learning with Text Notebook is selected. On the Compute screen to the right, a drop down list shows the compute currently running for the notebook, and in the taskbar the Edit In option is expanded with the options Edit in Jupyter and Edit in JupyterLab.](media/notebook-05.png 'Edit the notebook in Jupyter')
+    ![On the Notebooks screen, the Deep Learning with Text Notebook is selected. On the Compute screen to the right, a drop down list shows the compute currently running for the notebook, and in the taskbar the Edit option is expanded with the options Edit in Jupyter and Edit in JupyterLab.](media/notebook-05.png 'Edit the notebook in Jupyter')
 
 12. Select **Python 3.6 - Azure ML** if you are asked to select a Kernel.
 
@@ -185,13 +187,13 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 ### Task 1: Register Model using Azure Machine Learning Python SDK
 
-1. Download the [**Register Model.ipynb**](./notebooks/Register&#32;Model.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. This is the notebook you will step through executing in this exercise.
+1. Download the [**Register Model.ipynb**](./notebooks/Register&#32;Model.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this exercise.
 
 2. In the Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
 3. Browse your local computer for the downloaded notebook, **Register Model.ipynb** and then select **MCW-MLOps** as the target folder. Select **Upload**.
 
-4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter** or **Edit in, JupyterLab**.
+4. Select the notebook `Register Model.ipynb`. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
 
 5. Follow the instructions within the notebook to complete the lab.
 
@@ -311,13 +313,7 @@ Duration: 20 minutes
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
-Duration: 25 minutes
-
-> **Note**: This exercise requires the new version of the **Pipelines** user interface. To activate it, select **Pipelines** from the left navigation. If the first option below **Pipelines** is **Builds**, you are still running on the previous version of the user interface. In this case, a popup should appear suggesting the activation of the new user interface.
->
-> ![The Multi-stage pipelines dialog is displayed prompting to use the new UX with a Learn more and Try it! button.](media/devops-ui-activation.png 'Multi-stage pipelines activation')
->
-> Select **Try it!** to activate the new Pipelines user interface. When successfully activated, the first option below **Pipelines** from the left navigation will change to **Pipelines**.
+Duration: 30 minutes
 
 ### Task 1: Setup Build Pipeline
 
@@ -353,7 +349,7 @@ Duration: 25 minutes
 
     ![On the Review tab of your pipeline screen, the contents of azure-pipelines.yml is displayed. The Run button is selected from the top taskbar.](media/devops-build-pipeline-11.png 'Run Build Pipeline')
 
-2. Monitor the build run. The build pipeline, for the first run, will take around 15 minutes to run.
+2. Monitor the build run. The build pipeline, for the first run, will take around 25 minutes to run.
 
     ![A build pipeline run summary screen is displayed indicating it was manually triggered. A single job is selected in the Jobs section with a status of Success.](media/devops-build-pipeline-12.png 'Monitor Build Pipeline')
 
@@ -363,9 +359,9 @@ Duration: 25 minutes
 
 ### Task 3: Review Build Artifacts
 
-1. The build will publish an artifact named `devops-for-ai`. Select **Artifacts, 1 published** to review the artifact contents.
+1. The build will publish an artifact named `devops-for-ai`. Select **1 published** to review the artifact contents.
 
-    ![On the build pipeline run summary, in the table outlining the manual run, the 1 published beneath the artifacts column is selected.](media/devops-build-pipeline-14.png 'Build Artifacts')
+    ![On the build pipeline run summary, in the table outlining the manual run, the 1 published beneath the related column is selected.](media/devops-build-pipeline-14.png 'Build Artifacts')
 
 2. Select **outputs, eval_info.json**, and then select the download arrow. The `eval_info.json` is the output from the *model evaluation* step. The information from the evaluation step will be used in the release pipeline to deploy the model. Select the back arrow to return to the previous screen.
 
@@ -512,15 +508,17 @@ Duration: 20 minutes
 
 2. Provide the following information for the Azure CLI task:
 
-    a. **Display name**: `Deploy and Test Webservice`
+    a. **Task version**: `1.*`
 
-    b. **Azure subscription**: **quick-starts-sc**
+    b. **Display name**: `Deploy and Test Webservice`
+
+    c. **Azure subscription**: `quick-starts-sc`
 
     > **Note**: This is the service connection we created in Exercise 1 / Task 4.
 
-    c. **Script Location**: **Inline script**
+    d. **Script Location**: `Inline script`
 
-    d. **Inline Script**: `python aml_service/deploy.py --service_name $(service_name) --aks_name $(aks_name) --aks_region $(aks_region) --description $(description)`
+    e. **Inline Script**: `python aml_service/deploy.py --service_name $(service_name) --aks_name $(aks_name) --aks_region $(aks_region) --description $(description)`
 
     ![On the Tasks tab of the New release pipeline screen, the Deploy and Test Webservice task is selected beneath the Agent job item. The Azure CLI form is populated with the preceding values.](media/devops-release-pipeline-19.png 'Azure CLI Task Dialog')
 
@@ -620,13 +618,13 @@ In this exercise, you verify that the first release of the application works.
 
 ### Task 1: Test the Deployment
 
-1. Download the [**Test Deployment.ipynb**](./notebooks/Test&#32;Deployment.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. This is the notebook you will step through executing in this exercise.
+1. Download the [**Test Deployment.ipynb**](./notebooks/Test&#32;Deployment.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this exercise.
 
 2. In the Azure Machine Learning Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
 3. Browse your local computer for the downloaded notebook, **Test Deployment.ipynb** and then select **MCW-MLOps** folder as the target folder. Select **Upload**.
 
-4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter** or **Edit in, JupyterLab**.
+4. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
 
 5. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
 
@@ -640,13 +638,13 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 ### Task 1: Activate App Insights and data collection on the deployed model
 
-1. Download the [**Model Telemetry.ipynb**](./notebooks/Model&#32;Telemetry.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. This is the notebook you will step through executing in this exercise.
+1. Download the [**Model Telemetry.ipynb**](./notebooks/Model&#32;Telemetry.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this exercise.
 
 2. In the Azure Machine Learning Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
 3. Browse your local computer for the downloaded notebook, **Model Telemetry.ipynb** and then select **MCW-MLOps** folder as the target folder. Select **Upload**.
 
-4. On the top bar, select the **notebooks-compute** compute instance to use to run the notebook. Select **Edit in, Jupyter** or **Edit in, JupyterLab**.
+4. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
 
 5. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
 
@@ -662,13 +660,13 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 3. Go to **Overview**.
 
-4. From the top row of the right section, select **Logs**. This will open the Application Insights query editor with an empty new query.
+4. From the top row of the right section, select **Logs**. This will open the Application Insights query editor with an empty new query. Dismiss the **Example queries** popup if displayed.
 
     ![On the Application Insights resource screen, the Overview item is selected in the left menu, and the Logs item is selected from the top toolbar.](media/model-telemetry-02.png 'Application Insights - Dashboard')
 
-5. In the left pane, make sure the **Schema** tab is selected.
+5. In the left pane, make sure the **Tables** tab is selected.
 
-6. Hover over **requests** and select the icon on the right side - "Show sample records from this table".
+6. Hover over **requests** and select the icon on the right side - "Show sample records from this table". Next, select **Run**.
 
     ![On the Application Insights Logs screen, a New Query tab is shown with the Tables tab selected. The icon next to the requests table is selected.](media/model-telemetry-03.png 'Create Requests Query')
 
