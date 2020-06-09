@@ -311,6 +311,15 @@ Duration: 20 minutes
 
     ![The New Azure service connection form is populated with the values outlined above. The Save button is selected.](media/devops-build-pipeline-06.png 'Add an Azure Resource Manager service connection dialog')
 
+    >**Note**: If you are unable to select your **Machine Learning Workspace**, do the following steps:
+
+    - Quit the `New Azure service connection` dialog
+    - Refresh or reload the web browser
+    - Repeat steps 1-3 above
+    - In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**
+    - Please remember to name your service connection as `quick-starts-sc`
+    - Grant access permission to all pipelines
+
 ## Exercise 4: Setup and Run the Build Pipeline
 
 Duration: 30 minutes
