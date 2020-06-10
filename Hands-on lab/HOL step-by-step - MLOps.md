@@ -101,9 +101,9 @@ The overall approach used in this lab is to orchestrate continuous integration a
 
 1. Microsoft Azure subscription must be pay-as-you-go or MSDN.
 
-    - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
+   - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
 
-    - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
+   - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
 
 2. An Azure DevOps account.
 
@@ -313,12 +313,12 @@ Duration: 20 minutes
 
     >**Note**: If you are unable to select your **Machine Learning Workspace**, do the following steps:
 
-    - Quit the `New Azure service connection` dialog
-    - Refresh or reload the web browser
-    - Repeat steps 1-3 above
-    - In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**
-    - Please remember to name your service connection as `quick-starts-sc`
-    - Grant access permission to all pipelines
+    a. Quit the `New Azure service connection` dialog.
+    b. Refresh or reload the web browser.
+    c. Repeat steps 1-3 above.
+    d. In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**.
+    e. Please remember to name your service connection as `quick-starts-sc`.
+    f. Grant access permission to all pipelines.
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
