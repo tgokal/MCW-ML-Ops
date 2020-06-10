@@ -314,10 +314,15 @@ Duration: 20 minutes
     >**Note**: If you are unable to select your **Machine Learning Workspace**, do the following steps:
 
     a. Quit the `New Azure service connection` dialog.
+    
     b. Refresh or reload the web browser.
+    
     c. Repeat steps 1-3 above.
+    
     d. In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**.
+    
     e. Please remember to name your service connection as `quick-starts-sc`.
+    
     f. Grant access permission to all pipelines.
 
 ## Exercise 4: Setup and Run the Build Pipeline
