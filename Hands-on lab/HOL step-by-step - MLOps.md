@@ -751,7 +751,7 @@ Duration: 40 minutes
 
 ### Task 3: Monitor Test Deployment Pipeline
 
-1. Navigate to **Pipelines, Releases**. Observe that the `Test Deployment Pipeline` is automatically triggered upon successful completion of the build pipeline because new model was registered. Select as shown in the figure to view pipeline logs.
+1. Navigate to **Pipelines, Releases**. Observe that the `Test Deployment Pipeline` is automatically triggered upon successful completion of the build pipeline because a new model was registered. Select as shown in the figure to view pipeline logs.
 
    ![In Azure DevOps, on the left menu, Pipelines is expanded and the Releases item is selected. The Test Deployment Pipeline screen is displayed. A button in the Stages column selected that is used to view the pipeline logs.](media/devops-test-pipelines-05.png 'Pipelines - Releases')
 
@@ -794,6 +794,10 @@ Duration: 40 minutes
     ![The Deploy and Test Webservice task logs are displayed. Within the logs the Webservice URI and Webservice API Key are highlighted.](media/devops-test-pipelines-07c.png 'Deploy and Test Webservice Task Logs')
 
 3. Please note down both the **Scoring URI** and **API Key** for **Exercise 8**.
+
+4. Log in to Azure Machine Learning studio. Open your **Endpoints** section, and observe the deployed webservice: **compliance-classifier-service** and **cc-test-service**.
+
+    ![In Azure Machine Learning Studio, the Endpoints item is selected from the left menu. In the list of Endpoints, the compliance-classifier-service is selected.](media/devops-test-pipelines-08.png 'Azure Machine Learning studio - Workspace, Deployments')
 
 ## Exercise 8: Testing the deployed solution
 
