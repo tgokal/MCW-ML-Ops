@@ -1,3 +1,6 @@
+### Let us know how we’re doing!  
+Please take a moment to fill out the [Microsoft Cloud Workshop Survey]( https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbRyEtIpX7sDdChuWsXhzKJXJUNjFBVkROWDhSSVdYT0dSRkY4UVFCVzZBVy4u&Token=d8027e9aa480420fa80d97e143eee1ed) and help us improve our offerings.
+
 # MLOps
 
 Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automation, to providing cutting edge approaches that generate new opportunities. Trey Research has decades specializing in data science and application development that until now were separate units. They would like to unlock the greater, long term value by combining the two units into one, and follow one standardized process for operationalizing their innovations.
