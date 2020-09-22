@@ -213,9 +213,9 @@ In this exercise, you explore the approaches you can take to managing the model 
 
     b. Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
 
-    c. Model Framework: **TensorFlow**
+    c. Model Framework: **ONNX**
 
-    d. Model Framework Version: `2.0`
+    d. Model Framework Version: `1.3.0`
 
     e. Model file: Select the `model.onnx` file from your local disk.
 
@@ -799,13 +799,15 @@ Duration: 40 minutes
 
     ![In Azure Machine Learning Studio, the Endpoints item is selected from the left menu. In the list of Endpoints, the compliance-classifier-service is selected.](media/devops-test-pipelines-08.png 'Azure Machine Learning studio - Workspace, Deployments')
 
-## Exercise 8: Testing the deployed solution
+## Exercise 8: Testing the deployed solution and review deployed model datasheet
 
 Duration: 15 minutes
 
-In this exercise, you verify that the first release of the application works.
+Documenting the right information in the machine learning process is key to making responsible decisions at each stage. Datasheets are a way to document machine learning assets that are used and created as part of the machine learning lifecycle. [Annotation and Benchmarking on Understanding and Transparency of Machine Learning Lifecycles (ABOUT ML), an initiative from the Partnership in AI (PAI)](https://www.partnershiponai.org/about-ml), provides a set of guidelines for machine learning system developers to develop, test, and implement machine learning system documentation. Developers can use Azure Machine Learning SDK to implement datasheets for models as part of the model registration processes in Azure Machine Learning workspace. During model registration, the tags parameter in the register method of the Model class can be leverage to document the necessary datasheet information recommended in the established guidelines.
 
-### Task 1: Test the Deployment
+In this exercise, you verify that the release of the application works. You will also review the deployed model datasheet.
+
+### Task 1: Test the deployment and review model datasheet
 
 1. Download the [**Test Deployment.ipynb**](./notebooks/Test&#32;Deployment.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this exercise.
 
