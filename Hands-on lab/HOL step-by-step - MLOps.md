@@ -755,7 +755,7 @@ Duration: 40 minutes
 
    ![In Azure DevOps, on the left menu, Pipelines is expanded and the Releases item is selected. The Test Deployment Pipeline screen is displayed. A button in the Stages column selected that is used to view the pipeline logs.](media/devops-test-pipelines-05.png 'Pipelines - Releases')
 
-2. The `Test Deployment Pipeline` will run for about 5-10 minutes. Proceed to the next task when the pipeline successfully completes.
+2. The `Test Deployment Pipeline` will run for about 5 minutes. Proceed to the next task when the pipeline successfully completes.
 
 ### Task 4: Review the Test Deployment Pipeline Output
 
@@ -783,7 +783,7 @@ Duration: 40 minutes
 
    ![In Azure DevOps, on the left menu, Pipelines is expanded and the Releases item is selected. The mlops-quickstart-release screen is displayed. A button in the Stages column selected that is used to view the pipeline logs.](media/devops-test-pipelines-05b.png 'Pipelines - Releases')
 
-2. The `mlops-quickstart-release` pipeline will run for about 10-15 minutes. Proceed to the next task when the pipeline successfully completes.
+2. The `mlops-quickstart-release` pipeline will run for about 20-25 minutes. Proceed to the next task when the pipeline successfully completes.
 
 ### Task 7: Review the Production Release Pipeline Output
 

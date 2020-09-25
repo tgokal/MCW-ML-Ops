@@ -29,7 +29,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [MLOps before the hands-on lab setup guide](#mlops-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Create an Azure Machine Learning workspace](#task-1-create-an-azure-machine-learning-workspace)
+    - [Task 1: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps](#task-1-install-the-microsoft-devlabs-machine-learning-plugin-for-azure-devops)
+    - [Task 2: Create an Azure Machine Learning workspace](#task-2-create-an-azure-machine-learning-workspace)
 
 <!-- /TOC -->
 
