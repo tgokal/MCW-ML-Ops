@@ -351,7 +351,7 @@ Duration: 30 minutes
 
     ![On the Review tab of your pipeline screen, the contents of azure-pipelines.yml is displayed. The Run button is selected from the top taskbar.](media/devops-build-pipeline-11.png 'Run Build Pipeline')
 
-2. Monitor the build run. The build pipeline, for the first run, will take around 10-15 minutes to run.
+2. Monitor the build run. The build pipeline, for the first run, will take around 15-20 minutes to run.
 
     ![A build pipeline run summary screen is displayed indicating it was manually triggered. A single job is selected in the Jobs section with a status of Success.](media/devops-build-pipeline-12.png 'Monitor Build Pipeline')
 
@@ -558,9 +558,9 @@ Duration: 20 minutes
 
 ### Task 1: Create an Empty Job
 
-1. Return to Azure DevOps and navigate to **Pipelines, Releases** and select **New pipeline**.
+1. Return to Azure DevOps and navigate to **Pipelines, Releases** and select **+ New, + New release pipeline**.
 
-    ![In Azure DevOps, the Pipelines item is expanded in the left menu with the Releases item selected. In the content pane, a message indicates No release pipelines found and the New pipeline button is selected.](media/devops-release-pipeline-01.png 'New Release Pipeline')
+    ![In Azure DevOps, the Pipelines item is expanded in the left menu with the Releases item selected. In the content pane, a message indicates No release pipelines found and the New pipeline button is selected.](media/devops-release-pipeline-01b.png 'New Release Pipeline')
 
 2. Select **Empty job**.
 
