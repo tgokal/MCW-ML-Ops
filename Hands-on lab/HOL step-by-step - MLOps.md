@@ -49,13 +49,16 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 3: Review Build Artifacts](#task-3-review-build-artifacts)
     - [Task 4: Review Build Outputs](#task-4-review-build-outputs)
   - [Exercise 5: Setup the Test Release Pipeline](#Exercise-5-Setup-the-Test-Release-Pipeline)
-    - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
-    - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
-    - [Task 3: Add Variables to Deploy and Test stage](#task-3-add-variables-to-deploy-and-test-stage)
-    - [Task 4: Setup Agent Pool for Deploy and Test stage](#task-4-setup-agent-pool-for-deploy-and-test-stage)
-    - [Task 5: Add Use Python Version task](#task-5-add-use-python-version-task)
-    - [Task 6: Add Install Requirements task](#task-6-add-install-requirements-task)
-    - [Task 7: Add Deploy and Test Webservice task](#task-7-add-deploy-and-test-webservice-task)
+    - [Task 1: Create an Empty Job for the Test Release Pipeline](#Task-1-Create-an-Empty-Job-for-the-Test-Release-Pipeline)
+    - [Task 2: Add Build Artifacts for the Test Release Pipeline](#Task-2:-Add-Build-Artifacts-for-the-Test-Release-Pipeline)
+    - [Task 3: Add Variables to Test Deployment stage](#Task-3-Add-Variables-to-Test-Deployment-stage)
+    - [Task 4: Setup Agent Pool for Test Deployment stage](#Task-4-Setup-Agent-Pool-for-Test-Deployment-stage)
+    - [Task 5: Add Use Python Version task to Test Deployment stage](#Task-5-Add-Use-Python-Version-task-to-Test-Deployment-stage)
+    - [Task 6: Add Install Requirements task to Test Deployment stage](#task-6-add-install-requirements-task-to-test-deployment-stage)
+    - [Task 7: Add Install ML Extension task](#Task-7-Add-Install-ML-Extension-task)
+    - [Task 8: Add Attach Folder task](#Task-8-Add-Attach-Folder-task)
+    - [Task 9: Add Deploy ACI & Test task](#Task-9-Add-Deploy-ACI-&-Test-task)
+    - [Task 10: Save the Release Pipeline](#Task-10-Save-the-Release-Pipeline)
   - [Exercise 6: Setup the Production Release Pipeline](#Exercise-6-Setup-the-Production-Release-Pipeline)
     - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
     - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
@@ -494,7 +497,7 @@ Duration: 20 minutes
 
     ![On the New release pipeline screen, Tasks tab, the Agent job is selected. The Agent job details form is populated with the aforementioned values.](media/devops-release-pipeline-10b.png 'Agent Job Setup')
 
-### Task 5: Add Use Python Version task
+### Task 5: Add Use Python Version task to Test Deployment stage
 
 1. Select **Add a task to Agent job** (the **+** button), search for `Use Python Version`, and select **Add**.
 
@@ -504,7 +507,7 @@ Duration: 20 minutes
 
     ![The Use Python version form is displayed populated with the preceding values.](media/devops-release-pipeline-12b.png 'Use Python Version Task Dialog')
 
-### Task 6: Add Install Requirements task
+### Task 6: Add Install Requirements task to Test Deployment stage
 
 1. Select **Add a task to Agent job** (the **+** button), search for `Bash`, and select **Add**.
 
@@ -543,7 +546,7 @@ Duration: 20 minutes
 
     ![On the Tasks tab of the New release pipeline screen, the Attach Folder task is selected beneath the Agent job item. The Azure CLI form is populated with the preceding values.](media/devops-release-pipeline-19b.png 'Azure CLI Task Dialog')
 
-### Task 8: Add Deploy ACI & Test task
+### Task 9: Add Deploy ACI & Test task
 
 1. Add new `Azure CLI` task and provide the following information:
 
@@ -556,7 +559,7 @@ Duration: 20 minutes
 
     ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks is displayed below the Agent job. The Deploy ACI & Test task is selected from this list. In the Azure CLI form, fields are populated with the preceding values.](media/devops-release-pipeline-19c.png 'Azure CLI Task Dialog')
 
-### Task 9: Save the Release Pipeline
+### Task 10: Save the Release Pipeline
 
 1. Provide name: `Test Deployment Pipeline`.
 
