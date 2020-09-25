@@ -57,7 +57,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 6: Add Install Requirements task to Test Deployment stage](#task-6-add-install-requirements-task-to-test-deployment-stage)
     - [Task 7: Add Install ML Extension task](#Task-7-Add-Install-ML-Extension-task)
     - [Task 8: Add Attach Folder task](#Task-8-Add-Attach-Folder-task)
-    - [Task 9: Add Deploy ACI & Test task](#Task-9-Add-Deploy-ACI-Test-task)
+    - [Task 9: Add Deploy ACI and Test task](#Task-9-Add-Deploy-ACI-and-Test-task)
     - [Task 10: Save the Release Pipeline](#Task-10-Save-the-Release-Pipeline)
   - [Exercise 6: Setup the Production Release Pipeline](#Exercise-6-Setup-the-Production-Release-Pipeline)
     - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
@@ -546,7 +546,7 @@ Duration: 20 minutes
 
     ![On the Tasks tab of the New release pipeline screen, the Attach Folder task is selected beneath the Agent job item. The Azure CLI form is populated with the preceding values.](media/devops-release-pipeline-19b.png 'Azure CLI Task Dialog')
 
-### Task 9: Add Deploy ACI & Test task
+### Task 9: Add Deploy ACI and Test task
 
 1. Add new `Azure CLI` task and provide the following information:
 
