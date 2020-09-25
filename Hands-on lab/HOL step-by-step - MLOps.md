@@ -71,7 +71,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 9: Enable Pre-deployment Approvals](#Task-9-Enable-Pre-deployment-Approvals)
     - [Task 10: Enable Continuous Deployment Trigger](#task-10-enable-continuous-deployment-trigger)
     - [Task 11: Save the Release Pipeline](#task-11-save-the-release-pipeline)
-  - [Exercise 7: Test Build and Release Pipelines](#exercise-6-test-build-and-release-pipelines)
+  - [Exercise 7: Test Build and Release Pipelines](#exercise-7-test-build-and-release-pipelines)
     - [Task 1: Make Edits to Source Code](#task-1-make-edits-to-source-code)
     - [Task 2: Monitor Build Pipeline](#task-2-monitor-build-pipeline)
     - [Task 3: Monitor Test Deployment Pipeline](#Task-3-Monitor-Test-Deployment-Pipeline)
