@@ -48,7 +48,15 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 2: Run the Build Pipeline](#task-2-run-the-build-pipeline)
     - [Task 3: Review Build Artifacts](#task-3-review-build-artifacts)
     - [Task 4: Review Build Outputs](#task-4-review-build-outputs)
-  - [Exercise 5: Setup the Release Pipeline](#exercise-5-setup-the-release-pipeline)
+  - [Exercise 5: Setup the Test Release Pipeline](#Exercise-5-Setup-the-Test-Release-Pipeline)
+    - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
+    - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
+    - [Task 3: Add Variables to Deploy and Test stage](#task-3-add-variables-to-deploy-and-test-stage)
+    - [Task 4: Setup Agent Pool for Deploy and Test stage](#task-4-setup-agent-pool-for-deploy-and-test-stage)
+    - [Task 5: Add Use Python Version task](#task-5-add-use-python-version-task)
+    - [Task 6: Add Install Requirements task](#task-6-add-install-requirements-task)
+    - [Task 7: Add Deploy and Test Webservice task](#task-7-add-deploy-and-test-webservice-task)
+  - [Exercise 6: Setup the Production Release Pipeline](#Exercise-6-Setup-the-Production-Release-Pipeline)
     - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
     - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
     - [Task 3: Add Variables to Deploy and Test stage](#task-3-add-variables-to-deploy-and-test-stage)
@@ -57,16 +65,20 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 6: Add Install Requirements task](#task-6-add-install-requirements-task)
     - [Task 7: Add Deploy and Test Webservice task](#task-7-add-deploy-and-test-webservice-task)
     - [Task 8: Define Deployment Trigger](#task-8-define-deployment-trigger)
-    - [Task 9: Enable Continuous Deployment Trigger](#task-9-enable-continuous-deployment-trigger)
-    - [Task 10: Save the Release Pipeline](#task-10-save-the-release-pipeline)
-  - [Exercise 6: Test Build and Release Pipelines](#exercise-6-test-build-and-release-pipelines)
+    - [Task 9: Enable Pre-deployment Approvals](#Task-9-Enable-Pre-deployment-Approvals)
+    - [Task 10: Enable Continuous Deployment Trigger](#task-10-enable-continuous-deployment-trigger)
+    - [Task 11: Save the Release Pipeline](#task-11-save-the-release-pipeline)
+  - [Exercise 7: Test Build and Release Pipelines](#exercise-6-test-build-and-release-pipelines)
     - [Task 1: Make Edits to Source Code](#task-1-make-edits-to-source-code)
     - [Task 2: Monitor Build Pipeline](#task-2-monitor-build-pipeline)
-    - [Task 3: Monitor Release Pipeline](#task-3-monitor-release-pipeline)
-    - [Task 4: Review Release Pipeline Outputs](#task-4-review-release-pipeline-outputs)
-  - [Exercise 7: Testing the deployed solution](#exercise-7-testing-the-deployed-solution)
-    - [Task 1: Test the Deployment](#task-1-test-the-deployment)
-  - [Exercise 8: Examining deployed model performance](#exercise-8-examining-deployed-model-performance)
+    - [Task 3: Monitor Test Deployment Pipeline](#Task-3-Monitor-Test-Deployment-Pipeline)
+    - [Task 4: Review the Test Deployment Pipeline Output](#Task-4-Review-the-Test-Deployment-Pipeline-Output)
+    - [Task 5: Approve the Production Deployment](#Task-5-Approve-the-Production-Deployment)
+    - [Task 6: Monitor Production Release Pipeline](#Task-6-Monitor-Production-Release-Pipeline)
+    - [Task 7: Review the Production Release Pipeline Output](#Task-7-Review-the-Production-Release-Pipeline-Output)
+  - [Exercise 8: Testing the deployed solution and review deployed model datasheet](#Exercise-8-Testing-the-deployed-solution-and-review-deployed-model-datasheet)
+    - [Task 1: Test the deployment and review model datasheet](#Task-1-Test-the-deployment-and-review-model-datasheet)
+  - [Exercise 9: Examining deployed model performance](#exercise-9-examining-deployed-model-performance)
     - [Task 1: Activate App Insights and data collection on the deployed model](#task-1-activate-app-insights-and-data-collection-on-the-deployed-model)
     - [Task 2: Check Application Insights telemetry](#task-2-check-application-insights-telemetry)
     - [Task 3: Check the data collected](#task-3-check-the-data-collected)
@@ -399,7 +411,7 @@ Duration: 30 minutes
 
 Duration: 20 minutes
 
-### Task 1: Create an Empty Job
+### Task 1: Create an Empty Job for the Test Release Pipeline
 
 1. Return to Azure DevOps and navigate to **Pipelines, Releases** and select **New pipeline**.
 
@@ -413,7 +425,7 @@ Duration: 20 minutes
 
     ![On the Stage dialog, the Stage name textbox is populated with Test Deployment. The close button at the top of the dialog is selected.](media/devops-release-pipeline-03b.png 'Deploy and Test Stage')
 
-### Task 2: Add Build Artifacts
+### Task 2: Add Build Artifacts for the Test Release Pipeline
 
 1. Select **+ Add an artifact**.
 
@@ -777,7 +789,7 @@ Duration: 40 minutes
 
     ![The pipeline release page showing the steps to approve the production pipeline](media/devops-test-pipelines-10.png 'Approve Production Release')
 
-### Task 6: Monitor Production Release Pipeline - mlops-quickstart-release
+### Task 6: Monitor Production Release Pipeline
 
 1. Navigate to **Pipelines, Releases**. Observe that the `mlops-quickstart-release` pipeline has started deployment.
 
