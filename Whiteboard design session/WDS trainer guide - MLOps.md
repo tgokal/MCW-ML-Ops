@@ -487,12 +487,14 @@ The primary audience is the business decision makers and technology decision mak
 
      - A trained model registered in the model registry of the workspace.
 
-     - A Docker image registered in the Container Registry.
+     - A datasheet tagged with the registered model to document the machine learning assets that are used and created as part of the machine learning lifecycle.
 
 5. After the first pipeline, what kind of Azure Pipeline would WWI define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
 
     WWI should define a Release pipeline. This pipeline would perform the following steps:
 
+    - Create a continuous deployment trigger based on either an Azure ML Model artifact or a build artifact. Thus, the release pipeline can automatically trigger either when a new trained model is registered or when the first build pipeline successfully completes.
+    - Create an environment that defines Python packages, environment variables, and Docker settings that are needed to deploy the trained model.
     - Create the Linux host VM that would execute the web service deployment script.
   
     The outputs of this pipeline would be:

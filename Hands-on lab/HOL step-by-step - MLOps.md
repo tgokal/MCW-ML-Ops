@@ -443,6 +443,8 @@ Duration: 20 minutes
 
     ![The Add an artifact dialog form is populated with the aforementioned values. The Add button is selected.](media/devops-release-pipeline-05b.png 'Add a build artifact')
 
+    > **Note:** Please ensure you have installed the Microsoft DevLabs Machine Learning plugin for Azure DevOps as described in the `Before the HOL – MLOps.md`.
+
 3. Select **Continuous deployment trigger, Enabled** and then close the dialog.
 
     ![In the New release pipeline screen, the Pipelines tab is selected. Within the Artifacts tile, the Continuous deployment trigger option is selected on the _compliance-classifier tile. The Continuous deployment trigger form is displayed indicating that it is Enabled.](media/devops-release-pipeline-04c.png 'Continuous Deployment Trigger Dialog')
