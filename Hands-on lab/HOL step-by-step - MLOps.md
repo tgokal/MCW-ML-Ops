@@ -862,7 +862,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 
-2. Locate the Application Insights instance in the resource group and select it.
+2. Locate the Application Insights instance for your AKS deployment in the resource group and select it.
 
     ![The Application Insights resource is selected in the resource group.](media/model-telemetry-01.png 'Resource Group Overview')
 
@@ -874,7 +874,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 5. In the left pane, make sure the **Tables** tab is selected.
 
-6. Hover over **requests** and select the icon on the right side - "Show sample records from this table". Next, select **Run**.
+6. Hover over **requests** and select the icon on the right side **Preview data, See in query editor**. Next, select **Run**.
 
     ![On the Application Insights Logs screen, a New Query tab is shown with the Tables tab selected. The icon next to the requests table is selected.](media/model-telemetry-03.png 'Create Requests Query')
 
@@ -882,7 +882,9 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
    ![On the Application Insights Logs screen, a query is run against the requests table and a list of results is displayed.](media/model-telemetry-04.png 'Requests Query Results')
 
-> **Note**: If you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the **Model Telemetry** notebook a few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.
+    > **Note**: If you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the **Model Telemetry** notebook a few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.
+
+    > **Note**: If you continue to see a message `No results found from the specified time range` you are most likely in the application insights for your ACI deployment. You need to select the other application insights resource.
 
 ### Task 3: Check the data collected
 
