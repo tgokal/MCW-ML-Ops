@@ -48,39 +48,23 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 2: Run the Build Pipeline](#task-2-run-the-build-pipeline)
     - [Task 3: Review Build Artifacts](#task-3-review-build-artifacts)
     - [Task 4: Review Build Outputs](#task-4-review-build-outputs)
-  - [Exercise 5: Setup the Test Release Pipeline](#Exercise-5-Setup-the-Test-Release-Pipeline)
-    - [Task 1: Create an Empty Job for the Test Release Pipeline](#Task-1-Create-an-Empty-Job-for-the-Test-Release-Pipeline)
-    - [Task 2: Add Build Artifacts for the Test Release Pipeline](#Task-2-Add-Build-Artifacts-for-the-Test-Release-Pipeline)
-    - [Task 3: Add Variables to Test Deployment stage](#Task-3-Add-Variables-to-Test-Deployment-stage)
-    - [Task 4: Setup Agent Pool for Test Deployment stage](#Task-4-Setup-Agent-Pool-for-Test-Deployment-stage)
-    - [Task 5: Add Use Python Version task to Test Deployment stage](#Task-5-Add-Use-Python-Version-task-to-Test-Deployment-stage)
-    - [Task 6: Add Install Requirements task to Test Deployment stage](#task-6-add-install-requirements-task-to-test-deployment-stage)
-    - [Task 7: Add Install ML Extension task](#Task-7-Add-Install-ML-Extension-task)
-    - [Task 8: Add Attach Folder task](#Task-8-Add-Attach-Folder-task)
-    - [Task 9: Add Deploy ACI and Test task](#Task-9-Add-Deploy-ACI-and-Test-task)
-    - [Task 10: Save the Release Pipeline](#Task-10-Save-the-Release-Pipeline)
-  - [Exercise 6: Setup the Production Release Pipeline](#Exercise-6-Setup-the-Production-Release-Pipeline)
-    - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
-    - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
-    - [Task 3: Add Variables to Deploy and Test stage](#task-3-add-variables-to-deploy-and-test-stage)
-    - [Task 4: Setup Agent Pool for Deploy and Test stage](#task-4-setup-agent-pool-for-deploy-and-test-stage)
-    - [Task 5: Add Use Python Version task](#task-5-add-use-python-version-task)
-    - [Task 6: Add Install Requirements task](#task-6-add-install-requirements-task)
-    - [Task 7: Add Deploy and Test Webservice task](#task-7-add-deploy-and-test-webservice-task)
-    - [Task 8: Define Deployment Trigger](#task-8-define-deployment-trigger)
-    - [Task 9: Enable Pre-deployment Approvals](#Task-9-Enable-Pre-deployment-Approvals)
-    - [Task 10: Enable Continuous Deployment Trigger](#task-10-enable-continuous-deployment-trigger)
-    - [Task 11: Save the Release Pipeline](#task-11-save-the-release-pipeline)
-  - [Exercise 7: Test Build and Release Pipelines](#exercise-7-test-build-and-release-pipelines)
-    - [Task 1: Make Edits to Source Code](#task-1-make-edits-to-source-code)
-    - [Task 2: Monitor Build Pipeline](#task-2-monitor-build-pipeline)
-    - [Task 3: Monitor Test Deployment Pipeline](#Task-3-Monitor-Test-Deployment-Pipeline)
-    - [Task 4: Review the Test Deployment Pipeline Output](#Task-4-Review-the-Test-Deployment-Pipeline-Output)
-    - [Task 5: Approve the Production Deployment](#Task-5-Approve-the-Production-Deployment)
-    - [Task 6: Monitor Production Release Pipeline](#Task-6-Monitor-Production-Release-Pipeline)
-    - [Task 7: Review the Production Release Pipeline Output](#Task-7-Review-the-Production-Release-Pipeline-Output)
-  - [Exercise 8: Testing the deployed solution and review deployed model datasheet](#Exercise-8-Testing-the-deployed-solution-and-review-deployed-model-datasheet)
+  - [Exercise 5: Setup the Release Pipeline](#Exercise-5-Setup-the-Release-Pipeline)
+    - [Task 1: Create an Empty Job for the Release Pipeline](#Task-1-Create-an-Empty-Job-for-the-Release-Pipeline)
+    - [Task 2: Add Build Artifacts for the Release Pipeline](#Task-2-Add-Build-Artifacts-for-the-Release-Pipeline)
+    - [Task 3: Setup Agent Pool for Test Deployment stage](#Task-3-Setup-Agent-Pool-for-Test-Deployment-stage)
+    - [Task 4: Add AzureML Model Deploy task to Test Deployment stage](#Task-4-Add-AzureML-Model-Deploy-task-to-Test-Deployment-stage)
+    - [Task 5: Clone the Test Deployment stage](#Task-5-Clone-the-Test-Deployment-stage)
+    - [Task 6: Configure the Production Deployment stage](#task-6-Configure-the-Production-Deployment-stage)
+    - [Task 7: Enable Pre-deployment Approvals](#Task-7-Enable-Pre-deployment-Approvals)
+    - [Task 8: Save the Release Pipeline](#Task-8-Save-the-Release-Pipeline)
+  - [Exercise 6: Create Release for the Production Release Pipeline](#Exercise-6-Create-Release-for-the-Production-Release-Pipeline)
+    - [Task 1: Create new release](#task-1-Create-new-release)
+    - [Task 2: Monitor the Test Deployment stage](#task-2-Monitor-the-Test-Deployment-stage)
+  - [Exercise 7: Testing the deployed solution and review deployed model datasheet](#Exercise-7-Testing-the-deployed-solution-and-review-deployed-model-datasheet)
     - [Task 1: Test the deployment and review model datasheet](#Task-1-Test-the-deployment-and-review-model-datasheet)
+  - [Exercise 8: Deploy the Production Deployment stage](#Exercise-8-Deploy-the-Production-Deployment-stage)
+    - [Task 1: Approve the Production Deployment](#Task-1-Approve-the-Production-Deployment)
+    - [Task 2: Monitor the Production Deployment stage](#Task-2-Monitor-the-Production-Deployment-stage)
   - [Exercise 9: Examining deployed model performance](#exercise-9-examining-deployed-model-performance)
     - [Task 1: Activate App Insights and data collection on the deployed model](#task-1-activate-app-insights-and-data-collection-on-the-deployed-model)
     - [Task 2: Check Application Insights telemetry](#task-2-check-application-insights-telemetry)
@@ -330,7 +314,7 @@ Duration: 20 minutes
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
-Duration: 30 minutes
+Duration: 45 minutes
 
 ### Task 1: Setup Build Pipeline
 
@@ -354,9 +338,9 @@ Duration: 30 minutes
 
     b. Create the AML Compute target to run your master pipeline for model training and model evaluation.
 
-    c. Run the master pipeline. The master pipeline has two steps: (1) Train the machine learning model, and (2) Evaluate the trained machine learning model. The evaluation step evaluates if the new model performance is better than the currently deployed model. If the new model performance is improved, the evaluate step will register the new model with Azure Machine Learning workspace. The results of the evaluation step will be saved in a file called **eval_info.json** that will be made available for the production release pipeline. You can review the code for the master pipeline and its steps in **aml_service/pipelines_master.py**, **scripts/train.py**, and **scripts/evaluate.py**.
+    c. Run the master pipeline. The master pipeline has two steps: (1) Train the machine learning model, and (2) Evaluate the trained machine learning model. The evaluation step evaluates if the new model performance is better than the currently deployed model. If the new model performance is improved, the evaluate step will register the new model with Azure Machine Learning workspace. The results of the evaluation step will be saved in a file called **eval_info.json**. You can review the code for the master pipeline and its steps in **aml_service/pipelines_master.py**, **scripts/train.py**, and **scripts/evaluate.py**.
 
-    d. Publish the build artifacts. The **snapshot of the repository**, **config.json**, and **eval_info.json** files are published as build artifacts and thus can be made available for the release pipeline.
+    d. Publish the build artifacts. The **snapshot of the repository**, **config.json**, and **eval_info.json** files are published as build artifacts.
 
     ![On the Review tab of your pipeline screen, the contents of azure-pipelines.yml is displayed.](media/devops-build-pipeline-10.png 'Build pipeline YAML')
 
@@ -366,7 +350,7 @@ Duration: 30 minutes
 
     ![On the Review tab of your pipeline screen, the contents of azure-pipelines.yml is displayed. The Run button is selected from the top taskbar.](media/devops-build-pipeline-11.png 'Run Build Pipeline')
 
-2. Monitor the build run. The build pipeline, for the first run, will take around 15-20 minutes to run.
+2. Monitor the build run. The build pipeline, for the first run, will take around 30-35 minutes to run.
 
     ![A build pipeline run summary screen is displayed indicating it was manually triggered. A single job is selected in the Jobs section with a status of Success.](media/devops-build-pipeline-12.png 'Monitor Build Pipeline')
 
@@ -380,7 +364,7 @@ Duration: 30 minutes
 
     ![On the build pipeline run summary, in the table outlining the manual run, the 1 published beneath the related column is selected.](media/devops-build-pipeline-14.png 'Build Artifacts')
 
-2. Select **outputs, eval_info.json**, and then select the download arrow. The `eval_info.json` is the output from the *model evaluation* step. The information from the evaluation step will be used in the release pipeline to deploy the model. Select the back arrow to return to the previous screen.
+2. Select **outputs, eval_info.json**, and then select the download arrow. The `eval_info.json` is the output from the *model evaluation* step. Select the back arrow to return to the previous screen.
 
     ![On the Artifacts screen, a list of files are displayed. The outputs folder is expanded and the eval-info.json file download button is selected. The back arrow is selected a the top of the screen to navigate back to the previous page.](media/devops-build-pipeline-15.png 'Download JSON file')
 
@@ -410,11 +394,11 @@ Duration: 30 minutes
 
     ![A list of registered models that reference the selected dataset is displayed.](media/devops-build-outputs-05.png 'Registered dataset model references in Azure Machine Learning studio')
 
-## Exercise 5: Setup the Test Release Pipeline
+## Exercise 5: Setup the Release Pipeline
 
 Duration: 20 minutes
 
-### Task 1: Create an Empty Job for the Test Release Pipeline
+### Task 1: Create an Empty Job for the Release Pipeline
 
 1. Return to Azure DevOps and navigate to **Pipelines, Releases** and select **New pipeline**.
 
@@ -428,7 +412,7 @@ Duration: 20 minutes
 
     ![On the Stage dialog, the Stage name textbox is populated with Test Deployment. The close button at the top of the dialog is selected.](media/devops-release-pipeline-03b.png 'Deploy and Test Stage')
 
-### Task 2: Add Build Artifacts for the Test Release Pipeline
+### Task 2: Add Build Artifacts for the Release Pipeline
 
 1. Select **+ Add an artifact**.
 
@@ -445,11 +429,7 @@ Duration: 20 minutes
 
     > **Note:** Please ensure you have installed the Microsoft DevLabs Machine Learning plugin for Azure DevOps as described in the `Before the HOL – MLOps.md`.
 
-3. Select **Continuous deployment trigger, Enabled** and then close the dialog.
-
-    ![In the New release pipeline screen, the Pipelines tab is selected. Within the Artifacts tile, the Continuous deployment trigger option is selected on the _compliance-classifier tile. The Continuous deployment trigger form is displayed indicating that it is Enabled.](media/devops-release-pipeline-04c.png 'Continuous Deployment Trigger Dialog')
-
-4. Select **+ Add an artifact**, then select **Source type**: **Azure Repos Git** and provide the values below and then select **Add**.
+3. Select **+ Add an artifact**, then select **Source type**: **Azure Repos Git** and provide the values below and then select **Add**.
 
     - **Project:** `mlops-quickstart`
     - **Source (repository):** `mlops-quickstart`
@@ -459,364 +439,110 @@ Duration: 20 minutes
 
     ![The Add an artifact dialog form is populated with the aforementioned values. The Add button is selected.](media/devops-release-pipeline-05c.png 'Add a build artifact')
 
-### Task 3: Add Variables to Test Deployment stage
+### Task 3: Setup Agent Pool for Test Deployment stage
 
 1. Open **View stage tasks** link.
 
     ![On the New release pipeline screen, within the Test Deployment tile, the View stage tasks link is selected.](media/devops-release-pipeline-06b.png 'View Stage Tasks')
 
-2. Open the **Variables** tab.
-
-    ![On the New release pipeline screen, the Variables tab is selected.](media/devops-release-pipeline-07b.png 'Release Pipeline Variables')
-
-3. Add six Pipeline variables as name - value pairs:
-
-    a. **Name**: `description` **Value**: `"Compliance Classifier Test Web Service"`
-
-    b. **Name**: `experiment` **Value**: `quick-starts-mlops`
-
-    c. **Name**: `model_name` **Value**: `compliance-classifier`
-
-    d. **Name**: `resourcegroup` **Value**: `MCW-MLOps-XXXXX`
-
-    e. **Name**: `service_name` **Value**: `cc-test-service`
-
-    f. **Name**: `workspace` **Value**: `quick-starts-ws-XXXXX`
-
-    > **Note**: Include the double quotes around the **description** value!
-
-    > **Note**: The name of the `resourcegroup` and `workspace` should be the same as the one that was used in `azure-pipelines.yml` file.
-
-      ![On the New release pipeline screen, the Variables tab is selected, and the Pipeline variables item is selected from a list of variable types. The list of Pipeline variables is displayed showing the variables that were just created.](media/devops-release-pipeline-08b.png 'Add Pipeline Variables')
-
-### Task 4: Setup Agent Pool for Test Deployment stage
-
-1. Open the **Tasks** tab.
-
-    ![On the New release pipeline screen, the Tasks tab is selected.](media/devops-release-pipeline-09b.png 'Pipeline Tasks')
-
 2. Select **Agent job** and set **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-18.04`.
 
     ![On the New release pipeline screen, Tasks tab, the Agent job is selected. The Agent job details form is populated with the aforementioned values.](media/devops-release-pipeline-10b.png 'Agent Job Setup')
 
-### Task 5: Add Use Python Version task to Test Deployment stage
+### Task 4: Add AzureML Model Deploy task to Test Deployment stage
 
-1. Select **Add a task to Agent job** (the **+** button), search for `Use Python Version`, and select **Add**.
+1. Select **Add a task to Agent job** (the **+** button), search for `AzureML Model Deploy`, and select **Add**.
 
-    ![On the New release pipeline screen, the Tasks tab is selected. Agent job is displayed in the list of tasks. The + button is selected in the Agent job tile. The Add tasks pane is displayed with Use Python version entered in the search box, and the Use Python version search result is highlighted with its Add button selected.](media/devops-release-pipeline-11b.png 'Add Use Python Version Task')
+    ![On the New release pipeline screen, the Tasks tab is selected. Agent job is displayed in the list of tasks. The + button is selected in the Agent job tile. The Add tasks pane is displayed with AzureML Model Deploy entered in the search box, and the AzureML Model Deploy search result is highlighted with its Add button selected.](media/devops-release-pipeline-11b.png 'Add AzureML Model Deploy Task')
 
-2. Provide **Display name:** `Use Python 3.6` and **Version spec:** `3.6`
+2. Provide the following information:
 
-    ![The Use Python version form is displayed populated with the preceding values.](media/devops-release-pipeline-12b.png 'Use Python Version Task Dialog')
+    1. **Display name:** `Test Deployment`
+    1. **Azure ML Workspace:** `quick-starts-sc`
+    1. **Model Source:** `Model Artifact`
+    1. **Inference config Path:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/inferenceConfig.yml`
+    1. **Model Deployment Target:** `Azure Container Instance`
+    1. **Deployment Name:** `test-service`
+    1. **Deployment configuration file:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/aciDeploymentConfig.yml`
+    1. **Overwrite existing deployment:** `checked`
 
-### Task 6: Add Install Requirements task to Test Deployment stage
+    ![The AzureML Model Deploy Task form is displayed populated with the preceding values.](media/devops-release-pipeline-12b.png 'AzureML Model Deploy Task Dialog')
 
-1. Select **Add a task to Agent job** (the **+** button), search for `Bash`, and select **Add**.
+### Task 5: Clone the Test Deployment stage
 
-    ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks includes the Agent job that has a Use Python 3.6 task. The + button is selected in the Agent job tile, and in the Add tasks form, Bash is entered into the search text box and the Bash item is highlighted in a list of search results with its Add button selected.](media/devops-release-pipeline-13b.png 'Add Bash Task')
+1. Select **Pipeline, Clone**.
 
-2. Provide **Display name:** `Install Requirements` and provide the following information:
+    ![On the New release pipeline screen, the Pipeline tab is selected and then the Clone button is selected on the Test Deployment stage.](media/devops-release-pipeline-13b.png 'Clone Test Deployment Stage')
 
-    1. **Script Path:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/environment_setup/install_requirements.sh`
-    1. **Working Directory:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/environment_setup`
-
-    ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks is displayed below the Agent job. The Install requirements job is selected from this list. In the Bash form, fields are populated with the preceding values.](media/devops-release-pipeline-14b.png 'Bash Task Dialog')
-
-### Task 7: Add Install ML Extension task
-
-1. Add new `Bash` task and provide the following information:
-
-    1. **Display name:** `Install ML Extension`
-    1. **Type:** `Inline`
-    1. **Script:** `az extension add -n azure-cli-ml`
-
-    ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks is displayed below the Agent job. The Install ML Extension job is selected from this list. In the Bash form, fields are populated with the preceding values.](media/devops-release-pipeline-14c.png 'Bash Task Dialog')
-
-### Task 8: Add Attach Folder task
-
-1. Select **Add a task to Agent job** (the **+** button), search for `Azure CLI`, and select **Add**.
-
-    ![On the New release pipeline screen, the Tasks tab is selected. The + button is selected in the Agent job tile, and in the Add tasks form, Azure CLI is entered into the search text box and the Azure CLI item is highlighted in a list of search results with its Add button selected.](media/devops-release-pipeline-13c.png 'Add Bash Task')
-
-2. Provide the following information for the Azure CLI task:
-
-    1. **Task version:** `1.*`
-    1. **Display name:** `Attach Folder`
-    1. **Azure subscription:** `quick-starts-sc`
-    1. **Script Location:** `Inline script`
-    1. **Inline Script:** `az ml folder attach -e $(experiment) -w $(workspace) -g $(resourcegroup) --path $(System.DefaultWorkingDirectory)`
-
-    ![On the Tasks tab of the New release pipeline screen, the Attach Folder task is selected beneath the Agent job item. The Azure CLI form is populated with the preceding values.](media/devops-release-pipeline-19b.png 'Azure CLI Task Dialog')
-
-### Task 9: Add Deploy ACI and Test task
-
-1. Add new `Azure CLI` task and provide the following information:
-
-    1. **Task version:** `1.*`
-    1. **Display name:** `Deploy ACI & Test`
-    1. **Azure subscription:** `quick-starts-sc`
-    1. **Script Location:** `Inline script`
-    1. **Inline Script:** `python aml_service/test_deployment.py --model_name $(model_name) --service_name $(service_name) --description $(description)`
-    1. **Working Directory:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart`
-
-    ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks is displayed below the Agent job. The Deploy ACI & Test task is selected from this list. In the Azure CLI form, fields are populated with the preceding values.](media/devops-release-pipeline-19c.png 'Azure CLI Task Dialog')
-
-### Task 10: Save the Release Pipeline
-
-1. Provide name: `Test Deployment Pipeline`.
-
-2. Select **Save** (use the default values in the **Save** dialog).
-
-    ![In the header of the New pipeline screen, the pipeline name is set to Test Deployment Pipeline, and the Save button is selected from the top taskbar.](media/devops-release-pipeline-23b.png 'Save')
-
-## Exercise 6: Setup the Production Release Pipeline
-
-Duration: 20 minutes
-
-### Task 1: Create an Empty Job
-
-1. Return to Azure DevOps and navigate to **Pipelines, Releases** and select **+ New, + New release pipeline**.
-
-    ![In Azure DevOps, the Pipelines item is expanded in the left menu with the Releases item selected. In the content pane, a message indicates No release pipelines found and the New pipeline button is selected.](media/devops-release-pipeline-01b.png 'New Release Pipeline')
-
-2. Select **Empty job**.
-
-    ![In the Select a template dialog, the Empty job item is selected above the list featured templates.](media/devops-release-pipeline-02.png 'Select a template: Empty job')
-
-3. Provide Stage name: `Deploy and Test` and close the dialog.
-
-    ![On the Stage dialog, the Stage name textbox is populated with Deploy and Test. The close button at the top of the dialog is selected.](media/devops-release-pipeline-03.png 'Deploy and Test Stage')
-
-### Task 2: Add Build Artifact
-
-1. Select **+ Add an artifact**.
-
-    ![In the New release pipeline screen, on the Pipeline tab, the + Add a new artifact item is selected within the Artifacts tile.](media/devops-release-pipeline-04.png 'Add an artifact')
-
-2. Select **Source type**: **Build**, **Source (build pipeline)**: **mlops-quickstart**.
-
-    > **Note**: Observe the note that shows that the mlops-quickstart publishes the build artifact named devops-for-ai.
-
-    Finally, select **Add**.
-
-    ![The Add an artifact dialog form is populated with the aforementioned values. The Add button is selected.](media/devops-release-pipeline-05.png 'Add a build artifact')
-
-### Task 3: Add Variables to Deploy and Test stage
+### Task 6: Configure the Production Deployment stage
 
 1. Open **View stage tasks** link.
 
-    ![On the New release pipeline screen, within the Deploy and Test tile, the View stage tasks link is selected.](media/devops-release-pipeline-06.png 'View Stage Tasks')
+    ![On the New release pipeline screen, within the Copy of Test Deployment tile, the View stage tasks link is selected.](media/devops-release-pipeline-13c.png 'View Stage Tasks')
 
-2. Open the **Variables** tab.
+2. Provide new stage name: **Production Deployment**
 
-    ![On the New release pipeline screen, the Variables tab is selected.](media/devops-release-pipeline-07.png 'Release Pipeline Variables')
+   ![On the New release pipeline screen, the Tasks tab is selected and a new stage name is provided.](media/devops-release-pipeline-13d.png 'Production Deployment stage')
 
-3. Add four Pipeline variables as name - value pairs and then select **Save** (use the default values in the **Save** dialog):
+3. Select **AzureML Model Deploy task** and change the following information:
 
-    a. **Name**: `aks_name` **Value**: `aks-cluster01`
+    1. **Display name:** `Production Deployment`
+    1. **Model Deployment Target:** `Azure Kubernetes Service`
+    1. **Select AKS Cluster for Deployment:** `aks-cluster01`
+    1. **Deployment Name:** `compliance-classifier-service`
+    1. **Deployment configuration file:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/aksDeploymentConfig.yml`
 
-    b. **Name**: `aks_region` **Value**: `eastus`
+    ![The AzureML Model Deploy Task form is displayed populated with the preceding values.](media/devops-release-pipeline-13e.png 'AzureML Model Deploy Task Dialog')
 
-    c. **Name**: `service_name` **Value**: `compliance-classifier-service`
+### Task 7: Enable Pre-deployment Approvals
 
-    d. **Name**: `description` **Value**: `"Compliance Classifier Web Service"`
+1. Navigate to **Pipeline** tab, and select **Pre-deployment conditions** for the **Production Deployment** stage.
 
-    > **Note**: Include the double quotes around the **description** value!
-    
+2. Select **Pre-deployment approvals, enabled** and provide the name of approvers.
 
-    > **Note**:
-    >   - Keep the scope for the variables to the **Deploy and Test** stage.
-    >   - The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
-
-      ![On the New release pipeline screen, the Variables tab is selected, and the Pipeline variables item is selected from a list of variable types. The list of Pipeline variables is displayed showing the variables that were just created.](media/devops-release-pipeline-08.png 'Add Pipeline Variables')
-
-### Task 4: Setup Agent Pool for Deploy and Test stage
-
-1. Open the **Tasks** tab.
-
-    ![On the New release pipeline screen, the Tasks tab is selected.](media/devops-release-pipeline-09.png 'Pipeline Tasks')
-
-2. Select **Agent job** and set **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-18.04`.
-
-    ![On the New release pipeline screen, Tasks tab, the Agent job is selected. The Agent job details form is populated with the aforementioned values.](media/devops-release-pipeline-10.png 'Agent Job Setup')
-
-### Task 5: Add Use Python Version task
-
-1. Select **Add a task to Agent job** (the **+** button), search for `Use Python Version`, and select **Add**.
-
-    ![On the New release pipeline screen, the Tasks tab is selected. Agent job is displayed in the list of tasks. The + button is selected in the Agent job tile. The Add tasks pane is displayed with Use Python version entered in the search box, and the Use Python version search result is highlighted with its Add button selected.](media/devops-release-pipeline-11.png 'Add Use Python Version Task')
-
-2. Provide **Display name:** `Use Python 3.6` and **Version spec:** `3.6`
-
-    ![The Use Python version form is displayed populated with the preceding values.](media/devops-release-pipeline-12.png 'Use Python Version Task Dialog')
-
-### Task 6: Add Install Requirements task
-
-1. Select **Add a task to Agent job** (the **+** button), search for `Bash`, and select **Add**.
-
-    ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks includes the Agent job that has a Use Python 3.6 task. The + button is selected in the Agent job tile, and in the Add tasks form, Bash is entered into the search text box and the Bash item is highlighted in a list of search results with its Add button selected.](media/devops-release-pipeline-13.png 'Add Bash Task')
-
-2. Provide **Display name:** `Install Requirements` and select **Browse script path ...** to provide **Script Path**.
-
-    ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks is displayed below the Agent job. The Install requirements job is selected from this list. In the Bash form, fields are populated with the preceding values.](media/devops-release-pipeline-14.png 'Bash Task Dialog')
-
-3. Navigate to **Linked artifacts/_mlops-quickstart (Build)/devops-for-ai/environment_setup** and select **install_requirements.sh**.
-
-    ![A Select a file or folder dialog is displayed showing the location hierarchy to the install_requirements.sh file. The OK button is selected.](media/devops-release-pipeline-15.png 'Select Path Dialog')
-
-4. Expand **Advanced** and select **Browse working directory ...** to provide **Working Directory**.
-
-    ![On the Bash form, the Advanced section is expanded. The ellipsis button is selected next to the Working Directory textbox.](media/devops-release-pipeline-16.png 'Bash Task - Advanced Section')
-
-5. Navigate to **Linked artifacts/_mlops-quickstart (Build)/devops-for-ai** and select **environment_setup**.
-
-    ![In the Select a file or folder dialog, the location hierarchy is displayed to the environment_setup folder.](media/devops-release-pipeline-17.png 'Select Path Dialog')
-
-### Task 7: Add Deploy and Test Webservice task
-
-1. Select **Add a task to Agent job** (the **+** button), search for `Azure CLI`, and select **Add**.
-
-    ![In the New release pipeline screen, the Tasks tab is selected. In the list of Tasks, in the Agent job tile, the + button is selected. In the Add tasks form, Azure CLI is entered into the search box, and the Azure CLI search result is highlighted with its Add button selected.](media/devops-release-pipeline-18.png 'Azure CLI Task')
-
-2. Provide the following information for the Azure CLI task:
-
-    a. **Task version**: `1.*`
-
-    b. **Display name**: `Deploy and Test Webservice`
-
-    c. **Azure subscription**: `quick-starts-sc`
-
-    > **Note**: This is the service connection we created in Exercise 1 / Task 4.
-
-    d. **Script Location**: `Inline script`
-
-    e. **Inline Script**: `python aml_service/production_deployment.py --service_name $(service_name) --aks_name $(aks_name) --aks_region $(aks_region) --description $(description)`
-
-    ![On the Tasks tab of the New release pipeline screen, the Deploy and Test Webservice task is selected beneath the Agent job item. The Azure CLI form is populated with the preceding values.](media/devops-release-pipeline-19.png 'Azure CLI Task Dialog')
-
-3. Expand **Advanced** and provide **Working Directory:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/devops-for-ai`.
-
-    ![In the Azure CLI form, the Advanced section is expanded and the Working Directory field is populated with the specified value.](media/devops-release-pipeline-20.png 'Azure CLI Task - Working Directory')
-
-> **Note**: Please review the code in `aml_service/production_deployment.py`. By using the `eval_info.json` file that is associated with each trained model, this script can determine if the new trained model's performance is better than the currently deployed model. If it determines the new model has better performance, it will deploy the new model to production in an **Azure Kubernetes Service (AKS)** cluster.
-
-### Task 8: Define Deployment Trigger
-
-1. Navigate to **Pipeline** tab, and select **Pre-deployment conditions** for the **Deploy and Test** stage.
-
-2. Select **After release**.
-
-    ![In the New release pipeline screen, the Pipelines tab is selected. Within the Stages tile, the Pre-deployment Condition item is selected in the Deploy and Test stage tile. The Pre-deployment conditions form is displayed with the Triggers section expanded. After release is selected as the trigger.](media/devops-release-pipeline-21.png 'Pre-deployment Conditions Dialog')
-
-### Task 9: Enable Pre-deployment Approvals
-
-1. Select **Pre-deployment approvals, enabled** and provide the name of approvers.
-
-    ![In the New release pipeline screen, the Pipelines tab is selected. Within the Stages tile, the Pre-deployment Condition item is selected in the Deploy and Test stage tile. The Pre-deployment conditions form is displayed with the Pre-deployment approvals section expanded.](media/devops-release-pipeline-21-b.png 'Pre-deployment Conditions Dialog')
-
-2. Close the dialog.
-
-### Task 10: Enable Continuous Deployment Trigger
-
-1. Select **Continuous deployment trigger** for `_mlops-quickstart` artifact.
-
-2. Enable: **Creates a release every time a new build is available**.
-
-    ![In the New release pipeline screen, the Pipelines tab is selected. Within the Artifacts tile, the Continuous deployment trigger option is selected on the _mlops-quickstart tile. The Continuous deployment trigger form is displayed indicating that it is Enabled.](media/devops-release-pipeline-22.png 'Continuous Deployment Trigger Dialog')
+    ![In the New release pipeline screen, the Pipeline tab is selected. Within the Stages tile, the Pre-deployment Condition item is selected in the Production Deployment stage tile. The Pre-deployment conditions form is displayed with the Pre-deployment approvals section expanded.](media/devops-release-pipeline-21-b.png 'Pre-deployment Conditions Dialog')
 
 3. Close the dialog.
 
-### Task 11: Save the Release Pipeline
+### Task 8: Save the Release Pipeline
 
-1. Provide name: `mlops-quickstart-release`.
+1. Provide name: `Production Release Pipeline`.
 
 2. Select **Save** (use the default values in the **Save** dialog).
 
-    ![In the header of the New pipeline screen, the pipeline name is set to mlops-quickstart-release, and the Save button is selected from the top taskbar.](media/devops-release-pipeline-23.png 'Save')
+    ![In the header of the New pipeline screen, the pipeline name is set to Production Release Pipeline, and the Save button is selected from the top taskbar.](media/devops-release-pipeline-23b.png 'Save')
 
-## Exercise 7: Test Build and Release Pipelines
+## Exercise 6: Create Release for the Production Release Pipeline
 
-Duration: 40 minutes
+Duration: 20 minutes
 
-### Task 1: Make Edits to Source Code
+### Task 1: Create new release
 
-1. Navigate to: **Repos -> Files -> scripts -> `train.py`**.
+1. Select **Releases, Production Release Pipeline, Create release**.
 
-2. **Edit** `train.py`.
+    ![In Azure DevOps, the Pipelines item is expanded in the left menu with the Releases item selected. The Production Release Pipeline is selected followed by Create release.](media/devops-release-pipeline-01b.png 'Create New Release')
 
-3. Change the **learning rate (lr)** for the optimizer from **0.1** to **0.001**.
+2. On the `Create a new release` page review the `Artifacts` section and select **Create**.
 
-4. Change the number of training **epochs** from **3** to **5**.
+    ![In the Create a new release dialog, the Artifacts section is highlighted and the Create button is selected.](media/devops-release-pipeline-02.png 'Create New Release')
 
-5. Select **Commit**.
+### Task 2: Monitor the Test Deployment stage
 
-    ![In Azure DevOps, the Repos item is expanded in the left menu with Files selected. In the file list, beneath the expanded scripts folder, train.py is selected. The train.py contents is displayed with the source code changes indicated in the previous steps in place. The Commit button is selected in the top toolbar.](media/devops-test-pipelines-01.png 'Edit Train.py')
+1. Reload the `Production Release Pipeline`. Observe that the Production Release Pipeline's `Test Deployment` stage is running. Select as shown in the figure to view the pipeline logs.
 
-6. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**.
+   ![In Azure DevOps, on the left menu, Pipelines is expanded and the Releases item is selected. The Production Release Pipeline screen is displayed. A button in the Stages column selected that is used to view the pipeline logs.](media/devops-test-pipelines-05.png 'Pipelines - Releases')
 
-    ![On the Commit dialog, the comment above is entered and the Commit button is selected.](media/devops-test-pipelines-02.png 'Commit - Comment')
+2. The `Test Deployment` stage will run for about 10 minutes. Wait for the stage to complete.
 
-### Task 2: Monitor Build Pipeline
+3. From the pipeline logs view, select **Test Deployment** task to view details.
 
-1. Navigate to **Pipelines, Pipelines**. Observe that the CI build is triggered because of the source code change.
+   ![A list of tasks related to Agent job is displayed. The Test Deployment task is selected from the list.](media/devops-test-pipelines-06.png 'Pipeline Logs')
 
-   ![In Azure DevOps, Pipelines is selected below the Pipeline item in the left menu. In the Pipelines list, the Recent tab is selected. A currently running pipeline is shown and selected in this list.](media/devops-test-pipelines-03.png 'Pipelines - pipelines')
+4. Observe the **Scoring URI** for the deployed ACI webservice. Copy the `Scoring URI` for the next exercise.
 
-2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 10-15 minutes. Proceed to the next task when the build pipeline successfully completes.
+    ![The Test Deployment task logs are displayed. Within the logs the Scoring URI is highlighted.](media/devops-test-pipelines-07.png 'Test Deployment Task Logs')
 
-   ![In the Job details screen, the progress of the pipeline run is shown. Every step shows success.](media/devops-test-pipelines-04.png 'Build Pipeline Steps')
-
-### Task 3: Monitor Test Deployment Pipeline
-
-1. Navigate to **Pipelines, Releases**. Observe that the `Test Deployment Pipeline` is automatically triggered upon successful completion of the build pipeline because a new model was registered. Select as shown in the figure to view pipeline logs.
-
-   ![In Azure DevOps, on the left menu, Pipelines is expanded and the Releases item is selected. The Test Deployment Pipeline screen is displayed. A button in the Stages column selected that is used to view the pipeline logs.](media/devops-test-pipelines-05.png 'Pipelines - Releases')
-
-2. The `Test Deployment Pipeline` will run for about 5 minutes. Proceed to the next task when the pipeline successfully completes.
-
-### Task 4: Review the Test Deployment Pipeline Output
-
-1. From the pipeline logs view, select **Deploy ACI & Test** task to view details.
-
-    ![A list of tasks related to Agent job is displayed. The Deploy ACI & Test task is selected from the list.](media/devops-test-pipelines-06.png 'Pipeline Logs')
-
-2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Also observe the test results of the deployed webservice.
-
-    ![The Deploy ACI & Test task logs are displayed. Within the logs the Webservice URI and Webservice API Key are highlighted.](media/devops-test-pipelines-07.png 'Deploy ACI & Test Task Logs')
-
-### Task 5: Approve the Production Deployment
-
-1. From the email that was sent to the approvers email address, select **View approval**.
-
-    ![The email sent to approver is shown with the View approval button highlighted.](media/devops-test-pipelines-09.png 'View Approval')
-
-2. Select **Approve, Approve** from the mlops-quickstart-release pipeline release page.
-
-    ![The pipeline release page showing the steps to approve the production pipeline](media/devops-test-pipelines-10.png 'Approve Production Release')
-
-### Task 6: Monitor Production Release Pipeline
-
-1. Navigate to **Pipelines, Releases**. Observe that the `mlops-quickstart-release` pipeline has started deployment.
-
-   ![In Azure DevOps, on the left menu, Pipelines is expanded and the Releases item is selected. The mlops-quickstart-release screen is displayed. A button in the Stages column selected that is used to view the pipeline logs.](media/devops-test-pipelines-05b.png 'Pipelines - Releases')
-
-2. The `mlops-quickstart-release` pipeline will run for about 20-25 minutes. Proceed to the next task when the pipeline successfully completes.
-
-### Task 7: Review the Production Release Pipeline Output
-
-1. From the pipeline logs view, select **Agent job, Deploy and Test Webservice** task to view details.
-
-2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Also observe the test results of the deployed webservice.
-
-    ![The Deploy and Test Webservice task logs are displayed. Within the logs the Webservice URI and Webservice API Key are highlighted.](media/devops-test-pipelines-07c.png 'Deploy and Test Webservice Task Logs')
-
-3. Please note down both the **Scoring URI** and **API Key** for **Exercise 8**.
-
-4. Log in to Azure Machine Learning studio. Open your **Endpoints** section, and observe the deployed webservice: **compliance-classifier-service** and **cc-test-service**.
-
-    ![In Azure Machine Learning Studio, the Endpoints item is selected from the left menu. In the list of Endpoints, the compliance-classifier-service is selected.](media/devops-test-pipelines-08.png 'Azure Machine Learning studio - Workspace, Deployments')
-
-## Exercise 8: Testing the deployed solution and review deployed model datasheet
+## Exercise 7: Testing the deployed solution and review deployed model datasheet
 
 Duration: 15 minutes
 
@@ -834,9 +560,39 @@ In this exercise, you verify that the release of the application works. You will
 
 4. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
 
-5. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
+5. Note that you will have to provide values for **Scoring URI** for the deployed ACI webservice in the notebook.
 
 6. Follow the instructions within the notebook to complete the task.
+
+## Exercise 8: Deploy the Production Deployment stage
+
+Duration: 15 minutes
+
+### Task 1: Approve the Production Deployment
+
+1. From the email that was sent to the approvers email address, select **View approval**.
+
+    ![The email sent to approver is shown with the View approval button highlighted.](media/devops-test-pipelines-09.png 'View Approval')
+
+2. Select **Approve, Approve** from the `Production Deployment` stage.
+
+    ![The pipeline release page showing the steps to approve the Production Deployment stage.](media/devops-test-pipelines-10.png 'Approve Production Deployment Stage')
+
+### Task 2: Monitor the Production Deployment stage
+
+1. The `Production Deployment` stage will run for about 3-5 minutes. Wait for the stage to complete.
+
+2. From the pipeline logs view, select **Production Deployment** task to view details.
+
+   ![A list of tasks related to Agent job is displayed. The Production Deployment task is selected from the list.](media/devops-test-pipelines-07b.png 'Pipeline Logs')
+
+3. Navigate to Pipelines, Releases and select **Production Release Pipeline, Release-1** to review the pipeline artifacts and stages.
+
+   ![The image shows the various artifacts and stages for the Release-1 of the Production Release Pipeline.](media/devops-test-pipelines-07d.png 'Production Release Pipeline')
+
+4. Navigate to Azure Machine Learning Studio and select **Endpoints, compliance-classifier-service, Consume**. Copy the **Scoring URI** and **API Key** for the next exercise.
+
+    ![The Production Deployment task logs are displayed. Within the logs the Scoring URI and API Key is highlighted.](media/devops-test-pipelines-07c.png 'Consumption Info')
 
 ## Exercise 9: Examining deployed model performance
 
