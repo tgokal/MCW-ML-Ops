@@ -406,7 +406,7 @@ Duration: 20 minutes
 
 2. Select **Empty job**.
 
-    ![In the Select a template dialog, the Empty job item is selected above the list featured templates.](media/devops-release-pipeline-02.png 'Select a template: Empty job')
+    ![In the Select a template dialog, the Empty job item is selected above the list featured templates.](media/devops-release-pipeline-022.png 'Select a template: Empty job')
 
 3. Provide Stage name: `Test Deployment` and close the dialog.
 
