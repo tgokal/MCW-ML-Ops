@@ -427,7 +427,7 @@ The primary audience is the business decision makers and technology decision mak
 
     Next, in a script (the pipeline definition script) they would define pipeline steps in a pipeline object and then submit the pipeline object to run it. In the simplest case they could define a Pipeline with two PythonScriptSteps:
 
-    - The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk and then registers the model with the model registry associated with the Azure Machine Learning workspace.
+    - The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk, and then registers the model with the model registry associated with the Azure Machine Learning workspace.
 
     - The second PythonScriptStep references a separate Python script that would evaluate the model's performance and logs the results. Optionally, this PythonScriptStep could automatically deploy the model as a web service if it exceeded the performance of the previously deployed model. To accomplish this, the evaluation script would refer to a third Python script, the scoring script, that defines the web service logic. This scoring script would be packaged along with any dependencies and the trained model as a Docker image and registered in the Azure Container Registry that is deployed with the Azure Machine Learning workspace.
 
@@ -477,7 +477,7 @@ The primary audience is the business decision makers and technology decision mak
 
    - Create a new or get a reference to an existing Azure Machine Learning workspace
 
-   - Create a new or get a reference to an existing Azure Machine Learning compute cluster, and trigger a scale up if needed.
+   - Create a new or get a reference to an existing Azure Machine Learning compute cluster and trigger a scale up if needed.
 
    - Submit the machine learning pipeline for execution.
 
