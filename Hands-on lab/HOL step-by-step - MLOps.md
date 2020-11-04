@@ -130,7 +130,7 @@ In this exercise, you create a model for classifying component text as compliant
 
     ![In Azure Machine Learning Studio, Notebooks is selected from the left navigation pane.](media/notebook-00.png 'Open notebooks in Azure Machine Learning Studio')
 
-5. Select the folder under the **User files** section. It should be named as the currently logged user name. Select the option to **Create new folder** in the top menu.
+5. Select the folder under the **User files** section. It should be named as the currently logged username. Select the option to **Create new folder** in the top menu.
 
     ![On the Notebooks screen, the current user is selected beneath the User Files section, and the Create New Folder icon is highlighted in the top toolbar.](media/notebook-01.png 'Create new notebooks folder')
 
@@ -196,7 +196,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 5. Follow the instructions within the notebook to complete the lab.
 
-6. Navigate back to the [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook. Open your **Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
+6. Navigate back to the [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook. Open your **Models** section and observe the **version 1** of the registered model: `compliance-classifier`.
 
     ![In Azure Machine Learning Studio, from the left menu, Models is selected. In the Model List, the compliance-classifier with the version of 1 is highlighted.](media/model-registry-01.png 'Registered Model: compliance-classifier')
 
@@ -220,7 +220,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
     ![The Register a Model form is displayed populated with the preceding values.](media/model-registry-03.png 'Register a model Dialog')
 
-3. Navigate to your **Models** section, and observe the **version 2** of the registered model: **compliance-classifier**.
+3. Navigate to your **Models** section and observe the **version 2** of the registered model: **compliance-classifier**.
 
     ![The Model list is displayed showing two rows containing both versions of the compliance-classifier model. Version 2 of the compliance-classifier model is highlighted in the list.](media/model-registry-04.png 'Registered Model: compliance-classifier version 2')
 
@@ -300,17 +300,17 @@ Duration: 20 minutes
 
     >**Note**: If you are unable to select your **Machine Learning Workspace**, do the following steps:
 
-    a. Quit the `New Azure service connection` dialog.
+    g. Quit the `New Azure service connection` dialog.
     
-    b. Refresh or reload the web browser.
+    h. Refresh or reload the web browser.
     
-    c. Repeat steps 1-3 above.
+    i. Repeat steps 1-3 above.
     
-    d. In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**.
+    j. In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**.
     
-    e. Please remember to name your service connection as `quick-starts-sc`.
+    k. Please remember to name your service connection as `quick-starts-sc`.
     
-    f. Grant access permission to all pipelines.
+    l. Grant access permission to all pipelines.
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
@@ -374,7 +374,7 @@ Duration: 45 minutes
 
 ### Task 4: Review Build Outputs
 
-1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook earlier. Open your **Models** section, and observe the versions of the registered model: **compliance-classifier**. The latest version is the one registered by the build pipeline you ran in the previous task.
+1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook earlier. Open your **Models** section and observe the versions of the registered model: **compliance-classifier**. The latest version is the one registered by the build pipeline you ran in the previous task.
 
     ![In Azure Machine Learning Studio, models is selected in the left menu. A list of multiple versions of the compliance-classifier model is displayed in the Model list table with the largest version of the model highlighted in the table.](media/devops-build-outputs-01.png 'Registered Models in Azure Machine Learning studio')
 
@@ -496,7 +496,7 @@ Duration: 20 minutes
 
 ### Task 7: Enable Pre-deployment Approvals
 
-1. Navigate to **Pipeline** tab, and select **Pre-deployment conditions** for the **Production Deployment** stage.
+1. Navigate to **Pipeline** tab and select **Pre-deployment conditions** for the **Production Deployment** stage.
 
 2. Select **Pre-deployment approvals, enabled** and provide the name of approvers.
 
@@ -546,7 +546,7 @@ Duration: 20 minutes
 
 Duration: 15 minutes
 
-Documenting the right information in the machine learning process is key to making responsible decisions at each stage. Datasheets are a way to document machine learning assets that are used and created as part of the machine learning lifecycle. [Annotation and Benchmarking on Understanding and Transparency of Machine Learning Lifecycles (ABOUT ML), an initiative from the Partnership in AI (PAI)](https://www.partnershiponai.org/about-ml), provides a set of guidelines for machine learning system developers to develop, test, and implement machine learning system documentation. Developers can use Azure Machine Learning SDK to implement datasheets for models as part of the model registration processes in Azure Machine Learning workspace. During model registration, the tags parameter in the register method of the Model class can be leverage to document the necessary datasheet information recommended in the established guidelines.
+Documenting the right information in the machine learning process is key to making responsible decisions at each stage. Datasheets are a way to document machine learning assets that are used and created as part of the machine learning lifecycle. [Annotation and Benchmarking on Understanding and Transparency of Machine Learning Lifecycles (ABOUT ML), an initiative from the Partnership in AI (PAI)](https://www.partnershiponai.org/about-ml), provides a set of guidelines for machine learning system developers to develop, test, and implement machine learning system documentation. Developers can use Azure Machine Learning SDK to implement datasheets for models as part of the model registration processes in Azure Machine Learning workspace. During model registration, the tags parameter in the register method of the Model class can be leveraged to document the necessary datasheet information recommended in the established guidelines.
 
 In this exercise, you verify that the release of the application works. You will also review the deployed model datasheet.
 
@@ -630,7 +630,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 5. In the left pane, make sure the **Tables** tab is selected.
 
-6. Hover over **requests** and select the icon on the right side **Preview data, See in query editor**. Next, select **Run**.
+6. Hover over **requests** and select the icon on the right-side **Preview data, See in query editor**. Next, select **Run**.
 
     ![On the Application Insights Logs screen, a New Query tab is shown with the Tables tab selected. The icon next to the requests table is selected.](media/model-telemetry-03.png 'Create Requests Query')
 
