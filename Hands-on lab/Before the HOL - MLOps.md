@@ -103,6 +103,5 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 9. Navigate to the [Azure Machine Learning Studio](https://ml.azure.com) and select the workspace that you created or select **Launch now** under **Try the new Azure Machine Learning studio** in the **Overview** section of your Azure Machine Learning workspace.
 
    ![The Machine Learning resource page is shown with Overview selected from the left menu, and the Launch now button highlighted in the Overview screen.](media/bhol-03.png 'Launch the Azure Machine Learning studio')
-   
-You should follow all steps provided *before* performing the Hands-on lab.
 
+You should follow all steps provided *before* performing the Hands-on lab.

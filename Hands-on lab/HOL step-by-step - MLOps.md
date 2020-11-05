@@ -148,13 +148,13 @@ In this exercise, you create a model for classifying component text as compliant
 
 10. Provide the necessary data for creating a new compute instance to run on your notebooks.
 
-    a. Compute name: `mlops-compute-<insert unique identifier>`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the – character. The compute name must not end with '-' or contain '-' followed by numbers. '-' needs to be followed by at least one letter. Finally, the compute name must also be unique across the entire Azure region.
+    - Compute name: `mlops-compute-<insert unique identifier>`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the – character. The compute name must not end with '-' or contain '-' followed by numbers. '-' needs to be followed by at least one letter. Finally, the compute name must also be unique across the entire Azure region.
 
-    b. Virtual machine type: CPU (Central Processing Unit)
+    - Virtual machine type: CPU (Central Processing Unit)
 
-    c. Virtual machine size: **Standard_D3_v2**.
+    - Virtual machine size: **Standard_D3_v2**.
 
-    d. Then select **Create**. It can take approximately 5 minutes to set up your VM.
+    - Then select **Create**. It can take approximately 5 minutes to set up your VM.
 
     ![The New Compute Instance form is displayed populated with the preceding values.](media/notebook-04.png 'Configure the new compute instance')
 
@@ -208,15 +208,15 @@ In this exercise, you explore the approaches you can take to managing the model 
   
 2. Provide the following input to the **Register a model** dialog, and then select **Register**.
 
-    a. Name: `compliance-classifier`
+    - Name: `compliance-classifier`
 
-    b. Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
+    - Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
 
-    c. Model Framework: **ONNX**
+    - Model Framework: **ONNX**
 
-    d. Model Framework Version: `1.3.0`
+    - Model Framework Version: `1.3.0`
 
-    e. Model file: Select the `model.onnx` file from your local disk.
+    - Model file: Select the `model.onnx` file from your local disk.
 
     ![The Register a Model form is displayed populated with the preceding values.](media/model-registry-03.png 'Register a model Dialog')
 
@@ -244,9 +244,9 @@ Duration: 20 minutes
 
 1. Within the new project:
 
-   a. Select **Repos** from left navigation bar.
+   - Select **Repos** from left navigation bar.
 
-   b. Select **Import** from the content section.
+   - Select **Import** from the content section.
 
     ![In Azure DevOps, Repos is selected from the left menu. In the mlops-quickstart screen the Import button is selected in the Import a repository section.](media/devops-project-03.png 'Azure DevOps Repos')
 
@@ -282,35 +282,35 @@ Duration: 20 minutes
 
 4. Provide the following information in the **New Azure service connection** dialog box and then select **Save**:
 
-    a. **Scope level**: **Machine Learning Workspace**
+    - **Scope level**: **Machine Learning Workspace**
 
-    b. **Subscription**: Select the Azure subscription to use.
+    - **Subscription**: Select the Azure subscription to use.
 
-    > **Note**: You may be asked to log into Azure Portal to access the list of available subscriptions. It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
+      > **Note**: You may be asked to log into Azure Portal to access the list of available subscriptions. It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
 
-    c. **Resource group**: This value should match the value you provided in the **azure-pipelines.yml** file.
+    - **Resource group**: This value should match the value you provided in the **azure-pipelines.yml** file.
 
-    d. **Machine Learning Workspace**: This value should match the value you provided in the **azure-pipelines.yml** file.
+    - **Machine Learning Workspace**: This value should match the value you provided in the **azure-pipelines.yml** file.
 
-    e. **Service connection name**: `quick-starts-sc`
+    - **Service connection name**: `quick-starts-sc`
 
-    f. **Security**: Grant access permission to all pipelines is checked.
+    - **Security**: Grant access permission to all pipelines is checked.
 
     ![The New Azure service connection form is populated with the values outlined above. The Save button is selected.](media/devops-build-pipeline-06.png 'Add an Azure Resource Manager service connection dialog')
 
     >**Note**: If you are unable to select your **Machine Learning Workspace**, do the following steps:
 
-    g. Quit the `New Azure service connection` dialog.
+    - Quit the `New Azure service connection` dialog.
     
-    h. Refresh or reload the web browser.
+    - Refresh or reload the web browser.
     
-    i. Repeat steps 1-3 above.
+    - Repeat steps 1-3 above.
     
-    j. In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**.
+    - In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**.
     
-    k. Please remember to name your service connection as `quick-starts-sc`.
+    - Please remember to name your service connection as `quick-starts-sc`.
     
-    l. Grant access permission to all pipelines.
+    - Grant access permission to all pipelines.
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
@@ -334,13 +334,13 @@ Duration: 45 minutes
 
     The build pipeline has four key steps:
 
-    a. Attach folder to workspace and experiment. This command creates the **.azureml** subdirectory that contains a **config.json** file that is used to communicate with your Azure Machine Learning workspace. All subsequent steps rely on the **config.json** file to instantiate the workspace object.
+    - Attach folder to workspace and experiment. This command creates the **.azureml** subdirectory that contains a **config.json** file that is used to communicate with your Azure Machine Learning workspace. All subsequent steps rely on the **config.json** file to instantiate the workspace object.
 
-    b. Create the AML Compute target to run your master pipeline for model training and model evaluation.
+    - Create the AML Compute target to run your master pipeline for model training and model evaluation.
 
-    c. Run the master pipeline. The master pipeline has two steps: (1) Train the machine learning model, and (2) Evaluate the trained machine learning model. The evaluation step evaluates if the new model performance is better than the currently deployed model. If the new model performance is improved, the evaluate step will register the new model with Azure Machine Learning workspace. The results of the evaluation step will be saved in a file called **eval_info.json**. You can review the code for the master pipeline and its steps in **aml_service/pipelines_master.py**, **scripts/train.py**, and **scripts/evaluate.py**.
+    - Run the master pipeline. The master pipeline has two steps: (1) Train the machine learning model, and (2) Evaluate the trained machine learning model. The evaluation step evaluates if the new model performance is better than the currently deployed model. If the new model performance is improved, the evaluate step will register the new model with Azure Machine Learning workspace. The results of the evaluation step will be saved in a file called **eval_info.json**. You can review the code for the master pipeline and its steps in **aml_service/pipelines_master.py**, **scripts/train.py**, and **scripts/evaluate.py**.
 
-    d. Publish the build artifacts. The **snapshot of the repository**, **config.json**, and **eval_info.json** files are published as build artifacts.
+    - Publish the build artifacts. The **snapshot of the repository**, **config.json**, and **eval_info.json** files are published as build artifacts.
 
     ![On the Review tab of your pipeline screen, the contents of azure-pipelines.yml is displayed.](media/devops-build-pipeline-10.png 'Build pipeline YAML')
 
@@ -457,14 +457,14 @@ Duration: 20 minutes
 
 2. Provide the following information:
 
-    1. **Display name:** `Test Deployment`
-    1. **Azure ML Workspace:** `quick-starts-sc`
-    1. **Model Source:** `Model Artifact`
-    1. **Inference config Path:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/inferenceConfig.yml`
-    1. **Model Deployment Target:** `Azure Container Instance`
-    1. **Deployment Name:** `test-service`
-    1. **Deployment configuration file:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/aciDeploymentConfig.yml`
-    1. **Overwrite existing deployment:** `checked`
+    - **Display name:** `Test Deployment`
+    - **Azure ML Workspace:** `quick-starts-sc`
+    - **Model Source:** `Model Artifact`
+    - **Inference config Path:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/inferenceConfig.yml`
+    - **Model Deployment Target:** `Azure Container Instance`
+    - **Deployment Name:** `test-service`
+    - **Deployment configuration file:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/aciDeploymentConfig.yml`
+    - **Overwrite existing deployment:** `checked`
 
     ![The AzureML Model Deploy Task form is displayed populated with the preceding values.](media/devops-release-pipeline-12b.png 'AzureML Model Deploy Task Dialog')
 
@@ -486,11 +486,11 @@ Duration: 20 minutes
 
 3. Select **AzureML Model Deploy task** and change the following information:
 
-    1. **Display name:** `Production Deployment`
-    1. **Model Deployment Target:** `Azure Kubernetes Service`
-    1. **Select AKS Cluster for Deployment:** `aks-cluster01`
-    1. **Deployment Name:** `compliance-classifier-service`
-    1. **Deployment configuration file:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/aksDeploymentConfig.yml`
+    - **Display name:** `Production Deployment`
+    - **Model Deployment Target:** `Azure Kubernetes Service`
+    - **Select AKS Cluster for Deployment:** `aks-cluster01`
+    - **Deployment Name:** `compliance-classifier-service`
+    - **Deployment configuration file:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/aml_service/image_files/aksDeploymentConfig.yml`
 
     ![The AzureML Model Deploy Task form is displayed populated with the preceding values.](media/devops-release-pipeline-13e.png 'AzureML Model Deploy Task Dialog')
 
