@@ -9,7 +9,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-June 2020
+October 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -43,7 +43,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives
 
-In this workshop, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations, and manage the classification thru their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline.
+In this workshop, you will learn how Wide World Importers (WWI) can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations and manage the classification thru their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline.
 
 At the end of this workshop, you will be better able to design and implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
@@ -65,13 +65,13 @@ Directions:  With all participants in the session, the facilitator/SME presents 
 
 ### Customer situation
 
-Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
+WWI delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. WWI has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
 
 As their first effort of this combined initiative, they would like to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept, they would like to focus on component compliance. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components, which all of their manufacturing customers deal with. The component descriptions, which are free form text, are entered and managed via a web application. This web application take new component descriptions entered by authorized technicians and labels the component as compliant or non-compliant based on the text. For the PoC, they have exported all of their labeled component descriptions as flat files (CSV format).
 
-According to Francine Fischer, CIO of Trey Research, they want to ensure the overall process they create enables them to update both the underlying model and the web app in one using a standardized approach. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues. They believe they can accomplish most, if not all, of this using Azure Machine Learning but are wanting to be certain.
+According to Francine Fischer, CIO of Wide World Importers, they want to ensure the overall process they create enables them to update both the underlying model and the web app in one using a standardized approach. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues. They believe they can accomplish most, if not all, of this using Azure Machine Learning but are wanting to be certain.
 
-Finally, Trey would like to ensure that the process they establish is not littered with username and password credentials used to access the component used during build and release.
+Finally, WWI would like to ensure that the process they establish is not littered with username and password credentials used to access the component used during build and release.
 
 ### Customer needs
 
@@ -121,13 +121,13 @@ Directions: With all participants at your table, respond to the following questi
 
 1. What is the general pipeline for approaching the training of text analytic models such as this? What are the general steps you need to take to prepare the text data for performing tasks like classification?
 
-2. Provided that Trey wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure?
+2. Provided that WWI wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure?
 
 3. Within the above deployed item, what component would they use to orchestrate the various **machine learning** phases (specifically data access, model training and model evaluation)? Be specific about which programming language and framework or SDK they would use.
 
 4. Where would they author any scripts?
 
-5. Where should Trey upload the component compliance data?
+5. Where should WWI upload the component compliance data?
 
 6. Describe at a high level the objects involved in the scripted pipeline you would create for training the compliance classification model using Azure Machine Learning.
 
@@ -135,7 +135,7 @@ Directions: With all participants at your table, respond to the following questi
 
 *Enabling DevOps for AI with MLOps*
 
-1. Building on the approach you suggested to Trey for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training.
+1. Building on the approach you suggested to WWI for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training.
 
 2. In your Azure Pipelines design, give an example of what would trigger the execution of the pipeline?
 
@@ -143,17 +143,17 @@ Directions: With all participants at your table, respond to the following questi
 
 4. What are the core steps in this first pipeline? What does the pipeline output?
 
-5. After the first pipeline, what kind of Azure Pipeline would Trey define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
+5. After the first pipeline, what kind of Azure Pipeline would WWI define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
 
-6. How would Trey modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
+6. How would WWI modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
 
-7. How could Trey configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
+7. How could WWI configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
 
 *Monitoring in Production*
 
-1. How would you recommend Trey collect diagnostics of the scoring web service in production?
+1. How would you recommend WWI collect diagnostics of the scoring web service in production?
 
-2. How can Trey collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
+2. How can WWI collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
 
 **Prepare**
 

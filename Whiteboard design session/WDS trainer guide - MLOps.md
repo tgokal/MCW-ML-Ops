@@ -9,7 +9,7 @@ Whiteboard design session trainer guide
 </div>
 
 <div class="MCWHeader3">
-June 2020
+October 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -169,7 +169,7 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 ## Abstract and learning objectives
 
-In this whiteboard design session, you will work in a group to design a process Trey Research can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will design a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application, and referencing a web service. You will learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues. You will investigate the potential to standardize the model format to ONNX to simplify inference runtime code (by enabling pluggability of different models and targeting a broad range of runtime environments) and most importantly to improve inferencing speed over the native model.
+In this whiteboard design session, you will work in a group to design a process Wide World Importers (WWI) can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how WWI can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will design a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application, and referencing a web service. You will learn how to monitor the model's performance after it is deployed so WWI can be proactive with performance issues. You will investigate the potential to standardize the model format to ONNX to simplify inference runtime code (by enabling pluggability of different models and targeting a broad range of runtime environments) and most importantly to improve inferencing speed over the native model.
 
 At the end of this whiteboard design session, you will be better able to design end-to-end solutions that will fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
@@ -191,13 +191,13 @@ Directions:  With all participants in the session, the facilitator/SME presents 
 
 ### Customer situation
 
-Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
+WWI delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. WWI has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
 
 As their first effort of this combined initiative, they would like to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept, they would like to focus on component compliance. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components, which all of their manufacturing customers deal with. The component descriptions, which are free form text, are entered and managed via a web application. This web application will take new component descriptions entered by authorized technicians and labels the component as compliant or non-compliant based on the text. For the PoC, they have exported all of their labeled component descriptions as flat files (CSV format).
 
-According to Francine Fischer, CIO of Trey Research, they want to ensure the overall process they create enables them to update both the underlying model and the web app in one using a standardized approach. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues. They believe they can accomplish most, if not all, of this using Azure Machine Learning but are wanting to be certain.
+According to Francine Fischer, CIO of Wide World Importers, they want to ensure the overall process they create enables them to update both the underlying model and the web app in one using a standardized approach. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues. They believe they can accomplish most, if not all, of this using Azure Machine Learning but are wanting to be certain.
 
-Finally, Trey would like to ensure that the process they establish is not littered with username and password credentials used to access the component used during build and release.
+Finally, WWI would like to ensure that the process they establish is not littered with username and password credentials used to access the component used during build and release.
 
 ### Customer needs
 
@@ -247,13 +247,13 @@ Directions: With all participants at your table, respond to the following questi
 
 1. What is the general pipeline for approaching the training of text analytic models such as this? What are the general steps you need to take to prepare the text data for performing tasks like classification?
 
-2. Provided that Trey wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure?
+2. Provided that WWI wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure?
 
 3. Within the above deployed item, what component would they use to orchestrate the various **machine learning** phases (specifically data access, model training and model evaluation)? Be specific about which programming language and framework or SDK they would use.
 
 4. Where would they author any scripts?
 
-5. Where should Trey upload the component compliance data?
+5. Where should WWI upload the component compliance data?
 
 6. Describe at a high level the objects involved in the scripted pipeline you would create for training the compliance classification model using Azure Machine Learning.
 
@@ -261,7 +261,7 @@ Directions: With all participants at your table, respond to the following questi
 
 *Enabling DevOps for AI with MLOps*
 
-1. Building on the approach you suggested to Trey for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training.
+1. Building on the approach you suggested to WWI for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training.
 
 2. In your Azure Pipelines design, give an example of what would trigger the execution of the pipeline?
 
@@ -269,17 +269,17 @@ Directions: With all participants at your table, respond to the following questi
 
 4. What are the core steps in this first pipeline? What does the pipeline output?
 
-5. After the first pipeline, what kind of Azure Pipeline would Trey define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
+5. After the first pipeline, what kind of Azure Pipeline would WWI define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
 
-6. How would Trey modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
+6. How would WWI modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
 
-7. How could Trey configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
+7. How could WWI configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
 
 *Monitoring in Production*
 
-1. How would you recommend Trey collect diagnostics of the scoring web service in production?
+1. How would you recommend WWI collect diagnostics of the scoring web service in production?
 
-2. How can Trey collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
+2. How can WWI collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
 
 **Prepare**
 
@@ -379,7 +379,7 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 ## Preferred target audience
 
-Francine Fischer, CIO of Trey Research
+Francine Fischer, CIO of Wide World Importers
 
 The primary audience is the business decision makers and technology decision makers. From the case study scenario, this would include the Director of Analytics. Usually we talk to the infrastructure managers, who report to the chief information officers (CIOs), or to application sponsors (like a vice president [VP] line of business [LOB], or chief marketing officer [CMO]), or to those that represent the business unit IT or developers that report to application sponsors.
 
@@ -401,33 +401,33 @@ The primary audience is the business decision makers and technology decision mak
 
     The core task in natural language processing (NLP) text pipelines is data preparation to express the textual data as numeric vectors by using word embeddings. The general pipeline begins by pre-processing or normalizing the text. This step typically includes tasks such as breaking the text into sentence and word tokens, standardizing the spelling of words, and removing overly common words (called stop words). The output of this phase is typically a multi-dimensional array consisting of an array of documents, each having an array of sentences, with each sentence having its own array of words. The next step is feature extraction, which creates a numeric representation of the textual documents. During feature extraction, a "vocabulary" of unique words is identified, and each word becomes a column in the output. Each row represents a document. The value in each cell is typically a measure of the relative importance of that word in the document, where if a word from the vocabulary does not appear, then that cell has a zero value in that column. This approach enables machine learning algorithms, which operate against arrays of numbers, to also operate against text. Deep learning algorithms operate on tensors, which are also vectors (or arrays of numbers), so this approach is also valid for preparing text for use with a deep learning algorithm.
 
-2. Provided that Trey wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure?
+2. Provided that WWI wants to build the PoC using Azure Machine Learning, what is the first item they would want to deploy in Azure?
 
     They would begin by deploying an Azure Machine Learning workspace.
 
 3. Within the above deployed item, what component would they use to orchestrate the various **machine learning** phases (specifically data access, model training and model evaluation)? Be specific about which programming language and framework or SDK they would use.
 
-    Trey should consider building a machine learning pipeline. They can author these pipelines in Python using the Azure Machine Learning SDK.
+    WWI should consider building a machine learning pipeline. They can author these pipelines in Python using the Azure Machine Learning SDK.
 
 4. Where would they author any scripts?
 
     For the machine learning phases listed, they could author the machine learning pipeline in a notebook environment that can leverage the scalable compute provided by Azure and Azure Machine Learning Compute.
 
-5. Where should Trey upload the component compliance data?
+5. Where should WWI upload the component compliance data?
 
-    Each Azure Machine Learning Workspace has a default datastore (and you can register additional datastores). By default, both Azure Files and Azure Blob storage are attached to the workspace and you can use either one. For the PoC, Trey could use the blob storage associated with the Workspace in Azure Blob Storage as the location to upload the component description CSV files. For production down the road, they might consider setting up a dedicated Azure Blob storage account that stand-alone from the workspace and could be a central data lake for all their documents, supporting analytics outside of the workspace.  
+    Each Azure Machine Learning Workspace has a default datastore (and you can register additional datastores). By default, both Azure Files and Azure Blob storage are attached to the workspace and you can use either one. For the PoC, WWI could use the blob storage associated with the Workspace in Azure Blob Storage as the location to upload the component description CSV files. For production down the road, they might consider setting up a dedicated Azure Blob storage account that stand-alone from the workspace and could be a central data lake for all their documents, supporting analytics outside of the workspace.  
 
 6. Describe at a high level the objects involved in the scripted pipeline you would create for training the compliance classification model using Azure Machine Learning.
 
     **Data Store**
 
-    Trey would create a Data Reference to the datastore that contains the component text files. They would also script creating or retrieving an existing Azure Machine Learning Compute (which would provide the computing cluster that would execute the training script).
+    WWI would create a Data Reference to the datastore that contains the component text files. They would also script creating or retrieving an existing Azure Machine Learning Compute (which would provide the computing cluster that would execute the training script).
 
     **Pipeline Definition Script**
 
     Next, in a script (the pipeline definition script) they would define pipeline steps in a pipeline object and then submit the pipeline object to run it. In the simplest case they could define a Pipeline with two PythonScriptSteps:
 
-    - The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk and then registers the model with the model registry associated with the Azure Machine Learning workspace.
+    - The first PythonScriptStep would reference a python script that performs the actual training of the model, saves the trained model to disk, and then registers the model with the model registry associated with the Azure Machine Learning workspace.
 
     - The second PythonScriptStep references a separate Python script that would evaluate the model's performance and logs the results. Optionally, this PythonScriptStep could automatically deploy the model as a web service if it exceeded the performance of the previously deployed model. To accomplish this, the evaluation script would refer to a third Python script, the scoring script, that defines the web service logic. This scoring script would be packaged along with any dependencies and the trained model as a Docker image and registered in the Azure Container Registry that is deployed with the Azure Machine Learning workspace.
 
@@ -457,9 +457,9 @@ The primary audience is the business decision makers and technology decision mak
 
 *Enabling DevOps for AI with MLOps*
 
-1. Building on the approach you suggested to Trey for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training.
+1. Building on the approach you suggested to WWI for machine learning pipelines, what would you propose they use to fold them into a bigger DevOps pipeline for continuous integration and delivery that would result in a new scoring web service being deployed whenever there was a change to the code supporting model training.
 
-    Trey should use Azure Pipelines, which is a service of Azure DevOps Services.
+    WWI should use Azure Pipelines, which is a service of Azure DevOps Services.
 
 2. In your Azure Pipelines design, give an example of what would trigger the execution of the pipeline?
 
@@ -477,7 +477,7 @@ The primary audience is the business decision makers and technology decision mak
 
    - Create a new or get a reference to an existing Azure Machine Learning workspace
 
-   - Create a new or get a reference to an existing Azure Machine Learning compute cluster, and trigger a scale up if needed.
+   - Create a new or get a reference to an existing Azure Machine Learning compute cluster and trigger a scale up if needed.
 
    - Submit the machine learning pipeline for execution.
 
@@ -487,32 +487,34 @@ The primary audience is the business decision makers and technology decision mak
 
      - A trained model registered in the model registry of the workspace.
 
-     - A Docker image registered in the Container Registry.
+     - A datasheet tagged with the registered model to document the machine learning assets that are used and created as part of the machine learning lifecycle.
 
-5. After the first pipeline, what kind of Azure Pipeline would Trey define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
+5. After the first pipeline, what kind of Azure Pipeline would WWI define to deploy the scoring web service? What are the core steps in this pipeline? What does the pipeline output?
 
-    Trey should define a Release pipeline. This pipeline would perform the following steps:
+    WWI should define a Release pipeline. This pipeline would perform the following steps:
 
+    - Create a continuous deployment trigger based on either an Azure ML Model artifact or a build artifact. Thus, the release pipeline can automatically trigger either when a new trained model is registered or when the first build pipeline successfully completes.
+    - Create an environment that defines Python packages, environment variables, and Docker settings that are needed to deploy the trained model.
     - Create the Linux host VM that would execute the web service deployment script.
   
     The outputs of this pipeline would be:
     - A web service running in either Azure Container Instance or Azure Kubernetes Service.
 
-6. How would Trey modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
+6. How would WWI modify the aforementioned deployment pipeline to enforce that a manual sign-off is performed before the web service could be deployed into the production environment?
 
     The release pipeline could begin with a pre-deployment approval configured at the entry point of a stage. An approval would need to be provided within the timeout specified or the deployment would be rejected. A notification, such as an email, can be sent to the approver defined for the approval step. Approvers can submit their approval using the Release summary page.
 
-7. How could Trey configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
+7. How could WWI configure their Azure Pipelines so as to avoid hardcoding credentials to access Azure resources?
 
     They could create a Service Connection that would allow the Azure Pipeline to access a targeted Azure Subscription or a specific resource group within that Subscription.
 
 *Monitoring in Production*
 
-1. How would you recommend Trey collect diagnostics of the scoring web service in production?
+1. How would you recommend WWI collect diagnostics of the scoring web service in production?
 
     They should enable Application Insights integration. They can do this either in code or by using the workspace via the Azure Portal. In code, they accomplish this by using Azure Machine Learning SDK to retrieve a reference to the deployed service and then run **web_service.update(enable_app_insights=True)**. In the Azure Portal, they would navigate to their workspace, select Deployments, select their web service, and then select Edit. Under the Advance Settings, they need only check **Enable AppInsights diagnostics**.
 
-2. How can Trey collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
+2. How can WWI collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
 
     They would need to make a modification to their scoring script to include a reference to the **ModelDataCollector**. Then they would create one instance of the ModelDataCollector to capture the input values and another to capture the output values within the **init** method of the scoring script. They would use the **collect** method of each collector object in the **run** method to capture the desired data.
 
@@ -522,7 +524,7 @@ The primary audience is the business decision makers and technology decision mak
 
 1. We are not clear about the benefits that using ONNX might bring to our current scenario and future scenario.
 
-    ONNX provides two potential benefits to Trey's scenario. First, ONNX provides a common model format that can be run within a wide range of environments, without needing the libraries that were used to create the model. For example, if a model is created with Keras, they would need neither Keras nor TensorFlow to use the model for scoring. They would only need the ONNX Runtime. This enables the ONNX model to be used in web services, in .NET applications, on IoT devices and on mobile devices without additional effort. Second, because ONNX effectively re-compiles a model when converting to the ONNX format, it may provide some optimizations that improve the scoring performance. In some tests, improvements of 2x on average in the time taken to inference were experienced.
+    ONNX provides two potential benefits to WWI's scenario. First, ONNX provides a common model format that can be run within a wide range of environments, without needing the libraries that were used to create the model. For example, if a model is created with Keras, they would need neither Keras nor TensorFlow to use the model for scoring. They would only need the ONNX Runtime. This enables the ONNX model to be used in web services, in .NET applications, on IoT devices and on mobile devices without additional effort. Second, because ONNX effectively re-compiles a model when converting to the ONNX format, it may provide some optimizations that improve the scoring performance. In some tests, improvements of 2x on average in the time taken to inference were experienced.
 
 2. It seems like data scientists deploy their models as web services from their own python scripts, whereas our developers are accustomed to using Azure DevOps to deploy their web services. Can we really have one tool that provides us build and deployment pipelines irrespective of whether we are deploying a model or web application code?
 
@@ -536,4 +538,4 @@ The primary audience is the business decision makers and technology decision mak
 
 "Not only is Azure enabling faster machine learning and deep learning, but it is giving us powerful tools to manage the entire integration and deployment process that we can use across development and data science uniformly."
 
-Francine Fischer, CIO of Trey Research
+Francine Fischer, CIO of Wide World Importers

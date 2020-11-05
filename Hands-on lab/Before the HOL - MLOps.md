@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-June 2020
+October 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -29,7 +29,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [MLOps before the hands-on lab setup guide](#mlops-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Create an Azure Machine Learning workspace](#task-1-create-an-azure-machine-learning-workspace)
+    - [Task 1: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps](#task-1-install-the-microsoft-devlabs-machine-learning-plugin-for-azure-devops)
+    - [Task 2: Create an Azure Machine Learning workspace](#task-2-create-an-azure-machine-learning-workspace)
 
 <!-- /TOC -->
 
@@ -55,7 +56,15 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Before the hands-on lab
 
-### Task 1: Create an Azure Machine Learning workspace
+### Task 1: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps
+
+1. Navigate to the VisualStudio Marketplace: https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml and select **Get it free**.
+
+2. Select **Azure DevOps organization** from the dropdown list and then select **Install**.
+
+    ![The Microsoft DevLabs Machine Learning plugin for Azure DevOps page is shown with the Azure DevOps organization selected and the Install button highlighted.](media/bhol-04.png 'Install Plug-In')
+
+### Task 2: Create an Azure Machine Learning workspace
 
 1. Sign in to [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
@@ -94,3 +103,5 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 9. Navigate to the [Azure Machine Learning Studio](https://ml.azure.com) and select the workspace that you created or select **Launch now** under **Try the new Azure Machine Learning studio** in the **Overview** section of your Azure Machine Learning workspace.
 
    ![The Machine Learning resource page is shown with Overview selected from the left menu, and the Launch now button highlighted in the Overview screen.](media/bhol-03.png 'Launch the Azure Machine Learning studio')
+
+You should follow all steps provided *before* performing the Hands-on lab.
