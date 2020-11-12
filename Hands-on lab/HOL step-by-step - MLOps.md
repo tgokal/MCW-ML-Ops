@@ -52,11 +52,12 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create an Empty Job for the Release Pipeline](#Task-1-Create-an-Empty-Job-for-the-Release-Pipeline)
     - [Task 2: Add Build Artifacts for the Release Pipeline](#Task-2-Add-Build-Artifacts-for-the-Release-Pipeline)
     - [Task 3: Setup Agent Pool for Test Deployment stage](#Task-3-Setup-Agent-Pool-for-Test-Deployment-stage)
-    - [Task 4: Add AzureML Model Deploy task to Test Deployment stage](#Task-4-Add-AzureML-Model-Deploy-task-to-Test-Deployment-stage)
-    - [Task 5: Clone the Test Deployment stage](#Task-5-Clone-the-Test-Deployment-stage)
-    - [Task 6: Configure the Production Deployment stage](#task-6-Configure-the-Production-Deployment-stage)
-    - [Task 7: Enable Pre-deployment Approvals](#Task-7-Enable-Pre-deployment-Approvals)
-    - [Task 8: Save the Release Pipeline](#Task-8-Save-the-Release-Pipeline)
+    - [Task 4: Add Install the AML CLI task to Test Deployment stage](#Task-4-Add-Install-the-AML-CLI-task-to-Test-Deployment-stage)
+    - [Task 5: Add AzureML Model Deploy task to Test Deployment stage](#Task-5-Add-AzureML-Model-Deploy-task-to-Test-Deployment-stage)
+    - [Task 6: Clone the Test Deployment stage](#Task-6-Clone-the-Test-Deployment-stage)
+    - [Task 7: Configure the Production Deployment stage](#task-7-Configure-the-Production-Deployment-stage)
+    - [Task 8: Enable Pre-deployment Approvals](#Task-8-Enable-Pre-deployment-Approvals)
+    - [Task 9: Save the Release Pipeline](#Task-9-Save-the-Release-Pipeline)
   - [Exercise 6: Create Release for the Production Release Pipeline](#Exercise-6-Create-Release-for-the-Production-Release-Pipeline)
     - [Task 1: Create new release](#task-1-Create-new-release)
     - [Task 2: Monitor the Test Deployment stage](#task-2-Monitor-the-Test-Deployment-stage)
@@ -449,7 +450,23 @@ Duration: 20 minutes
 
     ![On the New release pipeline screen, Tasks tab, the Agent job is selected. The Agent job details form is populated with the aforementioned values.](media/devops-release-pipeline-10b.png 'Agent Job Setup')
 
-### Task 4: Add AzureML Model Deploy task to Test Deployment stage
+### Task 4: Add Install the AML CLI task to Test Deployment stage
+
+1. Select **Add a task to Agent job** (the **+** button), search for `Azure CLI`, and select **Add**.
+
+    ![On the New release pipeline screen, the Tasks tab is selected. Agent job is displayed in the list of tasks. The + button is selected in the Agent job tile. The Add tasks pane is displayed with Azure CLI entered in the search box, and the Azure CLI search result is highlighted with its Add button selected.](media/devops-release-pipeline-77a.png 'Add Azure CLI Task')
+
+2. Provide the following information:
+
+    - **Task version:** `1.*`
+    - **Display name:** `Install the AML CLI`
+    - **Azure subscription:** `quick-starts-sc`
+    - **Script Location:** `Inline script`
+    - **Inline Script:** `az extension add -n azure-cli-ml`
+
+    ![The Azure CLI Task form is displayed populated with the preceding values.](media/devops-release-pipeline-77b.png 'Azure CLI Task Dialog')
+
+### Task 5: Add AzureML Model Deploy task to Test Deployment stage
 
 1. Select **Add a task to Agent job** (the **+** button), search for `AzureML Model Deploy`, and select **Add**.
 
@@ -468,13 +485,13 @@ Duration: 20 minutes
 
     ![The AzureML Model Deploy Task form is displayed populated with the preceding values.](media/devops-release-pipeline-12b.png 'AzureML Model Deploy Task Dialog')
 
-### Task 5: Clone the Test Deployment stage
+### Task 6: Clone the Test Deployment stage
 
 1. Select **Pipeline, Clone**.
 
     ![On the New release pipeline screen, the Pipeline tab is selected and then the Clone button is selected on the Test Deployment stage.](media/devops-release-pipeline-13b.png 'Clone Test Deployment Stage')
 
-### Task 6: Configure the Production Deployment stage
+### Task 7: Configure the Production Deployment stage
 
 1. Open **View stage tasks** link.
 
@@ -494,7 +511,7 @@ Duration: 20 minutes
 
     ![The AzureML Model Deploy Task form is displayed populated with the preceding values.](media/devops-release-pipeline-13e.png 'AzureML Model Deploy Task Dialog')
 
-### Task 7: Enable Pre-deployment Approvals
+### Task 8: Enable Pre-deployment Approvals
 
 1. Navigate to **Pipeline** tab and select **Pre-deployment conditions** for the **Production Deployment** stage.
 
@@ -504,7 +521,7 @@ Duration: 20 minutes
 
 3. Close the dialog.
 
-### Task 8: Save the Release Pipeline
+### Task 9: Save the Release Pipeline
 
 1. Provide name: `Production Release Pipeline`.
 
