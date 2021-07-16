@@ -244,11 +244,11 @@ Duration: 20 minutes
 
 ### Task 2: Setup Self Hosted Agent Pool
 
-Please follow the step-by-step instructions at [Self-hosted Linux agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops) to setup an **Linux (ubuntu 18.04)** agent pool. You can name the agent pool, for example as **MCW Agent Pool** in Azure DevOps. It is important the Linux agent VM has the following setup:
+Please follow the step-by-step instructions at [Self-hosted Linux agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops) to setup an **Linux (ubuntu 18.04)** agent pool. You can name the agent pool, for example as **MCW Agent Pool** in Azure DevOps. It is important the Linux agent VM has the following additional setup:
 
-    - The default python version is python3
-    - Python pip is installed
-    - Miniconda3 is installed
+ - The default python version is python3
+ - Python pip is installed
+ - Miniconda3 is installed
 
 ### Task 3: Import Quickstart code from a GitHub Repo
 
