@@ -40,9 +40,10 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 2: Register Model from Azure Machine Learning studio](#task-2-register-model-from-azure-machine-learning-studio)
   - [Exercise 3: Setup New Project in Azure DevOps](#exercise-3-setup-new-project-in-azure-devops)
     - [Task 1: Create New Project](#task-1-create-new-project)
-    - [Task 2: Import Quickstart code from a GitHub Repo](#task-2-import-quickstart-code-from-a-github-repo)
-    - [Task 3: Update the build YAML file](#task-3-update-the-build-yaml-file)
-    - [Task 4: Create new Service Connection](#task-4-create-new-service-connection)
+    - [Task 2: Setup Self Hosted Agent Pool](#task-2-setup-self-hosted-agent-pool)
+    - [Task 3: Import Quickstart code from a GitHub Repo](#task-3-import-quickstart-code-from-a-github-repo)
+    - [Task 4: Update the build YAML file](#task-4-update-the-build-yaml-file)
+    - [Task 5: Create new Service Connection](#task-5-create-new-service-connection)
   - [Exercise 4: Setup and Run the Build Pipeline](#exercise-4-setup-and-run-the-build-pipeline)
     - [Task 1: Setup Build Pipeline](#task-1-setup-build-pipeline)
     - [Task 2: Run the Build Pipeline](#task-2-run-the-build-pipeline)
@@ -161,7 +162,7 @@ In this exercise, you create a model for classifying component text as compliant
 
     > **Note**: Once the VM is available it will be displayed in the top toolbar.
 
-11. Having selected the uploaded **Deep Learning with Text.ipynb** notebook, select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
+11. Having selected the uploaded **Deep Learning with Text.ipynb** notebook, select the **Menu** drop down, and then select **Edit in Jupyter**. In the pop dialog, select **Continue** and then a new browser tab will be opened.
 
     ![On the Notebooks screen, the Deep Learning with Text Notebook is selected. On the Compute screen to the right, a drop down list shows the compute currently running for the notebook, and in the taskbar the Edit option is expanded with the options Edit in Jupyter and Edit in JupyterLab.](media/notebook-05.png 'Edit the notebook in Jupyter')
 
@@ -241,7 +242,15 @@ Duration: 20 minutes
 
     ![The Create new project dialog is shown populated with the value above. Visibility is set to Private, and the Create button is highlighted.](media/devops-project-02.png 'Create New Project Dialog')
 
-### Task 2: Import Quickstart code from a GitHub Repo
+### Task 2: Setup Self Hosted Agent Pool
+
+Please follow the step-by-step instructions at [Self-hosted Linux agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops) to setup an **Linux (ubuntu 18.04)** agent pool. You can name the agent pool, for example as **MCW Agent Pool** in Azure DevOps. It is important the Linux agent VM has the following setup:
+
+    - The default python version is python3
+    - Python pip is installed
+    - Miniconda3 is installed
+
+### Task 3: Import Quickstart code from a GitHub Repo
 
 1. Within the new project:
 
@@ -255,11 +264,11 @@ Duration: 20 minutes
 
     ![In the Import a Git repository dialog, the Clone URL is populated with the value indicated above and the Import button is selected.](media/devops-project-04.png 'Import a Git repository dialog')
 
-### Task 3: Update the build YAML file
+### Task 4: Update the build YAML file
 
 1. Select and open the **azure-pipelines.yml** file.
 
-2. Select **Edit** and update the following variables: **resourcegroup**, and **workspace**. If you are using your own Azure subscription, please provide names to use. If an environment is provided to you, be sure to replace XXXXX in the values below with your unique identifier.
+2. Select **Edit** and update the following variables: **pool**, **resourcegroup**, and **workspace**. For the `pool` name, please provide the name of the self-hosted agent pool you created for this lab.
 
     ![In the left menu, beneath Repos, the Files item is selected. In the files list, azure-pipelines.yml is selected. In the editor pane, the contents of the file are displayed with the resource group and workspace variables highlighted. The Edit button is selected in the top toolbar.](media/devops-build-pipeline-01.png 'Edit Build YAML file')
 
@@ -267,7 +276,7 @@ Duration: 20 minutes
 
     ![The content of azure-pipelines.yml is updated and the Commit button is selected in the top taskbar.](media/devops-build-pipeline-02.png 'Commit Build YAML file')
 
-### Task 4: Create new Service Connection
+### Task 5: Create new Service Connection
 
 1. From the left navigation, select **Project settings** and then select **Service connections**.
 
@@ -446,7 +455,7 @@ Duration: 20 minutes
 
     ![On the New release pipeline screen, within the Test Deployment tile, the View stage tasks link is selected.](media/devops-release-pipeline-06b.png 'View Stage Tasks')
 
-2. Select **Agent job** and set **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-18.04`.
+2. Select **Agent job** and set **Agent pool** to the name of the self-hosted agent pool you created for this lab.
 
     ![On the New release pipeline screen, Tasks tab, the Agent job is selected. The Agent job details form is populated with the aforementioned values.](media/devops-release-pipeline-10b.png 'Agent Job Setup')
 
