@@ -55,7 +55,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create new release](#task-1-Create-new-release)
     - [Task 2: Monitor the Test Deployment stage](#task-2-Monitor-the-Test-Deployment-stage)
   - [Exercise 5: Testing the deployed solution and review deployed model datasheet](#Exercise-5-Testing-the-deployed-solution-and-review-deployed-model-datasheet)
-    - [Task 1: Test the deployment and review model datasheet](#Task-1-Test-the-deployment-and-review-model-datasheet)
+    - [Task 1: Setup the notebooks environment](#Task-1-Setup-the-notebooks-environment)
+    - [Task 2: Test the deployment and review model datasheet](#Task-2-Test-the-deployment-and-review-model-datasheet)
   - [Exercise 6: Deploy the Production Deployment stage](#Exercise-6-Deploy-the-Production-Deployment-stage)
     - [Task 1: Approve the Production Deployment](#Task-1-Approve-the-Production-Deployment)
     - [Task 2: Monitor the Production Deployment stage](#Task-2-Monitor-the-Production-Deployment-stage)
@@ -64,8 +65,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 2: Check Application Insights telemetry](#task-2-check-application-insights-telemetry)
     - [Task 3: Check the data collected](#task-3-check-the-data-collected)
   - [Exercise 8 (Optional): Creating and evaluating compliance classification models](#exercise-8-optional-creating-and-evaluating-compliance-classification-models)
-    - [Task 1: Setup the notebooks environment](#task-1-setup-the-notebooks-environment)
-    - [Task 2: Create the classification model using a notebook](#task-2-create-the-classification-model-using-a-notebook)
+    - [Task 1: Create the classification model using a notebook](#task-1-create-the-classification-model-using-a-notebook)
   - [Exercise 9 (Optional): Registering the model](#exercise-9-optional-registering-the-model)
     - [Task 1: Register Model using Azure Machine Learning Python SDK](#task-1-register-model-using-azure-machine-learning-python-sdk)
     - [Task 2: Register Model from Azure Machine Learning studio](#task-2-register-model-from-azure-machine-learning-studio)
@@ -443,19 +443,63 @@ Documenting the right information in the machine learning process is key to maki
 
 In this exercise, you verify that the release of the application works. You will also review the deployed model datasheet.
 
-### Task 1: Test the deployment and review model datasheet
+> **Note:** The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecycle. You can use it either by logging in directly to it or by selecting the **Try the new Azure Machine Learning studio, Launch now** option in the **Overview** section of your Azure Machine Learning workspace.
 
-1. Download the [**Test Deployment.ipynb**](./notebooks/Test&#32;Deployment.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this exercise.
+### Task 1: Setup the notebooks environment
 
-2. In the Azure Machine Learning Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
+1. Download the [**Test Deployment.ipynb**](./notebooks/Test&#32;Deployment.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this lab.
 
-3. Browse your local computer for the downloaded notebook, **Test Deployment.ipynb** and then select **MCW-MLOps** folder as the target folder. Select **Upload**.
+2. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-4. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
+3. Select your subscription and the workspace you have available.
 
-5. Note that you will have to provide values for **Scoring URI** for the deployed ACI webservice in the notebook.
+4. Select **Notebooks, Go directly to my notebooks** on the left navigation pane.
 
-6. Follow the instructions within the notebook to complete the task.
+    ![In Azure Machine Learning Studio, Notebooks is selected from the left navigation pane.](media/notebook-00.png 'Open notebooks in Azure Machine Learning Studio')
+
+5. Select the folder under the **User files** section. It should be named as the currently logged username. Select the option to **Create new folder** in the top menu.
+
+    ![On the Notebooks screen, the current user is selected beneath the User Files section, and the Create New Folder icon is highlighted in the top toolbar.](media/notebook-01.png 'Create new notebooks folder')
+
+6. Fill in the folder name: `MCW-MLOps`.
+
+7. Select the **Upload files** option in the side menu.
+
+    ![On the Notebooks screen, beneath user files, the folder of the current user is expanded displaying the folder that was created in the previous step. The Upload files icon is highlighted in the top toolbar.](media/notebook-02.png 'Upload notebook to the workspace file share')
+
+8. Browse for the downloaded notebook, **Test Deployment.ipynb** and then select **Upload**.
+
+9. Select the notebook. Select **+ New Compute** to create the compute instance VM.
+
+    ![On the Notebooks screen, beneath user files, the folder of the current user is expanded along with the folder that was created in step 6. Inside this folder the Notebook that we uploaded in the previous step is displayed and is selected. On the Compute screen to the right, the + New Compute button is highlighted in the top taskbar.](media/notebook-03.png 'Create new compute instance')
+
+10. Provide the necessary data for creating a new compute instance to run on your notebooks.
+
+    - Compute name: `mlops-compute-<insert unique identifier>`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the – character. The compute name must not end with '-' or contain '-' followed by numbers. '-' needs to be followed by at least one letter. Finally, the compute name must also be unique across the entire Azure region.
+
+    - Virtual machine type: CPU (Central Processing Unit)
+
+    - Virtual machine size: **Standard_D3_v2**.
+
+    - Then select **Create**. It can take approximately 5 minutes to set up your VM.
+
+    ![The New Compute Instance form is displayed populated with the preceding values.](media/notebook-04.png 'Configure the new compute instance')
+
+    > **Note**: Once the VM is available it will be displayed in the top toolbar.
+
+### Task 2: Test the deployment and review model datasheet
+
+1. Select the uploaded **Test Deployment.ipynb** notebook, and then select the **Menu** drop down, and then select **Edit in Jupyter**. In the pop dialog, select **Continue** and then a new browser tab will be opened.
+
+    ![On the Notebooks screen, the Deep Learning with Text Notebook is selected. On the Compute screen to the right, a drop down list shows the compute currently running for the notebook, and in the taskbar the Edit option is expanded with the options Edit in Jupyter and Edit in JupyterLab.](media/notebook-05.png 'Edit the notebook in Jupyter')
+
+2. Select **Python 3.6 - Azure ML** if you are asked to select a Kernel.
+
+    ![A Kernel not found dialog is displayed with Python 3.6 - Azure ML selected from a drop down list. A Set Kernel button is available to confirm the kernel selection.](media/notebook-06.png 'Select Kernel version')
+
+3. Note that you will have to provide values for **Scoring URI** for the deployed ACI webservice in the notebook.
+
+4. Follow the instructions within the notebook to complete the task.
 
 ## Exercise 6: Deploy the Production Deployment stage
 
@@ -561,63 +605,19 @@ Duration: 40 minutes
 
 In this exercise, you create a model for classifying component text as compliant or non-compliant. This tutorial uses the cloud notebook server in your Azure Machine Learning workspace for an install-free and pre-configured experience, available in Azure Machine Learning studio.
 
-> **Note:** The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecycle. You can use it either by logging in directly to it or by selecting the **Try the new Azure Machine Learning studio, Launch now** option in the **Overview** section of your Azure Machine Learning workspace.
-
-### Task 1: Setup the notebooks environment
+### Task 1: Create the classification model using a notebook
 
 1. Download the [**Deep Learning with Text.ipynb**](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this lab.
 
-2. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+2. In the Azure Machine Learning Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
 
-3. Select your subscription and the workspace you have available.
+3. Browse your local computer for the downloaded notebook, **Deep Learning with Text.ipynb** and then select **MCW-MLOps** folder as the target folder. Select **Upload**.
 
-4. Select **Notebooks** on the left navigation pane.
+4. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
 
-    ![In Azure Machine Learning Studio, Notebooks is selected from the left navigation pane.](media/notebook-00.png 'Open notebooks in Azure Machine Learning Studio')
+5. Follow the instructions within the notebook to complete the lab.
 
-5. Select the folder under the **User files** section. It should be named as the currently logged username. Select the option to **Create new folder** in the top menu.
-
-    ![On the Notebooks screen, the current user is selected beneath the User Files section, and the Create New Folder icon is highlighted in the top toolbar.](media/notebook-01.png 'Create new notebooks folder')
-
-6. Fill in the folder name: `MCW-MLOps`.
-
-7. Select the **Upload files** option in the top menu.
-
-    ![On the Notebooks screen, beneath user files, the folder of the current user is expanded displaying the folder that was created in the previous step. The Upload files icon is highlighted in the top toolbar.](media/notebook-02.png 'Upload notebook to the workspace file share')
-
-8. Browse for the downloaded notebook, **Deep Learning with Text.ipynb** and then select **MCW-MLOps** folder as the target folder. Select **Upload**.
-
-9. Select the notebook. Select **+ New Compute** to create the compute instance VM.
-
-    ![On the Notebooks screen, beneath user files, the folder of the current user is expanded along with the folder that was created in step 6. Inside this folder the Notebook that we uploaded in the previous step is displayed and is selected. On the Compute screen to the right, the + New Compute button is highlighted in the top taskbar.](media/notebook-03.png 'Create new compute instance')
-
-10. Provide the necessary data for creating a new compute instance to run on your notebooks.
-
-    - Compute name: `mlops-compute-<insert unique identifier>`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the – character. The compute name must not end with '-' or contain '-' followed by numbers. '-' needs to be followed by at least one letter. Finally, the compute name must also be unique across the entire Azure region.
-
-    - Virtual machine type: CPU (Central Processing Unit)
-
-    - Virtual machine size: **Standard_D3_v2**.
-
-    - Then select **Create**. It can take approximately 5 minutes to set up your VM.
-
-    ![The New Compute Instance form is displayed populated with the preceding values.](media/notebook-04.png 'Configure the new compute instance')
-
-    > **Note**: Once the VM is available it will be displayed in the top toolbar.
-
-11. Having selected the uploaded **Deep Learning with Text.ipynb** notebook, select the **Menu** drop down, and then select **Edit in Jupyter**. In the pop dialog, select **Continue** and then a new browser tab will be opened.
-
-    ![On the Notebooks screen, the Deep Learning with Text Notebook is selected. On the Compute screen to the right, a drop down list shows the compute currently running for the notebook, and in the taskbar the Edit option is expanded with the options Edit in Jupyter and Edit in JupyterLab.](media/notebook-05.png 'Edit the notebook in Jupyter')
-
-12. Select **Python 3.6 - Azure ML** if you are asked to select a Kernel.
-
-    ![A Kernel not found dialog is displayed with Python 3.6 - Azure ML selected from a drop down list. A Set Kernel button is available to confirm the kernel selection.](media/notebook-06.png 'Select Kernel version')
-
-### Task 2: Create the classification model using a notebook
-
-1. Follow the instructions within the notebook to complete the lab.
-
-2. Back to the [Azure Machine Learning Studio](https://ml.azure.com), in **Notebooks**, under the **MCW-MLOps** folder, navigate to the **model** folder and download the **model.onnx** file to your local disk. We will use the downloaded model file in the next exercise.
+6. Back to the [Azure Machine Learning Studio](https://ml.azure.com), in **Notebooks**, under the **MCW-MLOps** folder, navigate to the **model** folder and download the **model.onnx** file to your local disk. We will use the downloaded model file in the next exercise.
 
    > **Note**: If the downloaded file name is changed to **utf-8 model.onnx** or **notebooks_model_model.onnx**, then rename the file back to `model.onnx`.
 
@@ -692,13 +692,5 @@ To avoid unexpected charges, it is recommended that you clean up all of your lab
 5. When the Notification indicates success, the cleanup is complete.
 
     ![The Notifications dialog box has a message stating that the resource group has been deleted.](media/cleanup-03.png 'Delete Resource Group Notification Dialog')
-
-6. Navigate to the Azure Portal and locate the virtual machine **mlops-agent** you created for this lab.
-
-7. Select **Delete** from the command bar.
-
-8. In the confirmation dialog that appears select **OK**.
-
-    ![The delete virtual machine confirmation dialog is shown with the OK button highlighted.](media/cleanup-04.png 'Delete Virtual Machine Confirmation Dialog')
 
 You should follow all steps provided _after_ attending the Hands-on lab.

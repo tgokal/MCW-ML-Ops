@@ -32,7 +32,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps](#task-1-install-the-microsoft-devlabs-machine-learning-plugin-for-azure-devops)
     - [Task 2: Create an Azure Machine Learning workspace](#task-2-create-an-azure-machine-learning-workspace)
     - [Task 3: Setup AKS Cluster for Production Deployment](#Task-3-setup-aks-cluster-for-production-deployment)
-    - [Task 4: Setup Azure DevOps Agent](#task-3-setup-azure-devops-agent)
+    - [Task 4: Setup Azure DevOps Agent](#task-4-setup-azure-devops-agent)
 
 <!-- /TOC -->
 
