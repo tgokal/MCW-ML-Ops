@@ -180,7 +180,7 @@ For this option, we will look at steps to setup and configure a self-hosted agen
     ![The Linux, x64 section of the Get the agent dialog is shown, and the Copy button is highlighted.](media/setup-agent-pool4.png 'Get the Agent')
 
 
-1. From within Azure Portal, navigate to ***Virtual machines** and then select **+ Create, + Virtual machine**.
+1. From within Azure Portal, navigate to **Virtual machines** and then select **+ Create, + Virtual machine**.
 
 1. In the `Create a virtual machine` dialog, provide the following values and then select **Review + create**:
 
@@ -217,10 +217,12 @@ For this option, we will look at steps to setup and configure a self-hosted agen
     - `curl -O [Download the agent URL copied above]`
         - For example, `curl -O https://vstsagentpackage.azureedge.net/agent/2.191.1/vsts-agent-linux-x64-2.191.1.tar.gz`
    - `mkdir myagent && cd myagent`
-   - `tar zxvf ../vsts-agent-linux-x64-2.191.1.tar.gz` (make sure that the tar.gz file name is the same as the one downloaded above)
+   - `tar zxvf ../vsts-agent-linux-x64-2.191.1.tar.gz`
+       - Ensure that the `tar.gz` file is the one downloaded above
    - `./config.sh`
        - Accept the Team Explorer Everywhere license agreement now? `Y`
-       - Enter server URL > [Provide your Azure DevOps organization URL] (For example, `https://dev.azure.com/organization-name`)
+       - Enter server URL > [Provide your Azure DevOps organization URL]
+           - For example, `https://dev.azure.com/organization-name`
        - Enter authentication type (press enter for PAT) > press enter
        - Enter personal access token > [Provide the PAT saved above]
        - Enter agent pool (press enter for default) > `MCW Agent Pool`
@@ -230,7 +232,7 @@ For this option, we will look at steps to setup and configure a self-hosted agen
    - `sudo ./svc.sh start`
       > **Note**: to stop the agent run: `sudo ./svc.sh stop`. If required, you can find more details on setting up and configuring Self-hosted Linux agents [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux?view=azure-devops).
 
-1. From within Azure DevOps, navigate to **Organization Settings, Agent Pools, MCW Agent Pool** and select the **Agents** tab. Confirm that the `mlops-agent` is `online`.
+1. From within Azure DevOps, navigate to **Organization Settings, Agent Pools, MCW Agent Pool** and then select the **Agents** tab. Confirm that the `mlops-agent` is `online`.
 
   ![The Agents tab of MCW Agent Pool showing the status of the mlops-agent as online.](media/check-agent-status.png 'MCW Agent Pool Status')
 
