@@ -106,6 +106,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
    ![The Machine Learning resource page is shown with Overview selected from the left menu, and the Launch now button highlighted in the Overview screen.](media/bhol-03.png 'Launch the Azure Machine Learning studio')
 
+   > **Note**: If you use an existing workspace, please ensure that the default datastore for the workspace is the workspace blob store and not the file store. If you create a new workspace, as instructed above, the default datastore is already set to the workspace blob store.
+
 ### Task 3: Setup AKS Cluster for Production Deployment
 
 1. From within the Azure Machine Learning Studio, navigate to **Compute, Inference Clusters** and select **+ New**.
