@@ -31,7 +31,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Before the hands-on lab](#before-the-hands-on-lab)
     - [Task 1: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps](#task-1-install-the-microsoft-devlabs-machine-learning-plugin-for-azure-devops)
     - [Task 2: Create an Azure Machine Learning workspace](#task-2-create-an-azure-machine-learning-workspace)
-    - [Task 3: Setup AKS Cluster for Production Deployment](#Task-3-setup-aks-cluster-for-production-deployment)
+    - [Task 3: Setup AKS Cluster for Production Deployment](#task-3-setup-aks-cluster-for-production-deployment)
     - [Task 4: Setup Azure DevOps Agent](#task-4-setup-azure-devops-agent)
 
 <!-- /TOC -->
@@ -92,7 +92,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
    - **Workspace edition**: **Basic**. The workspace type (Basic & Enterprise) determines the features to which you’ll have access and pricing. Exercises in this tutorial works on either Basic or Enterprise editions.
 
-   ![The Machine Learning Create form is displayed populated with the aforementioned values. The Review + Create button is highlighted.](media/bhol-02.png 'Create Azure Machine Learning Workspace page')
+   ![The Machine Learning Create form is displayed populated with the aforementioned values. The Review + Create button is highlighted.](media/bhol-02a.png 'Create Azure Machine Learning Workspace page')
 
 7. After you are finished configuring the workspace, select **Review + Create**. Select **Create** after you review the fields you just entered.
 
@@ -104,7 +104,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 9. Navigate to the [Azure Machine Learning Studio](https://ml.azure.com) and select the workspace that you created or select **Launch now** under **Try the new Azure Machine Learning studio** in the **Overview** section of your Azure Machine Learning workspace.
 
-   ![The Machine Learning resource page is shown with Overview selected from the left menu, and the Launch now button highlighted in the Overview screen.](media/bhol-03.png 'Launch the Azure Machine Learning studio')
+   ![The Machine Learning resource page is shown with Overview selected from the left menu, and the Launch now button highlighted in the Overview screen.](media/bhol-03a.png 'Launch the Azure Machine Learning studio')
 
    > **Note**: If you use an existing workspace, please ensure that the default datastore for the workspace is the workspace blob store and not the file store. If you create a new workspace, as instructed above, the default datastore is already set to the workspace blob store.
 
