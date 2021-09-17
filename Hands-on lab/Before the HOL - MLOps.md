@@ -90,8 +90,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
    - **Location**: Select the location closest to your users and the data resources to create your workspace.
 
-   - **Workspace edition**: **Basic**. The workspace type (Basic & Enterprise) determines the features to which you’ll have access and pricing. Exercises in this tutorial works on either Basic or Enterprise editions.
-
    ![The Machine Learning Create form is displayed populated with the aforementioned values. The Review + Create button is highlighted.](media/bhol-02a.png 'Create Azure Machine Learning Workspace page')
 
 7. After you are finished configuring the workspace, select **Review + Create**. Select **Create** after you review the fields you just entered.
