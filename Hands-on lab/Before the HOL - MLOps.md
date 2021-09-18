@@ -82,13 +82,15 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 6. Provide the following information to configure your new workspace:
 
-   - **Workspace name**: Enter a unique name that identifies your workspace. In this example, we use **quick-start-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.
-
    - **Subscription**: Select the Azure subscription that you want to use.
 
    - **Resource group**: Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **MCW-MLOps**.
 
+   - **Workspace name**: Enter a unique name that identifies your workspace. In this example, we use **quick-start-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.
+
    - **Location**: Select the location closest to your users and the data resources to create your workspace.
+
+   - **Container registry**: Use an existing container registry in your subscription or enter a name to create a new container registry. For example, you can use **quickstartwsregistry**.
 
    ![The Machine Learning Create form is displayed populated with the aforementioned values. The Review + Create button is highlighted.](media/bhol-02a.png 'Create Azure Machine Learning Workspace page')
 
