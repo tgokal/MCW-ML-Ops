@@ -224,9 +224,9 @@ Duration: 45 minutes
 
     - Attach folder to workspace and experiment. This command creates the **.azureml** subdirectory that contains a **config.json** file that is used to communicate with your Azure Machine Learning workspace. All subsequent steps rely on the **config.json** file to instantiate the workspace object.
 
-    - Create the AML Compute target to run your master pipeline for model training and model evaluation.
+    - Create the AML Compute target to run your main pipeline for model training and model evaluation.
 
-    - Run the master pipeline. The master pipeline has two steps: (1) Train the machine learning model, and (2) Evaluate the trained machine learning model. The evaluation step evaluates if the new model performance is better than the currently deployed model. If the new model performance is improved, the evaluate step will register the new model with Azure Machine Learning workspace. You can review the code for the master pipeline and its steps in **aml_service/pipelines_master.py**, **aml_service/scripts/train.py**, and **aml_service/scripts/evaluate.py**.
+    - Run the main pipeline. The main pipeline has two steps: (1) Train the machine learning model, and (2) Evaluate the trained machine learning model. The evaluation step evaluates if the new model performance is better than the currently deployed model. If the new model performance is improved, the evaluate step will register the new model with Azure Machine Learning workspace. You can review the code for the main pipeline and its steps in **aml_service**, **aml_service/scripts/train.py**, and **aml_service/scripts/evaluate.py**.
 
     - Publish the build artifacts. The **snapshot of the repository** is published as build artifacts.
 
