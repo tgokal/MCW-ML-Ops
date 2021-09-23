@@ -307,7 +307,7 @@ Duration: 20 minutes
 
     - **Project:** `mlops-quickstart`
     - **Source (repository):** `mlops-quickstart`
-    - **Default branch:** `master`
+    - **Default branch:** `Select the branch for your repo`
     - **Default version:** `Latest from the default branch`
     - **Source alias:** `_mlops-quickstart`
 
