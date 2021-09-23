@@ -9,7 +9,7 @@ Whiteboard design session trainer guide
 </div>
 
 <div class="MCWHeader3">
-October 2020
+September 2021
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -18,7 +18,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2020 Microsoft Corporation. All rights reserved.
+© 2021 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -381,7 +381,7 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 Francine Fischer, CIO of Wide World Importers
 
-The primary audience is the business decision makers and technology decision makers. From the case study scenario, this would include the Director of Analytics. Usually we talk to the infrastructure managers, who report to the chief information officers (CIOs), or to application sponsors (like a vice president [VP] line of business [LOB], or chief marketing officer [CMO]), or to those that represent the business unit IT or developers that report to application sponsors.
+The primary audience is the business decision makers and technology decision makers. From the case study scenario, this would include the Director of Analytics. Usually, we talk to the infrastructure managers, who report to the chief information officers (CIOs), or to application sponsors (like a vice president [VP] line of business [LOB], or chief marketing officer [CMO]), or to those that represent the business unit IT or developers that report to application sponsors.
 
 ## Preferred solution
 
@@ -415,7 +415,7 @@ The primary audience is the business decision makers and technology decision mak
 
 5. Where should WWI upload the component compliance data?
 
-    Each Azure Machine Learning Workspace has a default datastore (and you can register additional datastores). By default, both Azure Files and Azure Blob storage are attached to the workspace and you can use either one. For the PoC, WWI could use the blob storage associated with the Workspace in Azure Blob Storage as the location to upload the component description CSV files. For production down the road, they might consider setting up a dedicated Azure Blob storage account that stand-alone from the workspace and could be a central data lake for all their documents, supporting analytics outside of the workspace.  
+    Each Azure Machine Learning Workspace has a default datastore (and you can register additional datastores). By default, both Azure Files and Azure Blob storage are attached to the workspace, and you can use either one. For the PoC, WWI could use the blob storage associated with the Workspace in Azure Blob Storage as the location to upload the component description CSV files. For production down the road, they might consider setting up a dedicated Azure Blob storage account that stand-alone from the workspace and could be a central data lake for all their documents, supporting analytics outside of the workspace.  
 
 6. Describe at a high level the objects involved in the scripted pipeline you would create for training the compliance classification model using Azure Machine Learning.
 
