@@ -29,10 +29,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [MLOps before the hands-on lab setup guide](#mlops-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps](#task-1-install-the-microsoft-devlabs-machine-learning-plugin-for-azure-devops)
-    - [Task 2: Create an Azure Machine Learning workspace](#task-2-create-an-azure-machine-learning-workspace)
-    - [Task 3: Setup AKS Cluster for Production Deployment](#task-3-setup-aks-cluster-for-production-deployment)
-    - [Task 4: Setup Azure DevOps Agent](#task-4-setup-azure-devops-agent)
+    - [Task 1: Create New Project in Azure DevOps](#task-1-create-new-project-in-azure-devops)
+    - [Task 2: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps](#task-2-install-the-microsoft-devlabs-machine-learning-plugin-for-azure-devops)
+    - [Task 3: Create an Azure Machine Learning workspace](#task-3-create-an-azure-machine-learning-workspace)
+    - [Task 4: Setup AKS Cluster for Production Deployment](#task-4-setup-aks-cluster-for-production-deployment)
+    - [Task 5: Setup Azure DevOps Agent](#task-5-setup-azure-devops-agent)
 
 <!-- /TOC -->
 
@@ -58,7 +59,19 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Before the hands-on lab
 
-### Task 1: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps
+### Task 1: Create New Project in Azure DevOps
+
+1. Sign in to [Azure DevOps](http://dev.azure.com).
+
+2. Select **+ New project**.
+
+    ![In the Azure DevOps screen, the + New project button is selected.](media/devops-project-01.png 'Create new project')
+
+3. Provide Project Name: `mlops-quickstart` and select **Create**.
+
+    ![The Create new project dialog is shown populated with the value above. Visibility is set to Private, and the Create button is highlighted.](media/devops-project-02.png 'Create New Project Dialog')
+
+### Task 2: Install the Microsoft DevLabs Machine Learning plugin for Azure DevOps
 
 1. Navigate to the VisualStudio Marketplace: https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml and select **Get it free**.
 
@@ -66,7 +79,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
     ![The Microsoft DevLabs Machine Learning plugin for Azure DevOps page is shown with the Azure DevOps organization selected and the Install button highlighted.](media/bhol-04.png 'Install Plug-In')
 
-### Task 2: Create an Azure Machine Learning workspace
+### Task 3: Create an Azure Machine Learning workspace
 
 1. Sign in to [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
@@ -108,7 +121,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
    > **Note**: If you use an existing workspace, please ensure that the default datastore for the workspace is the workspace blob store and not the file store. If you create a new workspace, as instructed above, the default datastore is already set to the workspace blob store.
 
-### Task 3: Setup AKS Cluster for Production Deployment
+### Task 4: Setup AKS Cluster for Production Deployment
 
 1. From within the Azure Machine Learning Studio, navigate to **Compute, Inference Clusters** and select **+ New**.
 
@@ -127,7 +140,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
  ![The Configure Settings dialog is shown populated with the values above, and the Create button highlighted.](media/setup-aks-03.png 'Configure Settings')
 
-### Task 4: Setup Azure DevOps Agent
+### Task 5: Setup Azure DevOps Agent
 
 In order to complete the lab, you need an DevOps agent to run your build and release pipeline jobs. You have two options for the types of agents you can use to run your pipeline jobs:
 
