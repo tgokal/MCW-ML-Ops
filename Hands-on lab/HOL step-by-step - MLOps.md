@@ -329,7 +329,7 @@ Duration: 20 minutes
 
     - **Task version:** `2.*`
     - **Display name:** `Install the AML CLI`
-    - **Azure Resource manger connection:** `quick-starts-sc`
+    - **Azure Resource manager connection:** `quick-starts-sc`
     - **Script Type:** `Shell`
     - **Script Location:** `Inline script`
     - **Inline Script:** `az extension add -n azure-cli-ml`
