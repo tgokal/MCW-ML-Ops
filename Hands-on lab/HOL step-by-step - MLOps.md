@@ -33,7 +33,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
   - [Exercise 1: Setup New Project in Azure DevOps](#exercise-1-setup-new-project-in-azure-devops)
-    - [Task 1: Create New Project](#task-1-create-new-project)
+    - [Task 1: Sign in to Azure DevOps Project](#task-1-sign-in-to-azure-devops-project)
     - [Task 2: Import Quickstart code from a GitHub Repo](#task-2-import-quickstart-code-from-a-github-repo)
     - [Task 3: Update the build YAML file](#task-3-update-the-build-yaml-file)
     - [Task 4: Create new Service Connection](#task-4-create-new-service-connection)
@@ -114,21 +114,15 @@ Refer to the [Before the hands-on lab setup guide](./Before&#32;the&#32;HOL&#32;
 
 Duration: 20 minutes
 
-### Task 1: Create New Project
+### Task 1: Sign in to Azure DevOps Project
 
 1. Sign in to [Azure DevOps](http://dev.azure.com).
 
-2. Select **+ New project**.
-
-    ![In the Azure DevOps screen, the + New project button is selected.](media/devops-project-01.png 'Create new project')
-
-3. Provide Project Name: `mlops-quickstart` and select **Create**.
-
-    ![The Create new project dialog is shown populated with the value above. Visibility is set to Private, and the Create button is highlighted.](media/devops-project-02.png 'Create New Project Dialog')
+2. Select the project **mlops-quickstart**.
 
 ### Task 2: Import Quickstart code from a GitHub Repo
 
-1. Within the new project:
+1. In the project `mlops-quickstart`:
 
    - Select **Repos** from left navigation bar.
 
@@ -335,10 +329,12 @@ Duration: 20 minutes
 
     - **Task version:** `2.*`
     - **Display name:** `Install the AML CLI`
-    - **Azure subscription:** `quick-starts-sc`
+    - **Azure Resource manger connection:** `quick-starts-sc`
     - **Script Type:** `Shell`
     - **Script Location:** `Inline script`
     - **Inline Script:** `az extension add -n azure-cli-ml`
+
+    >**Note**: If you are using Microsoft-hosted agents, select `1.*` as the **Task version**.
 
     ![The Azure CLI Task form is displayed populated with the preceding values.](media/devops-release-pipeline-77b.png 'Azure CLI Task Dialog')
 
@@ -561,13 +557,13 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 3. Go to **Overview**.
 
-4. From the top row of the right section, select **Logs**. This will open the Application Insights query editor with an empty new query. Dismiss the **Example queries** popup if displayed.
+4. From the top row of the right section, select **Logs**. This will open the Application Insights query editor with an empty new query. Dismiss popups if displayed.
 
     ![On the Application Insights resource screen, the Overview item is selected in the left menu, and the Logs item is selected from the top toolbar.](media/model-telemetry-02.png 'Application Insights - Dashboard')
 
 5. In the left pane, make sure the **Tables** tab is selected.
 
-6. Hover over **requests** and select the icon on the right-side **Preview data, See in query editor**. Next, select **Run**.
+6. Provide the following query `requests where timestamp > ago(24h) limit 10` and then select **Run**.
 
     ![On the Application Insights Logs screen, a New Query tab is shown with the Tables tab selected. The icon next to the requests table is selected.](media/model-telemetry-03.png 'Create Requests Query')
 
@@ -587,7 +583,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
     ![The Storage account resource is selected in the resource group.](media/model-telemetry-05.png 'Resource Group Overview')
 
-3. Go to **Storage Explorer (preview)**.
+3. Go to **Storage browser (preview)**.
 
 4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container. Select **More->Refresh** if you do not see **modeldata** container.
 
@@ -595,7 +591,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
 
-    **modeldata -> subscriptionid -> resourcegroup -> workspace -> webservice -> model -> version -> identifier -> year -> month -> day -> inputs.csv**
+    **modeldata -> subscriptionid -> resourcegroup -> workspace -> webservice -> model -> version -> ... -> inputs -> year -> month -> day -> inputs.csv**
 
     ![In the Storage Explorer, the modeldata container is selected beneath BLOB containers. The inputs.csv file is selected in the list of files at the path specified above.](media/model-telemetry-07.png 'Storage Explorer - inputs.csv')
 
