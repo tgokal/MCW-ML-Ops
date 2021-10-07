@@ -334,6 +334,8 @@ Duration: 20 minutes
     - **Script Location:** `Inline script`
     - **Inline Script:** `az extension add -n azure-cli-ml`
 
+    >**Note**: If the **Azure Resource manager connection**: `quick-starts-sc` does not show up automatically. We need to first authorize the AML workspace.
+
     >**Note**: If you are using Microsoft-hosted agents, select `1.*` as the **Task version**.
 
     ![The Azure CLI Task form is displayed populated with the preceding values.](media/devops-release-pipeline-77b.png 'Azure CLI Task Dialog')
@@ -563,7 +565,7 @@ In this exercise, you learn how to monitor the performance of a deployed model.
 
 5. In the left pane, make sure the **Tables** tab is selected.
 
-6. Provide the following query `requests where timestamp > ago(24h) limit 10` and then select **Run**.
+6. Provide the following query `requests | where timestamp > ago(24h) | limit 10` and then select **Run**.
 
     ![On the Application Insights Logs screen, a New Query tab is shown with the Tables tab selected. The icon next to the requests table is selected.](media/model-telemetry-03.png 'Create Requests Query')
 

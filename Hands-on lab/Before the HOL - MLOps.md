@@ -203,8 +203,8 @@ For this option, we will look at steps to setup and configure a self-hosted agen
     - **Resource group**: Use an existing resource group in your subscription or enter a name to create a new resource group.
     - **Virtual machine name**: **mlops-agent**
     - **Region**: Select the region closest to your users and the data resources.
-    - **Image**: **Ubuntu Server 18.04 LTS - Gen 1**
-    - **Size**: **Standard_D2**
+    - **Image**: **Ubuntu Server 18.04 LTS - Gen2**
+    - **Size**: **Standard_D2s_v3 - 2 vcpus, 8 GiB memory**
     - **Authentication type**: **password**
     - **Username**: **mlopsuser**
     - **Password**: Provide a password and save it for later use.
@@ -229,10 +229,10 @@ For this option, we will look at steps to setup and configure a self-hosted agen
 
    - `curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash`
    - `az extension add --name azure-cli-ml`
-    - `curl -O [Download the agent URL copied above]`
-        - For example, `curl -O https://vstsagentpackage.azureedge.net/agent/2.191.1/vsts-agent-linux-x64-2.191.1.tar.gz`
+   - `curl -O [Download the agent URL copied above]`
+     - For example, `curl -O https://vstsagentpackage.azureedge.net/agent/2.193.0/vsts-agent-linux-x64-2.193.0.tar.gz`
    - `mkdir myagent && cd myagent`
-   - `tar zxvf ../vsts-agent-linux-x64-2.191.1.tar.gz`
+   - `tar zxvf ../vsts-agent-linux-x64-2.193.0.tar.gz`
        - Ensure that the `tar.gz` file is the one downloaded above
    - `./config.sh`
        - Accept the Team Explorer Everywhere license agreement now? `Y`
